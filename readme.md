@@ -1,9 +1,6 @@
 ##Packages for Front-end & Dashboard
-
 - npx create-react-app my-app --template cra-template-pwa
-- react
 - react-router-dom
-- react-dom
 - redux
 - react-redux
 - redux-thunk
@@ -20,7 +17,6 @@
 - recharts
 
 ##Packages for Back-end
-
 - bcrypt
 - colors
 - cookie-parser
@@ -34,8 +30,6 @@
 - mongoose
 - multer
 - sslcommerz-lts
-
-
 
 git push --set-upstream origin branchName
 git merge tayab-pabel -m "test"
