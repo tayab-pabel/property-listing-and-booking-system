@@ -1,3 +1,10 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "DM Sans", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;
