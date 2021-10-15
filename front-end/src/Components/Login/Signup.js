@@ -9,45 +9,65 @@ const Register = () => {
 
   return (
     <div>
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <div className="mb-6">
-              <Link to="/">
-                <img
+      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="mb-6">
+            <Link to="/">
+              <img
                 className="mx-auto h-12 w-auto"
                 src={logo}
                 alt=""
-                />
-              </Link>
-            </div>
+              />
+            </Link>
+          </div>
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Create an account</h2>
             <div className="mb-6">
               <p className="mt-6 text-center text-base font-medium text-blue-dark">
                   Already have an account?{' '}
                   <Link to="/login" className="text-blue-light">
-                    Login
+                    Log In
                   </Link>
                 </p>
             </div>
             <form className="space-y-6" action="#" method="POST">
               
               <div>
-                <label htmlFor="name" className="sr-only">
-                  Name
+                <label htmlFor="firstName" className="sr-only">
+                  First Name
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <UserIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
                   </div>
                   <input
-                    id="name"
-                    name="name"
+                    id="firstName"
+                    name="firstName"
                     type="text"
-                    autoComplete="name"
+                    autoComplete="firstName "
                     required
                     className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
-                    placeholder="Name"
+                    placeholder="First Name"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="firstName" className="sr-only">
+                  Last Name
+                </label>
+                <div className="mt-1 relative rounded-md shadow-sm">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <UserIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
+                  </div>
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    autoComplete="lastName "
+                    required
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    placeholder="Last Name"
                   />
                 </div>
               </div>
@@ -104,7 +124,7 @@ const Register = () => {
                     id="password"
                     name="password"
                     type={show ? "text" : "password"}
-                    autoComplete="current-password"
+                    autoComplete="password"
                     required
                     className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
                     placeholder="Password"
@@ -120,7 +140,7 @@ const Register = () => {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
                 >
-                  Register
+                  Sign Up
                 </button>
               </div>
             </form>
@@ -131,7 +151,7 @@ const Register = () => {
                   <div className="w-full border-t border-blue-dark" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="px-2 bg-white text-blue-dark">Or continue with</span>
+                  <span className="px-2 bg-white font-semibold text-blue-dark">Or continue with</span>
                 </div>
               </div>
 

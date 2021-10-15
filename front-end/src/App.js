@@ -5,7 +5,7 @@ import {
 import Home from './Components/Home/Home';
 import ForgotPassword from './Components/Login/ForgotPassword';
 import Login from './Components/Login/Login';
-import Register from './Components/Login/Register';
+import Signup from './Components/Login/Signup';
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
         <Route path="/login">
           <Login/>
         </Route>
-        <Route path="/register">
-          <Register/>
+        <Route path="/signup">
+          <Signup/>
         </Route>
         <Route path="/forgot-password">
           <ForgotPassword/>

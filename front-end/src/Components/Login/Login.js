@@ -10,24 +10,25 @@ const Login = () => {
 
   return (
     <div>
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <div className="mb-6">
-              <Link to="/">
-                <img
+      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="mb-6">
+            <Link to="/">
+              <img
                 className="mx-auto h-12 w-auto"
                 src={logo}
                 alt=""
-                />
-              </Link>
-            </div>
+              />
+            </Link>
+          </div>
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            
             <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Log in to your account</h2>
             <div className="mb-6">
               <p className="mt-6 text-center text-base font-medium text-blue-dark">
                   Don’t have an account?{' '}
-                  <Link to="/register" className="text-blue-light">
-                    Register
+                  <Link to="/signup" className="text-blue-light">
+                    Sign Up
                   </Link>
                 </p>
             </div>
@@ -65,7 +66,7 @@ const Login = () => {
                     id="password"
                     name="password"
                     type={show ? "text" : "password"}
-                    autoComplete="current-password"
+                    autoComplete="password"
                     required
                     className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
                     placeholder="Password"
@@ -75,36 +76,21 @@ const Login = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 border-2 text-blue-light focus:ring-blue-light border-blue-dark rounded"
-                  />
-                  <label htmlFor="remember-me" className="ml-2 block text-blue-dark">
-                    Remember me
-                  </label>
-                </div>
-
-                <div className="">
-                  <Link to="/forgot-password" className="font-medium text-blue-light">
-                    Forgot your password?
-                  </Link>
-                </div>
-              </div>
-
               <div>
                 <button
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
                 >
-                  Login
+                  Log In
                 </button>
               </div>
             </form>
+
+            <div className="mt-6 text-center">
+              <Link to="/forgot-password" className="font-medium text-blue-light">
+                Forgot your password?
+              </Link>
+            </div>
 
             <div className="mt-6">
               <div className="relative">
@@ -112,7 +98,7 @@ const Login = () => {
                   <div className="w-full border-t border-blue-dark" />
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="px-2 bg-white text-blue-dark">Or continue with</span>
+                  <span className="px-2 bg-white font-semibold text-blue-dark">Or continue with</span>
                 </div>
               </div>
 
@@ -136,7 +122,6 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

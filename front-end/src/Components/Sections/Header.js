@@ -5,12 +5,12 @@ import {
   KeyIcon,
   UserIcon,
   CalculatorIcon,
-  MenuIcon,
   XIcon,
+  MenuAlt1Icon,
 } from '@heroicons/react/outline'
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../../images/logo.svg'
+import logo from '../../images/logo.svg'
 
 const solutions = [
   {
@@ -38,7 +38,7 @@ const solutions = [
 export default function Example() {
   return (
     <Popover className="container mx-auto relative bg-white">
-      <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+      <div className="flex justify-between items-center px-4 py-3 sm:px-6 md:justify-start md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <Link to="/">
             <img
@@ -49,9 +49,9 @@ export default function Example() {
           </Link>
         </div>
         <div className="-mr-2 -my-2 md:hidden">
-          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
+          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
             <span className="sr-only">Open menu</span>
-            <MenuIcon className="h-6 w-6" aria-hidden="true" />
+            <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
         </div>
         <Popover.Group as="nav" className="hidden md:flex space-x-10">
@@ -69,11 +69,17 @@ export default function Example() {
           </a>
         </Popover.Group>
         <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <Link
-            to="/login"
-            className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
+          <Link 
+            to="/signup" 
+            className="inline-flex items-center px-4 py-2 border border-blue-light shadow-sm font-medium rounded-md text-blue-dark bg-white focus:outline-none"
           >
-            Register or Login
+            Sign Up
+          </Link>
+          <Link 
+            to="/login"
+            className="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
+          >
+            Log In
           </Link>
         </div>
       </div>
@@ -99,7 +105,7 @@ export default function Example() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
+                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -123,18 +129,18 @@ export default function Example() {
               </div>
             </div>
             <div className="py-6 px-5">
-              <div className="mt-5">
-                <a
-                  href="#"
+              <div className="mt-4">
+                <Link
+                  to="/signup"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
                 >
-                  Sign up
-                </a>
+                  Sign Up
+                </Link>
                 <p className="mt-6 text-center text-base font-medium text-blue-dark">
-                  Existing customer?{' '}
-                  <a href="#" className="text-blue-light">
-                    Sign in
-                  </a>
+                Already have an account?{' '}
+                  <Link to="/login" className="text-blue-light">
+                    Log In
+                  </Link>
                 </p>
               </div>
             </div>
