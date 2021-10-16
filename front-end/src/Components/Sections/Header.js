@@ -37,8 +37,8 @@ const solutions = [
 
 export default function Example() {
   return (
-    <Popover className="container mx-auto relative bg-white">
-      <div className="flex justify-between items-center px-4 py-3 sm:px-6 md:justify-start md:space-x-10">
+    <Popover className="relative bg-white">
+      <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:justify-start lg:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <Link to="/">
             <img
@@ -48,13 +48,13 @@ export default function Example() {
             />
           </Link>
         </div>
-        <div className="-mr-2 -my-2 md:hidden">
-          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
+        <div className="-mr-2 -my-2 lg:hidden">
+          <Popover.Button className="bg-white rounded-lg p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
             <span className="sr-only">Open menu</span>
             <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <Popover.Group as="nav" className="hidden md:flex space-x-10">
+        <Popover.Group as="nav" className="hidden lg:flex space-x-10">
           <a href="#" className="text-base font-medium text-blue-dark">
             For Sale
           </a>
@@ -68,16 +68,16 @@ export default function Example() {
             Mortgage
           </a>
         </Popover.Group>
-        <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <Link 
-            to="/signup" 
-            className="inline-flex items-center px-4 py-2 border border-blue-light shadow-sm font-medium rounded-md text-blue-dark bg-white focus:outline-none"
+        <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
+          <Link
+            to="/signup"
+            className="inline-flex items-center px-4 py-2 border border-blue-light shadow-sm font-medium rounded-lg text-blue-dark bg-white focus:outline-none"
           >
             Sign Up
           </Link>
-          <Link 
+          <Link
             to="/login"
-            className="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
+            className="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light"
           >
             Log In
           </Link>
@@ -93,7 +93,7 @@ export default function Example() {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50">
+        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden z-50">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
@@ -105,7 +105,7 @@ export default function Example() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
+                  <Popover.Button className="bg-white rounded-lg p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -119,7 +119,7 @@ export default function Example() {
                       href={solution.href}
                       className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-md bg-blue-light text-white">
+                      <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-lg bg-blue-light text-white">
                         <solution.icon className="h-6 w-6" aria-hidden="true" />
                       </div>
                       <div className="ml-4 text-base font-medium text-blue-dark">{solution.name}</div>
@@ -132,12 +132,12 @@ export default function Example() {
               <div className="mt-4">
                 <Link
                   to="/signup"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light"
                 >
                   Sign Up
                 </Link>
                 <p className="mt-6 text-center text-base font-medium text-blue-dark">
-                Already have an account?{' '}
+                  Already have an account?{' '}
                   <Link to="/login" className="text-blue-light">
                     Log In
                   </Link>
