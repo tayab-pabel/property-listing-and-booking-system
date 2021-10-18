@@ -1,6 +1,5 @@
-import { LocationMarkerIcon, SortAscendingIcon, UsersIcon } from '@heroicons/react/solid';
+import { LocationMarkerIcon, SearchIcon } from '@heroicons/react/outline';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const tabs = [
@@ -14,7 +13,7 @@ const Hero = () => {
     <div className="">
       <div className="relative">
         <div className="max-w-full mx-auto sm:px-6 lg:px-6">
-          <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
+          <div className="relative rounded-lg sm:overflow-hidden">
             <div className="absolute inset-0">
               <img
                 className="h-full w-full bg-center object-cover"
@@ -23,14 +22,14 @@ const Hero = () => {
               />
               <div className="absolute inset-0 mix-blend-multiply" />
             </div>
-            <div className="relative px-4 sm:px-6  lg:px-8 py-28 sm:py-38 lg:py-48">
+            <div className="relative px-4 sm:px-6  lg:px-8 py-28 sm:py-34 lg:py-52">
               <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-white">Discover a place</span>
                 <span className="block text-white">you'll love to live</span>
               </h1>
               <div className="mt-10">
-                <div className="max-w-sm mx-auto">
-                  <nav className="relative z-0 border-2 border-white rounded-lg shadow flex backdrop-filter backdrop-blur" aria-label="Tabs">
+                <div className="max-w-xs mx-auto">
+                  <nav className="relative z-0 border-2 border-white rounded-lg flex backdrop-filter backdrop-blur" aria-label="Tabs">
                     {tabs.map((tab) => (
                       <a
                         key={tab.name}
@@ -45,36 +44,28 @@ const Hero = () => {
                       </a>
                     ))}
                   </nav>
-
-                  <div className="mt-1 flex rounded-md shadow-sm">
+                </div>
+                <div className="max-w-md mx-auto">
+                <div className="mt-2 flex rounded-lg">
                     <div className="relative flex items-stretch flex-grow focus-within:z-10">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <LocationMarkerIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
                       </div>
                       <input
-                        type="text"
+                        type="search"
                         name="email"
                         id="email"
-                        className="focus:ring-blue-light block w-full rounded-none border-0 rounded-l-md pl-10 placeholder-blue-dark"
+                        className="placeholder-blue-dark text-blue-dark focus:ring-0 block w-full border-0 rounded-l-lg pl-10"
                         placeholder="Search"
                       />
                     </div>
-                    {/* <button
-                      type="button"
-                      className="space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-                    >
-                      <SortAscendingIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                      <span>Sort</span>
-                    </button> */}
                     <button
                       type="button"
-                      className="space-x-2 px-2 ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light"
+                      className="space-x-2 whitespace-nowrap inline-flex items-center justify-center p-4 border border-transparent rounded-r-lg font-medium text-white bg-blue-light"
                     >
-                      
-                      <span>Search</span>
+                      <SearchIcon className="h-5 w-5 text-white" aria-hidden="true"></SearchIcon>
                     </button>
                   </div>
-
                 </div>
               </div>
             </div>
