@@ -2,40 +2,41 @@
 import { Popover, Transition } from '@headlessui/react'
 import {
   HomeIcon,
-  KeyIcon,
-  UserIcon,
-  CalculatorIcon,
-  XIcon,
-  MenuAlt1Icon,
+  KeyIcon, MenuAlt1Icon,
+  OfficeBuildingIcon, UserIcon,
+  XIcon
 } from '@heroicons/react/outline'
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 
-const solutions = [
-  {
-    name: 'For Sale',
-    href: '#',
-    icon: HomeIcon,
-  },
-  {
-    name: 'To Rent',
-    href: '#',
-    icon: KeyIcon,
-  },
-  {
-    name: 'Find Agent',
-    href: '#',
-    icon: UserIcon,
-  },
-  {
-    name: 'Mortgage',
-    href: '#',
-    icon: CalculatorIcon,
-  },
-]
 
-export default function Example() {
+
+const Header = () => {
+
+  const solutions = [
+    {
+      name: 'For Sale',
+      href: '#',
+      icon: OfficeBuildingIcon,
+    },
+    {
+      name: 'To Rent',
+      href: '#',
+      icon: KeyIcon,
+    },
+    {
+      name: 'New Homes',
+      href: '#',
+      icon: HomeIcon
+    },
+    {
+      name: 'Find Agent',
+      href: '#',
+      icon: UserIcon,
+    },
+  ]
+
   return (
     <Popover className="relative bg-white">
       <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:justify-start lg:space-x-10">
@@ -62,10 +63,10 @@ export default function Example() {
             To Rent
           </a>
           <a href="#" className="text-base font-medium text-blue-dark">
-            Find Agent
+            New Homes
           </a>
           <a href="#" className="text-base font-medium text-blue-dark">
-            Mortgage
+            Find Agent
           </a>
         </Popover.Group>
         <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
@@ -136,7 +137,7 @@ export default function Example() {
                 >
                   Sign Up
                 </Link>
-                <p className="mt-6 text-center text-base font-medium text-blue-dark">
+                <p className="mt-6 text-center text-base text-blue-dark">
                   Already have an account?{' '}
                   <Link to="/login" className="text-blue-light">
                     Log In
@@ -148,5 +149,7 @@ export default function Example() {
         </Popover.Panel>
       </Transition>
     </Popover>
-  )
-}
+  );
+};
+
+export default Header;

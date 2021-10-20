@@ -25,7 +25,7 @@ const Login = () => {
             
             <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Log in to your account</h2>
             <div className="mb-6">
-              <p className="mt-6 text-center text-base font-medium text-blue-dark">
+              <p className="mt-6 text-center text-base  text-blue-dark">
                   Don’t have an account?{' '}
                   <Link to="/signup" className="text-blue-light">
                     Sign Up
@@ -48,12 +48,11 @@ const Login = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Email"
                   />
                 </div>
               </div>
-
               <div>
                 <label htmlFor="password" className="sr-only">
                   Password
@@ -68,7 +67,7 @@ const Login = () => {
                     type={show ? "text" : "password"}
                     autoComplete="password"
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Password"
                   />
                   <div onClick={() => setShow(!show)} className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
@@ -77,17 +76,18 @@ const Login = () => {
                 </div>
               </div>
               <div>
-                <button
+                <Link 
+                  to="/account/edit-profile"
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
                 >
                   Log In
-                </button>
+                </Link>
               </div>
             </form>
 
             <div className="mt-6 text-center">
-              <Link to="/forgot-password" className="font-medium text-blue-light">
+              <Link to="/forgot-password" className="text-blue-light">
                 Forgot your password?
               </Link>
             </div>

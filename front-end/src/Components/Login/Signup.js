@@ -23,7 +23,7 @@ const Register = () => {
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Create an account</h2>
             <div className="mb-6">
-              <p className="mt-6 text-center text-base font-medium text-blue-dark">
+              <p className="mt-6 text-center text-base text-blue-dark">
                   Already have an account?{' '}
                   <Link to="/login" className="text-blue-light">
                     Log In
@@ -46,7 +46,7 @@ const Register = () => {
                     type="text"
                     autoComplete="firstName "
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="First Name"
                   />
                 </div>
@@ -66,7 +66,7 @@ const Register = () => {
                     type="text"
                     autoComplete="lastName "
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Last Name"
                   />
                 </div>
@@ -86,7 +86,7 @@ const Register = () => {
                     type="text"
                     autoComplete="postcode"
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Postcode"
                   />
                 </div>
@@ -106,7 +106,7 @@ const Register = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Email"
                   />
                 </div>
@@ -126,7 +126,7 @@ const Register = () => {
                     type={show ? "text" : "password"}
                     autoComplete="password"
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Password"
                   />
                   <div onClick={() => setShow(!show)} className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">

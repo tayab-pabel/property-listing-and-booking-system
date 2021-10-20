@@ -20,7 +20,7 @@ const ForgotPassword = () => {
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Forgot your password?</h2>
             <div className="mb-6">
-              <p className="mt-6 text-center text-base font-medium text-blue-dark">
+              <p className="mt-6 text-center text-base text-blue-dark">
                   Enter your email and we’ll send you a code you can use to update your password
               </p>
             </div>
@@ -40,7 +40,7 @@ const ForgotPassword = () => {
                     type="email"
                     autoComplete="email"
                     required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md placeholder-blue-dark"
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Email"
                   />
                 </div>
@@ -56,7 +56,7 @@ const ForgotPassword = () => {
               </div>
 
               <div>
-                <p className="text-center text-base font-medium text-blue-dark">
+                <p className="text-center text-base text-blue-dark">
                     <Link to="/login" className="text-blue-light">
                       Go back to log in
                     </Link>

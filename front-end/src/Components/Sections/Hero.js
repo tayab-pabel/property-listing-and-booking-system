@@ -25,8 +25,8 @@ const Hero = () => {
               />
               <div className="absolute bg-blue-dark bg-opacity-100 inset-0 mix-blend-multiply" />
             </div>
-            <div className="relative px-4 sm:px-6  lg:px-8 py-28 sm:py-34 lg:py-52">
-              <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+            <div className="relative px-4 sm:px-6  lg:px-8 py-36 sm:py-44 lg:py-52">
+              <h1 className="text-center text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
                 <span className="block text-white">Find a place</span>
                 <span className="block text-white">you'll love to live</span>
               </h1>
@@ -59,7 +59,7 @@ const Hero = () => {
                         name="email"
                         id="email"
                         className="placeholder-blue-dark text-blue-dark focus:ring-0 block w-full border-0 rounded-lg pl-10"
-                        placeholder="Search"
+                        placeholder="Location or Postcode"
                       />
                     </div>
                     <button

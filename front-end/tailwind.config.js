@@ -5,6 +5,9 @@ const colors = require('tailwindcss/colors')
      darkMode: false, // or 'media' or 'class'
      theme: {
        extend: {
+         fontFamily: {
+          dm: "'DM Sans', sans-serif",
+         },
          colors: {
           blue: {
             light: '#0047ff',
