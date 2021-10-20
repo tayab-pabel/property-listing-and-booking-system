@@ -4,6 +4,16 @@ import Sidebar from './Sidebar';
 
 const Profile = () => {
 
+  const user = {
+    name: 'Chelsea Hagon',
+    email: 'chelseahagon@gmail.com',
+    phone: '0123456789',
+    postcode: '1234',
+    location: 'Dhaka, Bangladesh',
+    imageUrl:
+      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  }
+
   const tabs = [
     { name: 'General', href: '#', current: true },
     { name: 'Change Password', href: '#', current: false },
@@ -58,7 +68,7 @@ const Profile = () => {
                             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
                               <dt className="text-sm font-medium text-blue-dark">Name</dt>
                               <dd className="mt-1 flex text-sm text-blue-dark sm:mt-0 sm:col-span-2">
-                                <span className="flex-grow">Chelsea Hagon</span>
+                                <span className="flex-grow">{user.name}</span>
                                 <span className="ml-4 flex-shrink-0">
                                   <button
                                     type="button"
@@ -76,7 +86,7 @@ const Profile = () => {
                                 <span className="flex-grow">
                                   <img
                                     className="h-8 w-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    src={user.imageUrl}
                                     alt=""
                                   />
                                 </span>
@@ -103,7 +113,7 @@ const Profile = () => {
                             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:pt-5">
                               <dt className="text-sm font-medium text-blue-dark">Email</dt>
                               <dd className="mt-1 flex text-sm text-blue-dark sm:mt-0 sm:col-span-2">
-                                <span className="flex-grow">chelsea.hagon@example.com</span>
+                                <span className="flex-grow">{user.email}</span>
                                 <span className="ml-4 flex-shrink-0">
                                   <button
                                     type="button"
@@ -118,7 +128,7 @@ const Profile = () => {
                             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-b sm:border-gray-100">
                               <dt className="text-sm font-medium text-blue-dark">Phone</dt>
                               <dd className="mt-1 flex text-sm text-blue-dark sm:mt-0 sm:col-span-2">
-                                <span className="flex-grow">0123456789</span>
+                                <span className="flex-grow">{user.phone}</span>
                                 <span className="ml-4 flex-shrink-0">
                                   <button
                                     type="button"
@@ -133,7 +143,7 @@ const Profile = () => {
                             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-b sm:border-gray-100">
                               <dt className="text-sm font-medium text-blue-dark">Postcode</dt>
                               <dd className="mt-1 flex text-sm text-blue-dark sm:mt-0 sm:col-span-2">
-                                <span className="flex-grow">1250</span>
+                                <span className="flex-grow">{user.postcode}</span>
                                 <span className="ml-4 flex-shrink-0">
                                   <button
                                     type="button"
@@ -148,7 +158,7 @@ const Profile = () => {
                           <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-b sm:border-gray-100">
                             <dt className="text-sm font-medium text-blue-dark">Location</dt>
                             <dd className="mt-1 flex text-sm text-blue-dark sm:mt-0 sm:col-span-2">
-                              <span className="flex-grow">Dhanmondi, Dhaka</span>
+                              <span className="flex-grow">{user.location}</span>
                               <span className="ml-4 flex-shrink-0">
                                 <button
                                   type="button"
