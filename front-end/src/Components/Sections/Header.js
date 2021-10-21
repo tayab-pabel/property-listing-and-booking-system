@@ -72,7 +72,7 @@ const Header = () => {
         <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
           <Link
             to="/signup"
-            className="inline-flex items-center px-4 py-2 border border-blue-light shadow-sm font-medium rounded-lg text-blue-dark bg-white focus:outline-none"
+            className="inline-flex items-center px-4 py-2 border border-blue-dark shadow-sm font-medium rounded-lg text-blue-dark bg-white focus:outline-none"
           >
             Sign Up
           </Link>
