@@ -98,7 +98,7 @@ const Profile = () => {
                                   >
                                     Update
                                   </button>
-                                  <span className="text-gray-300" aria-hidden="true">
+                                  <span className="text-blue-dark" aria-hidden="true">
                                     |
                                   </span>
                                   <button
@@ -207,7 +207,7 @@ const Profile = () => {
                                   id="user-photo"
                                   name="user-photo"
                                   type="file"
-                                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-lg"
+                                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer border-blue-dark rounded-lg"
                                 />
                               </div>
                               <button
@@ -458,13 +458,13 @@ const Profile = () => {
                       <div className="pt-8 flex justify-end">
                         <button
                           type="button"
-                          className="bg-white py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-blue-dark hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+                          className="bg-white py-2 px-4 border border-blue-dark rounded-lg shadow-sm text-sm font-medium text-blue-dark hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
                         >
                           Cancel
                         </button>
                         <button
                           type="submit"
-                          className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+                          className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-blue-light hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
                         >
                           Save
                         </button>
