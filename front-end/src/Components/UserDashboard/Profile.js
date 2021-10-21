@@ -369,7 +369,7 @@ const Profile = () => {
                             />
                           </div>
                           <p className="mt-3 text-sm text-blue-dark">
-                            Brief description about yourself.
+                            Brief description about yourself
                           </p>
                         </div>
 
