@@ -1,13 +1,19 @@
 import { LocationMarkerIcon, SearchIcon } from '@heroicons/react/outline';
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-const Hero = ({ redirect }) => {
+const Hero = () => {
+  const [redirect, setRedirect] = useState('rent')
   
   const tabs = [
-    { name: 'For Sale', 
-      href: '#', 
-      current: true },
-    { name: 'To Rent', href: '#', current: false },
+    { 
+      name: 'For Sale', 
+      path: 'sale', 
+    },
+    {
+      name: 'To Rent',
+      path: 'rent', 
+    },
   ]
 
   function classNames(...classes) {
@@ -36,17 +42,22 @@ const Hero = ({ redirect }) => {
                 <div className="max-w-xs mx-auto">
                   <nav className="relative p-1 rounded-lg flex bg-white" aria-label="Tabs">
                     {tabs.map((tab) => (
-                      <a
+                      <Link
                         key={tab.name}
-                        href={tab.href}
+                        onClick={() => setRedirect(tab.path)}
+                        to= ""
                         className={classNames(
-                          tab.current ? 'text-white bg-blue-light rounded-lg' : 'text-blue-dark',
-                          'group relative min-w-0 flex-1 overflow-hidden p-2 font-medium text-center focus:z-10'
+                          redirect && redirect === tab.path 
+                          ? 'text-white bg-blue-light' 
+                          : 'text-blue-dark ',
+                          'group relative min-w-0 flex-1 overflow-hidden p-2 font-medium text-center focus:z-10 rounded-lg'
                         )}
-                        aria-current={tab.current ? 'page' : undefined}
+                        // aria-current={
+                        //   redirect && redirect === tab.path ? 'page' : undefined
+                        // }
                       >
                         <span>{tab.name}</span>
-                      </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>
