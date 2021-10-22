@@ -1,10 +1,12 @@
 import { LocationMarkerIcon, SearchIcon } from '@heroicons/react/outline';
 import React from 'react';
 
-const Hero = () => {
+const Hero = ({ redirect }) => {
   
   const tabs = [
-    { name: 'For Sale', href: '#', current: true },
+    { name: 'For Sale', 
+      href: '#', 
+      current: true },
     { name: 'To Rent', href: '#', current: false },
   ]
 

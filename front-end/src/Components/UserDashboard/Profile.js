@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfileSection = () => {
+const Profile = () => {
   return (
     <>
       <div className='px-4 sm:px-6 md:px-0'>
@@ -348,4 +348,4 @@ const ProfileSection = () => {
   )
 }
 
-export default ProfileSection
+export default Profile

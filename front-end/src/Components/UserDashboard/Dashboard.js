@@ -1,11 +1,11 @@
 import React from 'react'
 import Header from '../Sections/Header'
 import Sidebar from './Sidebar'
-import OverviewSection from './OverviewSection'
-import ProfileSection from './ProfileSection'
-import SavedPropertiesSection from './SavedPropertiesSection'
-import SavedSearchesSection from './SavedSearchesSection'
-import NotificationSection from './NotificationSection'
+import OverviewSection from './Overview'
+import ProfileSection from './Profile'
+import SavedPropertiesSection from './SavedProperties'
+import SavedSearchesSection from './SavedSearches'
+import NotificationSection from './Notification'
 import { useLocation } from 'react-router-dom'
 
 const Dashboard = () => {
