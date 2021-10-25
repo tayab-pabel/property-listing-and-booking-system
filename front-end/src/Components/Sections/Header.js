@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react'
 import {
   HomeIcon,
@@ -9,7 +8,6 @@ import {
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
-
 
 
 const Header = () => {

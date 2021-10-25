@@ -1,24 +1,107 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Profile = () => {
+
+  const user = {
+    name: 'Chelsea Hagon',
+    userType: 'I am a first-time buyer',
+    username: 'chelsea.hagon',
+    email: 'chelseahagon@gmail.com',
+    phoneNumber: '0123456789',
+    location: 'Dhanmondi, Dhaka',
+    postalCode: '1215',
+    about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo.',
+    imageUrl:
+      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  }
+
+  const [edit, setEdit] = useState({
+    profile: false,
+    email: false,
+    password: false,
+  })
+
+  const editPanelOpener = (item) => {
+    setEdit({ ...edit, [item]: true })
+  }
+
+  const editPanelCloser = (item) => {
+    setEdit({ ...edit, [item]: false })
+  }
+
   return (
-    <>
-      <div className='px-4 sm:px-6 md:px-0'>
-        <h2 className='text-2xl font-extrabold text-blue-dark'>Edit Profile</h2>
+    <div className=''>
+      <div className='px-4 sm:px-6 py-6 lg:py-6 bg-white shadow lg:rounded-lg'>
+        <h2 className='text-2xl font-extrabold text-blue-dark'>Profile</h2>
       </div>
-      <div className='px-4 sm:px-6 md:px-0'>
+
+    {/* Personal Information */}
+    <div className='lg:mt-5 px-4 sm:px-6 py-6 lg:py-6 bg-white shadow lg:rounded-lg'>
+
+      <div className='w-full flex justify-between'>
+        <h2 className='text-xl font-medium text-blue-dark'>
+            Personal Information
+        </h2>
+        {!edit.personal && (
+          <button
+              onClick={() => editPanelOpener('personal')}
+              type="button"
+              className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+            Edit
+          </button>
+        )}
+      </div>
+
+      {!edit.personal ? (
+      <div className=''>
+        <div className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
+          <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
+            <div className='sm:col-span-3'>
+              <div className='flex items-center'>
+                <img
+                  className='inline-block h-12 w-12 rounded-full'
+                  src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80'
+                  alt=''
+                />
+              </div>
+            </div>
+            <div className='sm:col-span-3'>
+              <p className='block font-medium text-blue-dark'>Name</p>
+              <p className='mt-1 text-blue-dark'>{user.name}</p>
+            </div>
+            <div className='sm:col-span-3'>
+              <p className='block font-medium text-blue-dark'>User Type</p>
+              <p className='mt-1 text-blue-dark'>{user.userType}</p>
+            </div>
+            <div className='sm:col-span-3'>
+              <p className='block font-medium text-blue-dark'>Phone Number</p>
+              <p className='mt-1 text-blue-dark'>{user.phoneNumber}</p>
+            </div>
+            <div className='sm:col-span-3'>
+              <p className='block font-medium text-blue-dark'>Location</p>
+              <p className='mt-1 text-blue-dark'>{user.location}</p>
+            </div>
+            <div className='sm:col-span-3'>
+              <p className='block font-medium text-blue-dark'>Postal Code</p>
+              <p className='mt-1 text-blue-dark'>{user.postalCode}</p>
+            </div>
+            <div className='sm:col-span-6'>
+              <p className='block font-medium text-blue-dark'>About Me</p>
+              <p className='mt-1 text-blue-dark'>{user.about}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      ) : (
+
+      <div className='' editPanelCloser={editPanelCloser}>
         <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
           <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
             <div className='sm:col-span-6'>
-              <h2 className='text-xl font-medium text-blue-dark'>
-                Personal Information
-              </h2>
-            </div>
-
-            <div className='sm:col-span-6'>
               <label
                 htmlFor='photo'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Photo
               </label>
@@ -29,10 +112,10 @@ const Profile = () => {
                   alt=''
                 />
                 <div className='ml-4 flex'>
-                  <div className='relative bg-white py-2 px-3 border border-blue-dark rounded-lg shadow-sm flex items-center cursor-pointer hover:bg-blue-gray-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-blue-gray-50 focus-within:ring-blue-light'>
+                  <div className='relative bg-white py-2 px-3 border border-blue-dark rounded-lg flex items-center cursor-pointer hover:bg-blue-gray-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-blue-gray-50 focus-within:ring-blue-light'>
                     <label
                       htmlFor='user-photo'
-                      className='relative text-sm font-medium text-blue-dark pointer-events-none'
+                      className='relative font-medium text-blue-dark pointer-events-none'
                     >
                       <span>Change</span>
                       <span className='sr-only'>user photo</span>
@@ -46,18 +129,17 @@ const Profile = () => {
                   </div>
                   <button
                     type='button'
-                    className='ml-3 bg-transparent py-2 px-3 border border-transparent rounded-lg text-sm font-medium text-blue-dark hover:text-blue-gray-700 focus:outline-none focus:border-blue-dark focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-gray-50 focus:ring-blue-light'
+                    className='ml-3 bg-transparent py-2 px-3 border border-transparent rounded-lg font-medium text-blue-dark hover:text-blue-gray-700 focus:outline-none focus:border-blue-dark focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-gray-50 focus:ring-blue-light'
                   >
                     Remove
                   </button>
                 </div>
               </div>
             </div>
-
             <div className='sm:col-span-3'>
               <label
                 htmlFor='first-name'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 First Name
               </label>
@@ -66,14 +148,13 @@ const Profile = () => {
                 name='first-name'
                 id='first-name'
                 autoComplete='given-name'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
-
             <div className='sm:col-span-3'>
               <label
                 htmlFor='last-name'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Last Name
               </label>
@@ -82,30 +163,13 @@ const Profile = () => {
                 name='last-name'
                 id='last-name'
                 autoComplete='family-name'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
-
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='username'
-                className='block text-sm font-medium text-blue-dark'
-              >
-                Username
-              </label>
-              <input
-                type='text'
-                name='username'
-                id='username'
-                autoComplete='username'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-
             <div className='sm:col-span-3'>
               <label
                 htmlFor='user-type'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 User Type
               </label>
@@ -113,7 +177,7 @@ const Profile = () => {
                 id='user-type'
                 name='user-type'
                 autoComplete='user-type'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark focus:ring-blue-light focus:border-blue-light'
               >
                 <option />
                 <option value='first_time_buyer'>
@@ -142,30 +206,12 @@ const Profile = () => {
                   I am interested in property
                 </option>
                 <option value='agent'>I am an agent</option>
-                <option value='other'>Other</option>
               </select>
             </div>
-
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='email-address'
-                className='block text-sm font-medium text-blue-dark'
-              >
-                Email Address
-              </label>
-              <input
-                type='text'
-                name='email-address'
-                id='email-address'
-                autoComplete='email'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-
             <div className='sm:col-span-3'>
               <label
                 htmlFor='phone-number'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Phone Number
               </label>
@@ -174,14 +220,13 @@ const Profile = () => {
                 name='phone-number'
                 id='phone-number'
                 autoComplete='tel'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
-
             <div className='sm:col-span-3'>
               <label
                 htmlFor='location'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Location
               </label>
@@ -190,14 +235,13 @@ const Profile = () => {
                 name='location'
                 id='location'
                 autoComplete='location'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
-
             <div className='sm:col-span-3'>
               <label
                 htmlFor='postcode'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Postcode
               </label>
@@ -206,14 +250,13 @@ const Profile = () => {
                 name='postcode'
                 id='postcode'
                 autoComplete='postcode'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
-
             <div className='sm:col-span-6'>
               <label
                 htmlFor='description'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 About Me
               </label>
@@ -222,129 +265,199 @@ const Profile = () => {
                   id='description'
                   name='description'
                   rows={4}
-                  className='block w-full border border-blue-dark rounded-lg shadow-sm sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                  className='block w-full border border-blue-dark rounded-lg sm:text-sm focus:ring-blue-light focus:border-blue-light'
                   defaultValue={''}
                 />
               </div>
-              <p className='mt-3 text-sm text-blue-dark'>
-                Brief description about yourself
-              </p>
             </div>
+            
           </div>
+          <div className="pt-4 flex justify-end">
+            <button
+              onClick={() => editPanelCloser('personal')}
+              type="button"
+              className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+      )}
 
-          <div className='pt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
+    </div>
+
+    {/* Change Email */}
+    <div className='lg:mt-5 px-4 sm:px-6 py-6 lg:py-6 bg-white shadow lg:rounded-lg'>
+
+      <div className='w-full flex justify-between'>
+        <h2 className='text-xl font-medium text-blue-dark'>
+          Email
+        </h2>
+        {!edit.email && (
+          <button
+              onClick={() => editPanelOpener('email')}
+              type="button"
+              className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+            Edit
+          </button>
+        )}
+      </div>
+
+      {!edit.email ? (
+      <div className=''>
+        <p className='text-blue-dark'>{user.email}</p>
+      </div>
+      ) : (
+
+      <div className='' editPanelCloser={editPanelCloser}>
+        <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
+          <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
+            
             <div className='sm:col-span-6'>
-              <h2 className='text-xl font-medium text-blue-dark'>
-                Change Password
-              </h2>
+              <label
+                htmlFor='email'
+                className='block font-medium text-blue-dark'
+              >
+                New Email Address
+              </label>
+              <input
+                type='email'
+                name='email'
+                id='email'
+                autoComplete='given-name'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+              />
             </div>
+            
+          </div>
+          <div className="pt-4 flex justify-end">
+            <button
+              onClick={() => editPanelCloser('email')}
+              type="button"
+              className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+      )}
 
+    </div>
+
+    {/* Change Password */}
+    <div className='lg:mt-5 px-4 sm:px-6 py-6 lg:py-6 bg-white shadow lg:rounded-lg'>
+
+      <div className='w-full flex justify-between'>
+        <h2 className='text-xl font-medium text-blue-dark'>
+          Password
+        </h2>
+        {!edit.password && (
+          <button
+              onClick={() => editPanelOpener('password')}
+              type="button"
+              className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+            Edit
+          </button>
+        )}
+      </div>
+
+      {!edit.password ? (
+      <div className=''>
+        <p className='text-blue-dark'>**********</p>
+      </div>
+      ) : (
+
+      <div className='' editPanelCloser={editPanelCloser}>
+        <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
+          <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
+            
             <div className='sm:col-span-6'>
               <label
                 htmlFor='current-password'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Current Password
               </label>
               <input
-                type='password'
+                type='email'
                 name='current-password'
                 id='current-password'
                 autoComplete='current-password'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
 
             <div className='sm:col-span-6'>
               <label
                 htmlFor='new-password'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 New Password
               </label>
               <input
-                type='password'
+                type='email'
                 name='new-password'
                 id='new-password'
                 autoComplete='new-password'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
 
             <div className='sm:col-span-6'>
               <label
                 htmlFor='confirm-new-password'
-                className='block text-sm font-medium text-blue-dark'
+                className='block font-medium text-blue-dark'
               >
                 Confirm New Password
               </label>
               <input
-                type='password'
+                type='email'
                 name='confirm-new-password'
                 id='confirm-new-password'
                 autoComplete='confirm-new-password'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
+                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
               />
             </div>
+            
           </div>
-
-          <div className='pt-8 grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
-            <div className='sm:col-span-6'>
-              <h2 className='text-xl font-medium text-blue-dark'>
-                Change Email
-              </h2>
-            </div>
-
-            <div className='sm:col-span-6'>
-              <label
-                htmlFor='current-password'
-                className='block text-sm font-medium text-blue-dark'
-              >
-                Current Mail
-              </label>
-              <input
-                type='password'
-                name='current-password'
-                id='current-password'
-                autoComplete='current-password'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-
-            <div className='sm:col-span-6'>
-              <label
-                htmlFor='new-password'
-                className='block text-sm font-medium text-blue-dark'
-              >
-                New Mail
-              </label>
-              <input
-                type='password'
-                name='new-password'
-                id='new-password'
-                autoComplete='new-password'
-                className='mt-1 block w-full border-blue-dark rounded-lg shadow-sm text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-          </div>
-
-          <div className='pt-8 flex justify-end'>
+          <div className="pt-4 flex justify-end">
             <button
-              type='button'
-              className='bg-white py-2 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-blue-dark hover:bg-blue-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
-            >
+              onClick={() => editPanelCloser('password')}
+              type="button"
+              className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
               Cancel
             </button>
             <button
-              type='submit'
-              className='ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
-            >
-              Save
+              type="submit"
+              className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+              >
+              Update
             </button>
           </div>
         </form>
       </div>
-    </>
+      )}
+
+    </div>
+
+    </div>
   )
 }
 

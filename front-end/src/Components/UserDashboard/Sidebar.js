@@ -3,7 +3,6 @@ import {
   HeartIcon,
   HomeIcon,
   UserIcon,
-  ViewGridIcon,
 } from '@heroicons/react/outline'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -11,19 +10,13 @@ import { Link } from 'react-router-dom'
 const Sidebar = ({ redirect }) => {
   const user = {
     name: 'Chelsea Hagon',
-    email: 'chelseahagon@gmail.com',
     imageUrl:
       'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   }
 
   const subNavigation = [
     {
-      name: 'Overview',
-      path: 'overview',
-      icon: ViewGridIcon,
-    },
-    {
-      name: 'Edit Profile',
+      name: 'Profile',
       path: 'profile',
       icon: UserIcon,
     },
@@ -66,9 +59,9 @@ const Sidebar = ({ redirect }) => {
             to={`?tab=${item.path}`}
             className={classNames(
               redirect && redirect === item.path
-                ? 'bg-white text-blue-dark'
-                : 'text-white hover:text-blue-dark hover:bg-white',
-              'group rounded-lg px-3 py-2 flex items-center text-sm font-medium'
+              ? 'bg-white text-blue-dark'
+              : 'text-white hover:text-blue-dark hover:bg-white',
+              'group rounded-lg px-3 py-2 flex items-center font-medium'
             )}
             aria-current={
               redirect && redirect === item.path ? 'page' : undefined

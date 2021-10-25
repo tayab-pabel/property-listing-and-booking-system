@@ -13,6 +13,7 @@ const colors = require('tailwindcss/colors')
             light: '#0047ff',
             DEFAULT: '#1b0c75',
             dark: '#1b0c75',
+            gray: '#E8E6F1'
           },
          }
        },

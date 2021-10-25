@@ -1,31 +1,28 @@
 import React from 'react'
 import Header from '../Sections/Header'
 import Sidebar from './Sidebar'
-import OverviewSection from './Overview'
-import ProfileSection from './Profile'
-import SavedPropertiesSection from './SavedProperties'
-import SavedSearchesSection from './SavedSearches'
-import NotificationSection from './Notification'
+import Profile from './Profile'
+import SavedProperties from './SavedProperties'
+import SavedSearches from './SavedSearches'
+import Notification from './Notification'
 import { useLocation } from 'react-router-dom'
 
 const Dashboard = () => {
   const location = useLocation()
-  const redirect = location.search ? location.search.split('=')[1] : 'overview'
+  const redirect = location.search ? location.search.split('=')[1] : 'profile'
 
   const renderSection = (params) => {
     switch (params) {
-      case 'overview':
-        return <OverviewSection />
       case 'profile':
-        return <ProfileSection />
+        return <Profile />
       case 'savedProperties':
-        return <SavedPropertiesSection />
+        return <SavedProperties />
       case 'savedSearches':
-        return <SavedSearchesSection />
+        return <SavedSearches />
       case 'notification':
-        return <NotificationSection />
+        return <Notification />
       default:
-        return <OverviewSection />
+        return <Profile />
     }
   }
 
@@ -39,9 +36,9 @@ const Dashboard = () => {
               <Sidebar redirect={redirect}></Sidebar>
             </div>
 
-            <div className='bg-gray-100 lg:col-span-9 lg:py-6 lg:px-6 lg:min-h-screen '>
-              <div className='bg-white shadow sm:rounded-lg py-6 sm:px-0 md:px-6 lg:px-6 lg:py-6'>
-                <div className='max-w-full'>{renderSection(redirect)}</div>
+            <div className='bg-blue-gray lg:col-span-9 lg:py-6 lg:px-6 lg:min-h-screen'>
+              <div className='max-w-full'>
+                {renderSection(redirect)}
               </div>
             </div>
           </div>
