@@ -193,7 +193,7 @@ const SearchFilter = () => {
                                     href={child.href}
                                     className={classNames(
                                       active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700'
+                                      'block px-4 py-2 text-sm text-blue-dark'
                                     )}
                                   >
                                     {child.name}
@@ -243,7 +243,7 @@ const SearchFilter = () => {
                               href="#"
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                'block px-4 py-2 text-sm text-blue-dark'
                               )}
                             >
                               Your Profile
@@ -256,7 +256,7 @@ const SearchFilter = () => {
                               href="#"
                               className={classNames(
                                 active ? 'bg-gray-100' : '',
-                                'block px-4 py-2 text-sm text-gray-700'
+                                'block px-4 py-2 text-sm text-blue-dark'
                               )}
                             >
                               Sign Out
@@ -300,7 +300,7 @@ const SearchFilter = () => {
                   aria-label="Global"
                 >
                   <div className="h-16 flex items-center justify-between">
-                    <h2 className='font-medium text-blue-dark'>
+                    <h2 className='font-bold text-blue-dark'>
                       Filters
                     </h2>
                     <button
@@ -337,13 +337,10 @@ const SearchFilter = () => {
                   </div>
 
                   <div className='mt-3'>
-                    <label
-                      htmlFor='location'
-                      className='block text-sm font-medium text-blue-dark'
-                    >
+                    <p className='block text-sm font-bold text-blue-dark'>
                       Location
-                    </label>
-                    <div className="mt-1 relative rounded-md shadow-sm">
+                    </p>
+                    <div className="mt-1 relative rounded-lg">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <LocationMarkerIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
                       </div>
@@ -352,14 +349,14 @@ const SearchFilter = () => {
                         id="location"
                         name="location"
                         autoComplete="location"
-                        className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border border-blue-dark rounded-md text-sm text-blue-dark placeholder-blue-dark"
+                        className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border border-blue-dark rounded-lg text-sm text-blue-dark placeholder-blue-dark"
                         placeholder=""
                       />
                     </div>
                   </div>
 
                   <div className="mt-3">
-                    <p className='text-sm font-medium text-blue-dark'>
+                    <p className='text-sm font-bold text-blue-dark'>
                       Property Type
                     </p>
                     <div className="mt-1">
@@ -370,7 +367,7 @@ const SearchFilter = () => {
                               key={propertType}
                               className={({ selected }) =>
                                 classNames(
-                                  'w-full py-2.5 text-sm leading-5 font-medium rounded-lg',
+                                  'w-full p-2 text-sm leading-5 font-medium rounded-lg',
                                   '',
                                   selected
                                     ? 'text-white bg-blue-light'
@@ -414,6 +411,134 @@ const SearchFilter = () => {
                           ))}
                         </Tab.Panels>
                       </Tab.Group>
+                    </div>
+                  </div>
+
+                  <div className='mt-3'>
+                    <p className='block text-sm font-bold text-blue-dark'>
+                      Price
+                    </p>
+                    <div class="flex mt-1">
+                      <div class="flex-1">
+                        <select
+                          id="minimum-price"
+                          name="minimum-price"
+                          className="block w-full pl-3 pr-10 py-2 text-blue-dark border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-sm rounded-lg"
+                          defaultValue="Minimum"
+                        >
+                          <option selected disabled>Minimum</option>
+                          <option value="100">100</option>
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                          <option value="500">500</option>
+                        </select> 
+                      </div>
+                      <div class="flex-shrink-0 w-10 block self-center text-center text-blue-dark">
+                        -
+                      </div>
+                      <div class="flex-1">
+                        <select
+                          id="maximum-price"
+                          name="maximum-price"
+                          className="block w-full pl-3 pr-10 py-2 text-blue-dark border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-sm rounded-lg"
+                          defaultValue="Maximum"
+                        >
+                          <option selected disabled>Maximum</option>
+                          <option value="100">100</option>
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                          <option value="500">500</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='mt-3'>
+                    <p className='block text-sm font-bold text-blue-dark'>
+                      Area
+                    </p>
+                    <div class="flex mt-1">
+                      <div class="flex-1">
+                        <select
+                          id="minimum-area"
+                          name="minimum-area"
+                          className="block w-full pl-3 pr-10 py-2 text-blue-dark border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-sm rounded-lg"
+                          defaultValue="Minimum"
+                        >
+                          <option selected disabled>Minimum</option>
+                          <option value="100">100</option>
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                          <option value="500">500</option>
+                        </select> 
+                      </div>
+                      <div class="flex-shrink-0 w-10 block self-center text-center text-blue-dark">
+                        -
+                      </div>
+                      <div class="flex-1">
+                        <select
+                          id="maximum-area"
+                          name="maximum-area"
+                          className="block w-full pl-3 pr-10 py-2 text-blue-dark border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-sm rounded-lg"
+                          defaultValue="Maximum"
+                        >
+                          <option selected disabled>Maximum</option>
+                          <option value="100">100</option>
+                          <option value="200">200</option>
+                          <option value="300">300</option>
+                          <option value="400">400</option>
+                          <option value="500">500</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='mt-3'>
+                    <p className='block text-sm font-medium text-blue-dark'>
+                      Beds
+                    </p>
+                    <div class="mt-1">
+                      <div className="relative z-0 flex rounded-lg max-w-full">
+                        <button
+                          type="button"
+                          className="relative flex-1 items-center px-4 py-2 rounded-l-md border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          Any
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          1+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          2+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          3+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          4+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 rounded-r-md border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          5+
+                        </button>
+                      </div>
                     </div>
                   </div>
                   
