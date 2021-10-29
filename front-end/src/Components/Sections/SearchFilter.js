@@ -497,7 +497,7 @@ const SearchFilter = () => {
                   </div>
 
                   <div className='mt-3'>
-                    <p className='block text-sm font-medium text-blue-dark'>
+                    <p className='block text-sm font-bold font-medium text-blue-dark'>
                       Beds
                     </p>
                     <div class="mt-1">
@@ -541,6 +541,54 @@ const SearchFilter = () => {
                       </div>
                     </div>
                   </div>
+
+                  <div className='mt-3'>
+                    <p className='block text-sm font-bold font-medium text-blue-dark'>
+                      Baths
+                    </p>
+                    <div class="mt-1">
+                      <div className="relative z-0 flex rounded-lg max-w-full">
+                        <button
+                          type="button"
+                          className="relative flex-1 items-center px-4 py-2 rounded-l-md border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          Any
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          1+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          2+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          3+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          4+
+                        </button>
+                        <button
+                          type="button"
+                          className="-ml-px relative flex-1 items-center px-4 py-2 rounded-r-md border border-blue-dark bg-white text-sm font-medium text-blue-dark focus:z-10 focus:outline-none focus:border-blue-light focus:bg-blue-light focus:text-white"
+                        >
+                          5+
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  
                   
                 </nav>
               </Transition.Child>
