@@ -1,14 +1,12 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Menu, Popover, Transition } from '@headlessui/react'
-import { XIcon } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { Dialog, Disclosure, Popover, Tab, Transition } from '@headlessui/react';
+import { ChevronDownIcon, LocationMarkerIcon, XIcon } from '@heroicons/react/outline';
+import { Fragment, useState } from 'react';
 
 const Demo = () => {
 
   const sortOptions = [
-    { name: 'Most Popular', href: '#' },
-    { name: 'Best Rating', href: '#' },
-    { name: 'Newest', href: '#' },
+    { name: 'Buy', href: '#' },
+    { name: 'Rent', href: '#' },
   ]
   const filters = [
     {
@@ -34,7 +32,7 @@ const Demo = () => {
       name: 'Color',
       options: [
         { value: 'white', label: 'White' },
-        { value: 'black', label: 'Black' },
+        { value: 'blue-dark', label: 'blue-dark' },
         { value: 'grey', label: 'Grey' },
       ],
     },
@@ -48,6 +46,85 @@ const Demo = () => {
       ],
     },
   ]
+
+  const solutions = [
+    { name: 'Blog', description: 'Learn about tips, product updates and company culture.', href: '#' },
+    {
+      name: 'Help Center',
+      description: 'Get all of your questions answered in our forums of contact support.',
+      href: '#',
+    },
+    { name: 'Guides', description: 'Learn how to maximize our platform to get the most out of it.', href: '#' },
+    { name: 'Events', description: 'Check out webinars with experts and learn about our annual conference.', href: '#' },
+    { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
+  ]
+
+  let [propertTypes] = useState({
+    Residential: [
+      {
+        id: 1,
+        title: 'Apartment',
+      },
+      {
+        id: 2,
+        title: "Plaza",
+      },
+      {
+        id: 3,
+        title: "Plot",
+      },
+      {
+        id: 4,
+        title: "Room",
+      },
+      {
+        id: 5,
+        title: "Duplex",
+      },
+      {
+        id: 5,
+        title: "Building",
+      },
+    ],
+    Commercial: [
+      {
+        id: 1,
+        title: 'Office',
+      },
+      {
+        id: 2,
+        title: 'Floor',
+      },
+      {
+        id: 3,
+        title: 'Duplex',
+      },
+      {
+        id: 4,
+        title: 'Building',
+      },
+      {
+        id: 5,
+        title: 'Warehouse',
+      },
+      {
+        id: 6,
+        title: 'Shop',
+      },
+      {
+        id: 7,
+        title: 'Apartment',
+      },
+      {
+        id: 8,
+        title: 'Plot',
+      },
+      {
+        id: 9,
+        title: 'Factory',
+      },
+    ],
+  })
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -57,7 +134,7 @@ const Demo = () => {
 
   return (
     <div>
-      <div className="bg-gray-50">
+      <div className="bg-gray-100">
       {/* Mobile filter dialog */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 flex z-40 sm:hidden" onClose={setOpen}>
@@ -70,7 +147,7 @@ const Demo = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
+            <Dialog.Overlay className="fixed inset-0 bg-blue-dark bg-opacity-25" />
           </Transition.Child>
 
           <Transition.Child
@@ -84,10 +161,10 @@ const Demo = () => {
           >
             <div className="ml-auto relative max-w-full w-full h-full bg-white shadow-xl py-4 pb-6 flex flex-col overflow-y-auto">
               <div className="px-4 flex items-center justify-between">
-                <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                <h2 className="text-lg font-medium text-blue-dark">Filters</h2>
                 <button
                   type="button"
-                  className="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="-mr-2 w-10 h-10 bg-white p-2 rounded-lg flex items-center justify-center text-blue-dark hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-light"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -102,8 +179,8 @@ const Demo = () => {
                     {({ open }) => (
                       <>
                         <h3 className="-mx-2 -my-3 flow-root">
-                          <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400">
-                            <span className="font-medium text-gray-900">{section.name}</span>
+                          <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-blue-dark">
+                            <span className="font-medium text-blue-dark">{section.name}</span>
                             <span className="ml-6 flex items-center">
                               <ChevronDownIcon
                                 className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-5 w-5 transform')}
@@ -121,7 +198,7 @@ const Demo = () => {
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
                                   type="checkbox"
-                                  className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
+                                  className="h-4 w-4 border-blue-dark rounded text-blue-light focus:ring-blue-light"
                                 />
                                 <label
                                   htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -143,120 +220,185 @@ const Demo = () => {
         </Dialog>
       </Transition.Root>
 
-      <div className="max-w-3xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+      {/* Large Device */}
+      <div className="max-w-full mx-auto px-4 sm:px-6 text-center">
         
-
-        <section aria-labelledby="filter-heading" className="border-t border-gray-200 py-6">
+        <section className="py-6">
           <h2 id="filter-heading" className="sr-only">
             Product filters
           </h2>
 
-          <div className="flex items-center justify-between">
-            <Menu as="div" className="relative z-10 inline-block text-left">
-              <div>
-                <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                  Sort
-                  <ChevronDownIcon
-                    className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                    aria-hidden="true"
-                  />
-                </Menu.Button>
-              </div>
-
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="py-1">
-                    {sortOptions.map((option) => (
-                      <Menu.Item key={option}>
-                        {({ active }) => (
-                          <a
-                            href={option.href}
-                            className={classNames(
-                              active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm font-medium text-gray-900'
-                            )}
-                          >
-                            {option.name}
-                          </a>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </div>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-
+          <div className="">
+            
             <button
               type="button"
-              className="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden"
+              className="inline-block text-sm font-medium text-blue-dark sm:hidden"
               onClick={() => setOpen(true)}
             >
               Filters
             </button>
 
-            <Popover.Group className="hidden sm:flex sm:items-baseline sm:space-x-8">
-              {filters.map((section, sectionIdx) => (
-                <Popover as="div" key={section.name} id="desktop-menu" className="relative z-10 inline-block text-left">
-                  <div>
-                    <Popover.Button className="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
-                      <span>{section.name}</span>
-                      {sectionIdx === 0 ? (
-                        <span className="ml-1.5 rounded py-0.5 px-1.5 bg-gray-200 text-xs font-semibold text-gray-700 tabular-nums">
-                          1
-                        </span>
-                      ) : null}
-                      <ChevronDownIcon
-                        className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-                        aria-hidden="true"
-                      />
-                    </Popover.Button>
-                  </div>
+            <div className="hidden sm:flex sm:items-baseline sm:space-x-8">
 
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
+              <div className="flex gap-4">
+
+                <div className="flex-auto">
+                  <label htmlFor="purpose" className="block text-left text-sm font-medium text-blue-dark">
+                    Purpose
+                  </label>
+                  <select
+                    id="purpose"
+                    name="purpose"
+                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-blue-dark placeholder-blue-dark sm:text-sm rounded-lg"
+                    defaultValue="Rent"
                   >
-                    <Popover.Panel className="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <form className="space-y-4">
-                        {section.options.map((option, optionIdx) => (
-                          <div key={option.value} className="flex items-center">
-                            <input
-                              id={`filter-${section.id}-${optionIdx}`}
-                              name={`${section.id}[]`}
-                              defaultValue={option.value}
-                              type="checkbox"
-                              className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
-                            />
-                            <label
-                              htmlFor={`filter-${section.id}-${optionIdx}`}
-                              className="ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap"
-                            >
-                              {option.label}
-                            </label>
-                          </div>
-                        ))}
-                      </form>
-                    </Popover.Panel>
-                  </Transition>
-                </Popover>
-              ))}
-            </Popover.Group>
+                    <option>Rent</option>
+                    <option>Buy</option>
+                  </select>
+                </div>
+
+                <div className="flex-auto">
+                  <label htmlFor="location" className="block text-left text-sm font-medium text-blue-dark">
+                    Location
+                  </label>
+                  <div className="mt-1 relative rounded-lg">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <LocationMarkerIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
+                      </div>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        autoComplete="location"
+                        className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border border-blue-dark rounded-lg text-sm text-blue-dark placeholder-blue-dark"
+                        placeholder="Location or Postcode"
+                      />
+                    </div>
+                </div>
+
+                <div className="flex-auto">
+                  <label htmlFor="purpose" className="block text-left text-sm font-medium text-blue-dark">
+                    Search Radius
+                  </label>
+                  <select 
+                    id="searchRadius"
+                    name="searchRadius"
+                    className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-blue-dark placeholder-blue-dark sm:text-sm rounded-lg"
+                    defaultValue="Rent"
+                  >
+                    <option value="0">This area only</option>
+                    <option value="0.25">+ ¼ mile</option>
+                    <option value="0.5">+ ½ mile</option>
+                    <option value="1">+ 1 mile</option>
+                    <option value="3">+ 3 miles</option>
+                    <option value="5">+ 5 miles</option>
+                    <option value="10">+ 10 miles</option>
+                    <option value="15">+ 15 miles</option>
+                    <option value="20">+ 20 miles</option>
+                    <option value="30">+ 30 miles</option>
+                    <option value="40">+ 40 miles</option>
+                  </select>
+                </div>
+
+                <div className="flex-auto">
+                  <label htmlFor="purpose" className="block text-left text-sm font-medium text-blue-dark">
+                    Property Type
+                  </label>
+                  <Popover className="relative">
+                    {({ open }) => (
+                      <>
+                        <Popover.Button
+                        >
+                          <select
+                            id="searchRadius"
+                            name="searchRadius"
+                            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-blue-dark focus:outline-none focus:ring-blue-light focus:border-blue-light text-blue-dark placeholder-blue-dark sm:text-sm rounded-lg"
+                            defaultValue="Rent"
+                          >
+                            <option>Solutions</option>
+                          </select>
+                        </Popover.Button>
+
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-200"
+                          enterFrom="opacity-0 translate-y-1"
+                          enterTo="opacity-100 translate-y-0"
+                          leave="transition ease-in duration-150"
+                          leaveFrom="opacity-100 translate-y-0"
+                          leaveTo="opacity-0 translate-y-1"
+                        >
+                          <Popover.Panel className="absolute z-10 left-1/2 transform -translate-x-1/2 mt-6 w-screen max-w-xs">
+                            <div className="rounded-lg shadow-lg p-5 ring-1 ring-black ring-opacity-5 overflow-hidden">
+                            <Tab.Group>
+                              <Tab.List className="flex p-0.5 space-x-1 rounded-lg bg-white border border-blue-dark">
+                                {Object.keys(propertTypes).map((propertType) => (
+                                  <Tab
+                                    key={propertType}
+                                    className={({ selected }) =>
+                                      classNames(
+                                        'w-full p-2 text-sm leading-5 font-medium rounded-lg',
+                                        '',
+                                        selected
+                                          ? 'text-white bg-blue-light'
+                                          : 'text-blue-dark'
+                                      )
+                                    }
+                                  >
+                                    {propertType}
+                                  </Tab>
+                                ))}
+                              </Tab.List>
+                              <Tab.Panels className="mt-2">
+                                {Object.values(propertTypes).map((idx) => (
+                                  <Tab.Panel
+                                    key={idx}
+                                  >
+                                    <div className="grid grid-cols-2">
+                                      {idx.map((propertType) => (
+                                        <div
+                                          key={propertType.id}
+                                        >
+                                          <div className="relative flex items-start py-0.5">
+                                            <div className="flex items-center h-5">
+                                              <input
+                                                id="propert-type"
+                                                name="propert-type"
+                                                type="checkbox"
+                                                className="focus:ring-blue-light text-blue-light border-blue-dark rounded-lg"
+                                              />
+                                            </div>
+                                            <div className="ml-3 text-sm">
+                                              <label htmlFor="candidates" className="text-sm font-medium text-blue-dark">
+                                                {propertType.title}
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </Tab.Panel>
+                                ))}
+                              </Tab.Panels>
+                            </Tab.Group>
+                            </div>
+                          </Popover.Panel>
+                        </Transition>
+                      </>
+                    )}
+                  </Popover>
+                </div>
+
+              </div>
+
+              
+
+            </div>
           </div>
+          
         </section>
       </div>
+
     </div>
     </div>
   );
