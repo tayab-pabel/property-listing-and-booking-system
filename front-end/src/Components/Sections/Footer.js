@@ -13,8 +13,8 @@ const Footer = () => {
         locations: [
             { name: 'Dhaka', href: '#' },
             { name: 'Chittagong', href: '#' },
+            { name: 'Mymensingh', href: '#' },
             { name: 'Sylhet', href: '#' },
-            { name: 'Rajshahi', href: '#' },
         ],
         quickLinks: [
             { name: 'Find Agent', href: '#' },
@@ -81,7 +81,7 @@ const Footer = () => {
     }
 
     return (
-        <footer className="bg-white my-10" aria-labelledby="footer-heading">
+        <footer className="bg-white pt-20 pb-10" aria-labelledby="footer-heading">
             <h2 id="footer-heading" className="sr-only">
                 Footer
             </h2>
@@ -94,7 +94,7 @@ const Footer = () => {
                             alt=""
                         />
                         <p className="text-blue-dark">
-                            Making the world a better place through constructing elegant hierarchies.
+                            Find your property solution anytime, anywhere.
                         </p>
                         <div className="flex space-x-6">
                             {navigation.social.map((item) => (
@@ -112,7 +112,7 @@ const Footer = () => {
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.search.map((item) => (
                                         <li key={item.name}>
-                                            <a href={item.href} className="text-base text-blue-dark hover:text-blue-light">
+                                            <a href={item.href} className="text-sm text-blue-dark hover:text-blue-light">
                                                 {item.name}
                                             </a>
                                         </li>
@@ -124,7 +124,7 @@ const Footer = () => {
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.locations.map((item) => (
                                         <li key={item.name}>
-                                            <a href={item.href} className="text-base text-blue-dark hover:text-blue-light">
+                                            <a href={item.href} className="text-sm text-blue-dark hover:text-blue-light">
                                                 {item.name}
                                             </a>
                                         </li>
@@ -138,7 +138,7 @@ const Footer = () => {
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.quickLinks.map((item) => (
                                         <li key={item.name}>
-                                            <a href={item.href} className="text-base text-blue-dark hover:text-blue-light">
+                                            <a href={item.href} className="text-sm text-blue-dark hover:text-blue-light">
                                                 {item.name}
                                             </a>
                                         </li>
@@ -150,7 +150,7 @@ const Footer = () => {
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.about.map((item) => (
                                         <li key={item.name}>
-                                            <a href={item.href} className="text-base text-blue-dark hover:text-blue-light">
+                                            <a href={item.href} className="text-sm text-blue-dark hover:text-blue-light">
                                                 {item.name}
                                             </a>
                                         </li>
@@ -161,7 +161,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="mt-12 border-t border-gray-200 pt-8">
-                    <p className="text-base text-blue-dark xl:text-center">&copy; 2021 Property Market | All Rights Reserved</p>
+                    <p className="text-sm text-blue-dark xl:text-center">&copy; 2021 Property Market | All Rights Reserved</p>
                 </div>
             </div>
         </footer>
