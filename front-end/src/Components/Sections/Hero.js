@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [redirect, setRedirect] = useState('rent')
-  
+
   const tabs = [
     {
-      name: 'For Sale', 
-      path: 'sale', 
+      name: 'For Sale',
+      path: 'sale',
     },
     {
       name: 'To Rent',
-      path: 'rent', 
+      path: 'rent',
     },
   ]
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
-  
+
   return (
     <div className="">
       <div className="relative">
@@ -45,16 +45,16 @@ const Hero = () => {
                       <Link
                         key={tab.name}
                         onClick={() => setRedirect(tab.path)}
-                        to= ""
+                        to=""
                         className={classNames(
-                          redirect && redirect === tab.path 
-                          ? 'text-white bg-blue-light' 
-                          : 'text-blue-dark ',
+                          redirect && redirect === tab.path
+                            ? 'text-white bg-blue-light'
+                            : 'text-blue-dark ',
                           'group relative min-w-0 flex-1 overflow-hidden p-2 font-medium text-center focus:z-10 rounded-lg'
                         )}
-                        // aria-current={
-                        //   redirect && redirect === tab.path ? 'page' : undefined
-                        // }
+                      // aria-current={
+                      //   redirect && redirect === tab.path ? 'page' : undefined
+                      // }
                       >
                         <span>{tab.name}</span>
                       </Link>
@@ -62,7 +62,7 @@ const Hero = () => {
                   </nav>
                 </div>
                 <div className="max-w-md mx-auto">
-                <div className="mt-2 flex rounded-lg bg-white">
+                  <div className="mt-2 flex rounded-lg bg-white">
                     <div className="relative flex items-stretch flex-grow focus-within:z-10">
                       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <LocationMarkerIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
