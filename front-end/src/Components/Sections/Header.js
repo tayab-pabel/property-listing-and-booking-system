@@ -1,44 +1,43 @@
-/* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react'
 import {
   HomeIcon,
-  KeyIcon,
-  UserIcon,
-  CalculatorIcon,
-  MenuIcon,
-  XIcon,
+  KeyIcon, MenuAlt1Icon,
+  OfficeBuildingIcon, UserIcon,
+  XIcon
 } from '@heroicons/react/outline'
 import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../../images/logo.svg'
+import logo from '../../images/logo.svg'
 
-const solutions = [
-  {
-    name: 'For Sale',
-    href: '#',
-    icon: HomeIcon,
-  },
-  {
-    name: 'To Rent',
-    href: '#',
-    icon: KeyIcon,
-  },
-  {
-    name: 'Find Agent',
-    href: '#',
-    icon: UserIcon,
-  },
-  {
-    name: 'Mortgage',
-    href: '#',
-    icon: CalculatorIcon,
-  },
-]
 
-export default function Example() {
+const Header = () => {
+
+  const solutions = [
+    {
+      name: 'For Sale',
+      href: '#',
+      icon: OfficeBuildingIcon,
+    },
+    {
+      name: 'To Rent',
+      href: '#',
+      icon: KeyIcon,
+    },
+    {
+      name: 'New Homes',
+      href: '#',
+      icon: HomeIcon
+    },
+    {
+      name: 'Find Agent',
+      href: '#',
+      icon: UserIcon,
+    },
+  ]
+
   return (
-    <Popover className="container mx-auto relative bg-white">
-      <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+    <Popover className="relative bg-white">
+      <div className="flex justify-between items-center px-4 py-3 sm:px-6 lg:justify-start lg:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <Link to="/">
             <img
@@ -48,13 +47,13 @@ export default function Example() {
             />
           </Link>
         </div>
-        <div className="-mr-2 -my-2 md:hidden">
-          <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
+        <div className="-mr-2 -my-2 lg:hidden">
+          <Popover.Button className="bg-white rounded-lg p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
             <span className="sr-only">Open menu</span>
-            <MenuIcon className="h-6 w-6" aria-hidden="true" />
+            <MenuAlt1Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
         </div>
-        <Popover.Group as="nav" className="hidden md:flex space-x-10">
+        <Popover.Group as="nav" className="hidden lg:flex space-x-10">
           <a href="#" className="text-base font-medium text-blue-dark">
             For Sale
           </a>
@@ -62,18 +61,24 @@ export default function Example() {
             To Rent
           </a>
           <a href="#" className="text-base font-medium text-blue-dark">
-            Find Agent
+            New Homes
           </a>
           <a href="#" className="text-base font-medium text-blue-dark">
-            Mortgage
+            Find Agent
           </a>
         </Popover.Group>
-        <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
+          <Link
+            to="/signup"
+            className="inline-flex items-center px-4 py-2 border border-blue-dark shadow-sm font-medium rounded-lg text-blue-dark bg-white focus:outline-none"
+          >
+            Sign Up
+          </Link>
           <Link
             to="/login"
-            className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
+            className="ml-2 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light"
           >
-            Register or Login
+            Log In
           </Link>
         </div>
       </div>
@@ -87,7 +92,7 @@ export default function Example() {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50">
+        <Popover.Panel focus className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden z-50">
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
@@ -99,7 +104,7 @@ export default function Example() {
                   />
                 </div>
                 <div className="-mr-2">
-                  <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
+                  <Popover.Button className="bg-white rounded-lg p-2 inline-flex items-center justify-center text-blue-dark hover:text-blue-dark hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-light">
                     <span className="sr-only">Close menu</span>
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -113,7 +118,7 @@ export default function Example() {
                       href={solution.href}
                       className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
                     >
-                      <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-md bg-blue-light text-white">
+                      <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-lg bg-blue-light text-white">
                         <solution.icon className="h-6 w-6" aria-hidden="true" />
                       </div>
                       <div className="ml-4 text-base font-medium text-blue-dark">{solution.name}</div>
@@ -123,18 +128,18 @@ export default function Example() {
               </div>
             </div>
             <div className="py-6 px-5">
-              <div className="mt-5">
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-light"
+              <div className="mt-4">
+                <Link
+                  to="/signup"
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light"
                 >
-                  Sign up
-                </a>
-                <p className="mt-6 text-center text-base font-medium text-blue-dark">
-                  Existing customer?{' '}
-                  <a href="#" className="text-blue-light">
-                    Sign in
-                  </a>
+                  Sign Up
+                </Link>
+                <p className="mt-6 text-center text-base text-blue-dark">
+                  Already have an account?{' '}
+                  <Link to="/login" className="text-blue-light">
+                    Log In
+                  </Link>
                 </p>
               </div>
             </div>
@@ -142,5 +147,7 @@ export default function Example() {
         </Popover.Panel>
       </Transition>
     </Popover>
-  )
-}
+  );
+};
+
+export default Header;
