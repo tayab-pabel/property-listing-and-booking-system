@@ -6,7 +6,7 @@ const Hero = () => {
   const [redirect, setRedirect] = useState('rent')
   
   const tabs = [
-    { 
+    {
       name: 'For Sale', 
       path: 'sale', 
     },
