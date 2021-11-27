@@ -1,9 +1,9 @@
-import { EyeIcon, EyeOffIcon, LocationMarkerIcon, LockClosedIcon, MailIcon, UserIcon } from '@heroicons/react/outline';
+import { EyeIcon, EyeOffIcon, LocationMarkerIcon, LockClosedIcon, MailIcon, UserGroupIcon, UserIcon } from '@heroicons/react/outline';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
-const Signup = () => {
+const AgentSignup = () => {
 
   const [show, setShow] = useState(false);
 
@@ -21,11 +21,11 @@ const Signup = () => {
             </Link>
           </div>
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Create account</h2>
+            <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Create agent account</h2>
             <div className="mb-6">
               <p className="mt-6 text-center text-base text-blue-dark">
                   Already have an account?{' '}
-                  <Link to="/login" className="text-blue-light">
+                  <Link to="/agent-login" className="text-blue-light">
                     Log In
                   </Link>
                 </p>
@@ -73,6 +73,26 @@ const Signup = () => {
               </div>
 
               <div>
+                <label htmlFor="companyName" className="sr-only">
+                  Company Name
+                </label>
+                <div className="mt-1 relative rounded-md shadow-sm">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <UserGroupIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
+                  </div>
+                  <input
+                    id="companyName"
+                    name="companyName"
+                    type="text"
+                    autoComplete="companyName"
+                    required
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    placeholder="Company Name"
+                  />
+                </div>
+              </div>
+
+              <div>
                 <label htmlFor="postcode" className="sr-only">
                   Postcode
                 </label>
@@ -94,7 +114,7 @@ const Signup = () => {
 
               <div>
                 <label htmlFor="email" className="sr-only">
-                  Email
+                  Work Email
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -107,7 +127,7 @@ const Signup = () => {
                     autoComplete="email"
                     required
                     className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
-                    placeholder="Email"
+                    placeholder="Work Email"
                   />
                 </div>
               </div>
@@ -142,7 +162,7 @@ const Signup = () => {
               </button>
             </form>
 
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-blue-dark" />
@@ -171,7 +191,7 @@ const Signup = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
@@ -180,4 +200,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AgentSignup;
