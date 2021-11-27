@@ -30,7 +30,7 @@ const Header = () => {
     },
     {
       name: 'Find Agent',
-      href: '#',
+      href: '/find-agent',
       icon: UserIcon,
     },
   ]
@@ -63,9 +63,9 @@ const Header = () => {
           <a href="#" className="text-base font-medium text-blue-dark">
             New Homes
           </a>
-          <a href="#" className="text-base font-medium text-blue-dark">
+          <Link to="/find-agent" className="text-base font-medium text-blue-dark">
             Find Agent
-          </a>
+          </Link>
         </Popover.Group>
         <div className="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
           <Link
