@@ -8,6 +8,15 @@
 /dashboard/build
 
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
+
+/dashboard/npm-debug.log*
+/dashboard/yarn-debug.log*
+/dashboard/yarn-error.log*
+
+/server/npm-debug.log*
+/server/yarn-debug.log*
+/server/yarn-error.log*
