@@ -1,9 +1,10 @@
-import { EyeIcon, EyeOffIcon, LocationMarkerIcon, LockClosedIcon, MailIcon, UserIcon } from '@heroicons/react/outline';
+import { EyeIcon, EyeOffIcon, LockClosedIcon, MailIcon } from '@heroicons/react/outline';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
-const Signup = () => {
+
+const AgentLogin = () => {
 
   const [show, setShow] = useState(false);
 
@@ -21,77 +22,18 @@ const Signup = () => {
             </Link>
           </div>
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Create account</h2>
+            
+            <h2 className="mb-6 text-center text-2xl font-black text-blue-dark">Log in to your account</h2>
             <div className="mb-6">
-              <p className="mt-6 text-center text-base text-blue-dark">
-                  Already have an account?{' '}
-                  <Link to="/login" className="text-blue-light">
-                    Log In
+              <p className="mt-6 text-center text-base  text-blue-dark">
+                  Don’t have an account?{' '}
+                  <Link to="/agent-signup" className="text-blue-light">
+                    Sign Up
                   </Link>
                 </p>
             </div>
             <form className="space-y-6" action="#" method="POST">
               
-              <div>
-                <label htmlFor="firstName" className="sr-only">
-                  First Name
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <UserIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
-                  </div>
-                  <input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    autoComplete="firstName "
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
-                    placeholder="First Name"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="firstName" className="sr-only">
-                  Last Name
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <UserIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
-                  </div>
-                  <input
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    autoComplete="lastName "
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
-                    placeholder="Last Name"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="postcode" className="sr-only">
-                  Postcode
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <LocationMarkerIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
-                  </div>
-                  <input
-                    id="postcode"
-                    name="postcode"
-                    type="text"
-                    autoComplete="postcode"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
-                    placeholder="Postcode"
-                  />
-                </div>
-              </div>
-
               <div>
                 <label htmlFor="email" className="sr-only">
                   Email
@@ -111,7 +53,6 @@ const Signup = () => {
                   />
                 </div>
               </div>
-
               <div>
                 <label htmlFor="password" className="sr-only">
                   Password
@@ -134,15 +75,20 @@ const Signup = () => {
                   </div>
                 </div>
               </div>
-
-              <button
+              <button 
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
               >
-                Sign Up
+                Log In
               </button>
             </form>
 
-            <div className="mt-6">
+            <div className="mt-6 text-center">
+              <Link to="/agent-forgot-password" className="text-blue-light">
+                Forgot your password?
+              </Link>
+            </div>
+
+            {/* <div className="mt-6">
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-blue-dark" />
@@ -171,7 +117,7 @@ const Signup = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
@@ -180,4 +126,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AgentLogin;
