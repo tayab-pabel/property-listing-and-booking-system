@@ -1,4 +1,27 @@
-##Packages for Front-end & Dashboard
+<h1 align="center"> Property Listing and Booking Project</h1>
+
+#### Frontend Features: 
+
+- Redux State Management.
+- Authorization Based Protected Routing.
+- Formik From State Management.
+- Yup Frontend Data Validation.
+- Customer Login by Google/Facebook (Firebase Auth).
+- Property Filtering (Location, Property Type and other nasted staff).
+
+#### Backend Features: 
+
+- Subscription based Agent Registration.
+- Agent Add Property based on their Subscription Plan.
+- Admin Agent/Customer Management.
+- Authentication using jsonwebtoken (token Based Routing)
+- Mongoose Object Data Model (MongoDB Driver)
+- Routing Authorization. 
+- Backend Data Vlidation.
+- File Upload and validtion using Multer Middleware.
+- Payment Gateway On Requirment (Initially Added SSL Commerz).
+
+#### `Frontend Packeges` : 
 - npx create-react-app my-app --template cra-template-pwa
 - react-router-dom
 - redux
@@ -16,7 +39,7 @@
 - dropzone-ui
 - recharts
 
-##Packages for Back-end
+#### `Backend Packeges` : 
 - bcrypt
 - colors
 - cookie-parser
@@ -30,6 +53,3 @@
 - mongoose
 - multer
 - sslcommerz-lts
-
-git push --set-upstream origin branchName
-git merge tayab-pabel -m "test"
