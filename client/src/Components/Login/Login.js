@@ -1,12 +1,28 @@
 import { EyeIcon, EyeOffIcon, LockClosedIcon, MailIcon } from '@heroicons/react/outline';
+import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import LoginSchema from '../Schemas/LoginSchema';
 
 
 const Login = () => {
 
   const [show, setShow] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+    },
+    validationSchema: LoginSchema,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+  const { handleChange, handleBlur, handleSubmit, errors, values } = formik;
 
   return (
     <div>
@@ -46,13 +62,19 @@ const Login = () => {
                     id="email"
                     name="email"
                     type="email"
-                    autoComplete="email"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                 </div>
+                {values.email.length !== 0 && errors.email && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.email}</p>
+                )}
               </div>
+
               <div>
                 <label htmlFor="password" className="sr-only">
                   Password
@@ -65,16 +87,22 @@ const Login = () => {
                     id="password"
                     name="password"
                     type={show ? "text" : "password"}
-                    autoComplete="password"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                   <div onClick={() => setShow(!show)} className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
                     {show ? <EyeOffIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" /> : <EyeIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />}
                   </div>
                 </div>
+                {values.password.length !== 0 && errors.password && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.password}</p>
+                )}
               </div>
+              
               <button 
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
               >
