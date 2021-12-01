@@ -7,6 +7,8 @@
 /client/build
 /dashboard/build
 
+node_modules
+
 
 
 /client/npm-debug.log*
