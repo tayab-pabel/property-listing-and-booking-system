@@ -1,11 +1,29 @@
 import { EyeIcon, EyeOffIcon, LocationMarkerIcon, LockClosedIcon, MailIcon, UserIcon } from '@heroicons/react/outline';
+import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import RegistrationSchema from '../Schemas/RegistrationSchema';
 
 const Signup = () => {
 
   const [show, setShow] = useState(false);
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      postCode: '',
+      email: '',
+      password: '',
+    },
+    validationSchema: RegistrationSchema,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+  const { handleChange, handleBlur, handleSubmit, errors, values } = formik;
 
   return (
     <div>
@@ -44,12 +62,17 @@ const Signup = () => {
                     id="firstName"
                     name="firstName"
                     type="text"
-                    autoComplete="firstName "
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="First Name"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.firstName}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                 </div>
+                {values.firstName.length !== 0 && errors.firstName && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.firstName}</p>
+                )}
               </div>
 
               <div>
@@ -64,16 +87,21 @@ const Signup = () => {
                     id="lastName"
                     name="lastName"
                     type="text"
-                    autoComplete="lastName "
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Last Name"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.lastName}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                 </div>
+                {values.lastName.length !== 0 && errors.lastName && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.lastName}</p>
+                )}
               </div>
 
               <div>
-                <label htmlFor="postcode" className="sr-only">
+                <label htmlFor="postCode" className="sr-only">
                   Postcode
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
@@ -81,15 +109,20 @@ const Signup = () => {
                     <LocationMarkerIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />
                   </div>
                   <input
-                    id="postcode"
-                    name="postcode"
+                    id="postCode"
+                    name="postCode"
                     type="text"
-                    autoComplete="postcode"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Postcode"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.postCode}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                 </div>
+                {values.postCode.length !== 0 && errors.postCode && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.postCode}</p>
+                )}
               </div>
 
               <div>
@@ -104,12 +137,17 @@ const Signup = () => {
                     id="email"
                     name="email"
                     type="email"
-                    autoComplete="email"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                 </div>
+                {values.email.length !== 0 && errors.email && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -124,15 +162,20 @@ const Signup = () => {
                     id="password"
                     name="password"
                     type={show ? "text" : "password"}
-                    autoComplete="password"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                   <div onClick={() => setShow(!show)} className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
                     {show ? <EyeOffIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" /> : <EyeIcon className="h-5 w-5 text-blue-dark" aria-hidden="true" />}
                   </div>
                 </div>
+                {values.password.length !== 0 && errors.password && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.password}</p>
+                )}
               </div>
 
               <button

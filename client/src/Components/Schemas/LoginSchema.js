@@ -8,14 +8,14 @@ const LoginSchema = yup.object().shape({
   email: yup
     .string()
     .email('Enter a vaid email.')
-    .required('Email is required.'),
+    .required('Required!'),
 
   password: yup
     .string()
-    .required('Enter your password.')
+    .required('Required!')
     .matches(PasswordRegEx, 'Uppercase, lowercase and, special character are required.')
     .min(8, 'Password should be minimum 8 character.')
-    .max(50, 'Too long.'),
+    .max(50, 'Too long!'),
     
 })
 

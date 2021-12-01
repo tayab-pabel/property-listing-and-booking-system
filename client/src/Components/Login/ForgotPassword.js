@@ -1,9 +1,24 @@
 import { MailIcon } from '@heroicons/react/outline';
+import { useFormik } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import ForgotPasswordSchema from '../Schemas/ForgotPasswordSchema';
 
 const ForgotPassword = () => {
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+    },
+    validationSchema: ForgotPasswordSchema,
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+  const { handleChange, handleBlur, handleSubmit, errors, values } = formik;
+
   return (
     <div>
       <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -38,12 +53,17 @@ const ForgotPassword = () => {
                     id="email"
                     name="email"
                     type="email"
-                    autoComplete="email"
-                    required
-                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
                     placeholder="Email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    className="focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark"
+                    required
                   />
                 </div>
+                {values.email.length !== 0 && errors.email && (
+                  <p className='mt-1 text-xs text-blue-light'>{errors.email}</p>
+                )}
               </div>
 
               <div>
