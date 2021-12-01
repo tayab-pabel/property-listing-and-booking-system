@@ -12,9 +12,8 @@ const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
       email: '',
+      password: '',
     },
     validationSchema: LoginSchema,
     onSubmit: values => {
