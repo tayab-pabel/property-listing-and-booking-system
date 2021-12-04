@@ -1,22 +1,9 @@
 const property = {
   id: '001',
-  postType: [
-    'Basic',
-    'Freatured'
-  ],
-  purpose: [
-    'rent', 
-    'sale'
-  ],
+  postType: ['Basic', 'Freatured'],
+  purpose: ['rent', 'sale'],
   propertType: {
-    residential: [
-      'Apartment',
-      'Plaza',
-      'Plot',
-      'Room',
-      'Duplex',
-      'Building'
-    ],
+    residential: ['Apartment', 'Plaza', 'Plot', 'Room', 'Duplex', 'Building'],
     commercial: [
       'Apartment',
       'Plot',
@@ -27,38 +14,21 @@ const property = {
       'Warehouse',
       'Shop',
       'Factory',
-    ]
+    ],
   },
-  furnishType: [
-    'Furnished', 
-    'Unfurnished'
-  ],
+  furnishType: ['Furnished', 'Unfurnished'],
   postedDate: '01-12-2021',
   availableDate: '01-01-2022',
   name: 'Two bedrooms appertment',
   address: {
     location: 'Dhanmondi',
     city: 'Dhaka',
-    postalCode: '1215'
+    postalCode: '1215',
   },
   size: '1200(sqft)',
   price: '25000(bdt)',
-  beds: [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6+',
-  ],
-  baths: [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6+',
-  ],
+  beds: ['1', '2', '3', '4', '5', '6+'],
+  baths: ['1', '2', '3', '4', '5', '6+'],
   floor: [
     '1',
     '2',
@@ -80,8 +50,10 @@ const property = {
     '19',
     '20',
   ],
-  floorPlanImage: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_FLP_00_0000.png',
-  featuredImage: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_19_0000.jpg',
+  floorPlanImage:
+    'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_FLP_00_0000.png',
+  featuredImage:
+    'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_19_0000.jpg',
   imageGallery: [
     'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_01_0000.jpg',
     'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_02_0000.jpg',
@@ -97,7 +69,7 @@ const property = {
     'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_12_0000.jpg',
     'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_13_0000.jpg',
     'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_14_0000.jpg',
-    'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_15_0000.jpg'
+    'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_15_0000.jpg',
   ],
   featuresAndAmenities: [
     'Reception Area',
@@ -135,19 +107,12 @@ const property = {
     'Training Chair',
     'Storage Cabinet',
     'Maintenance Staff',
-    'Cleaning Service'
+    'Cleaning Service',
   ],
-  businessAndCommunication: [
-    'Intercom',
-    'Broadband',
-    'Satellite or Cable TV'
-  ],
-  security: [
-    'Security Alarm System',
-    'Electronic Security',
-    'CCTV Camera'
-  ],
-  descriptions: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, maiores!',
+  businessAndCommunication: ['Intercom', 'Broadband', 'Satellite or Cable TV'],
+  security: ['Security Alarm System', 'Electronic Security', 'CCTV Camera'],
+  descriptions:
+    'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, maiores!',
   agentInfo: {
     name: 'Amberden Estates',
     phoneNumber: '0123456789',
@@ -155,9 +120,10 @@ const property = {
     address: {
       location: 'Dhanmondi',
       city: 'Dhaka',
-      postalCode: '1215'
+      postalCode: '1215',
     },
-    about: 'Amberden Estates are an independent firm of estate agents specialising in the sale and letting of residential properties.',
-    logoUrl: 'https://media.rightmove.co.uk/company/clogo_32278_0000.jpeg'
-  }
+    about:
+      'Amberden Estates are an independent firm of estate agents specialising in the sale and letting of residential properties.',
+    logoUrl: 'https://media.rightmove.co.uk/company/clogo_32278_0000.jpeg',
+  },
 }
