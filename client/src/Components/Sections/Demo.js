@@ -1,6 +1,4 @@
-import { Menu, Popover, Tab, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/outline'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import { baths, beds, propertTypes, purposes } from '../../Data/Filter'
 import CustomSingleSelectOption from '../Elements/CustomSingleSelectOption'
 import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
@@ -35,7 +33,7 @@ const Demo = () => {
   return (
     <div>
       <div className='bg-gray-100'>
-        <div className='max-w-full mx-auto px-4 sm:px-6 text-center'>
+        <div className='max-w-screen-lg mx-auto px-4 sm:px-6 text-center'>
           <section className='py-6'>
             <div className=''>
               <div className='hidden sm:flex sm:items-baseline sm:space-x-8'>
