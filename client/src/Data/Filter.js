@@ -79,3 +79,18 @@ export let propertTypes = [
     category: 'commercial',
   },
 ]
+
+export let propertyPricing = [
+  {
+    id: 1,
+    purpose: 'Rent',
+    minimum: [],
+    maximum: [],
+  },
+  {
+    id: 2,
+    purpose: 'buy',
+    minimum: [],
+    maximum: [],
+  },
+]

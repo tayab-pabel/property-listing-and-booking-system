@@ -12,7 +12,7 @@ const Demo = () => {
 
   // Property Baths:
   const [selectedBath, setSelectedBaths] = useState(baths[0])
-  
+
   //Property Types:
   const propertyCategoies = propertTypes
     ? [...new Set(propertTypes.map((item) => item.category))]
@@ -29,6 +29,8 @@ const Demo = () => {
         (item) => item.category === selectedPropertyCategory
       )) ||
     []
+
+  // Property Picing:
 
   return (
     <div>
@@ -72,7 +74,6 @@ const Demo = () => {
                       setSelectedCategory={setSelectedPropertyCategory}
                     />
                   </div>
-                  
                 </div>
               </div>
             </div>
