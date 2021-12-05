@@ -10,7 +10,7 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
         <div 
           onClick={() => setShow(!show)} 
           className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-28 min-w-full'>
-          <p className='text-xs font-medium text-blue-dark text-left'>{title}</p>
+          <p className='text-sm font-bold text-blue-dark text-left'>{title}</p>
           <div className='flex justify-between'>
             <p className='text-sm font-medium text-blue-dark'>{option}</p>
             <p className='text-sm font-medium text-blue-dark'>

@@ -12,7 +12,7 @@ const Demo = () => {
 
   // Property Baths:
   const [selectedBath, setSelectedBaths] = useState(baths[0])
-
+  
   //Property Types:
   const propertyCategoies = propertTypes
     ? [...new Set(propertTypes.map((item) => item.category))]
@@ -40,7 +40,7 @@ const Demo = () => {
                 <div className='flex gap-4'>
                   <div className='flex-auto'>
                     <CustomSingleSelectOption
-                      title='PURPOSE'
+                      title='Purpose'
                       data={purposes}
                       option={selectedPurpose}
                       setOption={setSelectedPurpose}
@@ -48,7 +48,7 @@ const Demo = () => {
                   </div>
                   <div className='flex-auto'>
                     <CustomSingleSelectOption
-                      title='BEDS'
+                      title='Beds'
                       data={beds}
                       option={selectedBed}
                       setOption={setSelectedBeds}
@@ -56,7 +56,7 @@ const Demo = () => {
                   </div>
                   <div className='flex-auto'>
                     <CustomSingleSelectOption
-                      title='BATHS'
+                      title='Baths'
                       data={baths}
                       option={selectedBath}
                       setOption={setSelectedBaths}
@@ -72,6 +72,7 @@ const Demo = () => {
                       setSelectedCategory={setSelectedPropertyCategory}
                     />
                   </div>
+                  
                 </div>
               </div>
             </div>

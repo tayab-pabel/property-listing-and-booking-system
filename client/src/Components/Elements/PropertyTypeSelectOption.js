@@ -17,8 +17,8 @@ const PropertyTypeSelectOption = ({
         <div 
           onClick={() => setShow(!show)} 
           className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
-          <p className='text-xs text-left font-medium text-blue-dark w-52'>
-            PROPERTY TYPE
+          <p className='text-sm text-left font-bold text-blue-dark w-52'>
+            Property Type
           </p>
           <div className='flex justify-between'>
             <p className='text-sm font-medium text-blue-dark capitalize'>
@@ -44,16 +44,16 @@ const PropertyTypeSelectOption = ({
         leaveTo='transform opacity-0 scale-95'
       >
         <Menu.Items className='absolute z-10 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 pt-2 pb-4 space-y-1'>
-          <div className='grid grid-cols-2 gap-1 uppercase text-sm text-center mt-2 mb-3'>
+          <div className='grid grid-cols-2 gap-1 capitalize text-sm text-center mt-2 mb-2'>
             {propertyCategories.map((item, index) => (
               <p
                 key={index}
                 onClick={() => setSelectedCategory(item)}
                 className={`${
                   item === selectedCategory
-                    ? 'border-b-2 border-blue-light text-blue-dark'
+                    ? 'border border-blue-light rounded-lg text-blue-dark'
                     : 'text-blue-dark'
-                } cursor-pointer font-medium`}
+                } cursor-pointer font-bold p-1 border-opacity-50`}
               >
                 {item}
               </p>
