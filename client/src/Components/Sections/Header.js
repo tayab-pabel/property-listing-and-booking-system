@@ -57,10 +57,10 @@ const Header = () => {
           <Link to="/search" className="text-base font-medium text-blue-dark">
             For Sale
           </Link>
-          <Link to="#" className="text-base font-medium text-blue-dark">
+          <Link to="/search" className="text-base font-medium text-blue-dark">
             To Rent
           </Link>
-          <Link to="#" className="text-base font-medium text-blue-dark">
+          <Link to="/search" className="text-base font-medium text-blue-dark">
             New Homes
           </Link>
           <Link to="/find-agent" className="text-base font-medium text-blue-dark">
