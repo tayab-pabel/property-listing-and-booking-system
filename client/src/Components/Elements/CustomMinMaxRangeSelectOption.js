@@ -78,7 +78,7 @@ const CustomMinMaxRangeSelectOption = ({
                             item === selectedMinimumValue
                               ? 'bg-blue-light text-white'
                               : active && 'bg-gray-100 text-blue-dark'
-                          } text-center py-2.5 text-sm cursor-pointer`}
+                          } text-center py-2 text-xs font-medium cursor-pointer`}
                         >
                           {item}
                         </div>
@@ -96,7 +96,7 @@ const CustomMinMaxRangeSelectOption = ({
                             item === selectedMaximumValue
                               ? 'bg-blue-light text-white'
                               : active && 'bg-gray-100 text-blue-dark'
-                          } text-center py-2.5 text-sm cursor-pointer`}
+                          } text-center py-2 text-xs font-medium cursor-pointer`}
                         >
                           {item}
                         </div>

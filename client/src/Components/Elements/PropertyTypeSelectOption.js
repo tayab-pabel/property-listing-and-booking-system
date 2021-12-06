@@ -68,7 +68,7 @@ const PropertyTypeSelectOption = ({
                           item.type === selectedProperty
                             ? 'bg-blue-light text-white'
                             : active && 'bg-gray-100 text-blue-dark'
-                        } text-center w-full rounded-lg p-2 text-sm cursor-pointer border`}
+                        } text-center w-full rounded-lg p-2 text-xs font-medium cursor-pointer border`}
                       >
                         {item.type}
                       </p>

@@ -7,4 +7,22 @@
   body {
     font-family: 'DM Sans', sans-serif;
   }
+  /* Works on Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #1B0C75 #f3f4f6;
+  }
+
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #f3f4f6;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #1B0C75;
+  }
 }
