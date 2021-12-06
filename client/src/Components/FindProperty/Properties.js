@@ -151,7 +151,7 @@ const Properties = () => {
     <div className="relative bg-white py-10">
       <div className="max-w-screen-lg mx-auto px-4 sm:px-6">
         <div className="lg:grid lg:grid-cols-2 rounded-lg border border-blue-dark z-10 cursor-pointer">
-          <div>
+          <div className='z-0'>
             <ImageGallery
               items={property[0].imageGallery} 
               showFullscreenButton={false}
