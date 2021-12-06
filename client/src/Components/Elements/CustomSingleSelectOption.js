@@ -8,7 +8,7 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
       {({ open }) => (
         <>
           <Menu.Button>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-28 min-w-full'>
+            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-24 '>
               <p className='text-sm font-bold text-blue-dark text-left'>
                 {title}
               </p>
