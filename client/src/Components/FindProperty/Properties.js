@@ -66,8 +66,8 @@ const Properties = () => {
         thumbnail: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_09_0000.jpg',
       },
       {
-        original: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_10_0000.jpg',
-        thumbnail: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_10_0000.jpg',
+        original: 'https://lid.zoocdn.com/u/1600/1200/add9afffa1283af1895050b8ab2e7b18d0f92c25.jpg:p',
+        thumbnail: 'https://lid.zoocdn.com/u/1600/1200/add9afffa1283af1895050b8ab2e7b18d0f92c25.jpg:p',
       },
       {
         original: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_11_0000.jpg',

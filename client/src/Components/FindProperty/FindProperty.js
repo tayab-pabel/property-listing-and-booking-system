@@ -9,7 +9,7 @@ const FindProperty = () => {
   return (
     <div>
       <Header/>
-      <PropertySearchFilter/>
+      {/* <PropertySearchFilter/> */}
       <Properties/>
       <CallToAction/>
       <Footer/>

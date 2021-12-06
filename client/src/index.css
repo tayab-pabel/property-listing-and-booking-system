@@ -39,4 +39,8 @@
     background: #0047ff !important;
     border: 1px solid #ffffff !important;
   }
+
+  .image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: 100% !important;
+  }
 }
