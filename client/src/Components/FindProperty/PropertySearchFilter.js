@@ -11,7 +11,7 @@ import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
 import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
 import { propertyPricing } from './../../Data/Filter'
 
-const Demo = () => {
+const PropertySearchFilter = () => {
   // Property Purpose:
   const [selectedPurpose, setSelectedPurpose] = useState(purposes[0])
 
@@ -120,4 +120,4 @@ const Demo = () => {
   )
 }
 
-export default Demo
+export default PropertySearchFilter

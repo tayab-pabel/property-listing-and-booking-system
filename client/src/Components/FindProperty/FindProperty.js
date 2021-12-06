@@ -1,20 +1,20 @@
 import React from 'react'
 import Footer from '../Sections/Footer'
 import Header from '../Sections/Header'
-import Agents from './Agents'
 import CallToAction from '../Sections/CallToAction'
-import FindAgentSearchFilter from './FindAgentSearchFilter'
+import PropertySearchFilter from './PropertySearchFilter';
+import Properties from './Properties';
 
-const FindAgent = () => {
+const FindProperty = () => {
   return (
     <div>
       <Header/>
-      <FindAgentSearchFilter/>
-      <Agents/>
+      <PropertySearchFilter/>
+      <Properties/>
       <CallToAction/>
       <Footer/>
     </div>
   );
 };
 
-export default FindAgent;
+export default FindProperty;

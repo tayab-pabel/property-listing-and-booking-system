@@ -54,15 +54,15 @@ const Header = () => {
           </Popover.Button>
         </div>
         <Popover.Group as="nav" className="hidden lg:flex space-x-10">
-          <a href="#" className="text-base font-medium text-blue-dark">
+          <Link to="/search" className="text-base font-medium text-blue-dark">
             For Sale
-          </a>
-          <a href="#" className="text-base font-medium text-blue-dark">
+          </Link>
+          <Link to="#" className="text-base font-medium text-blue-dark">
             To Rent
-          </a>
-          <a href="#" className="text-base font-medium text-blue-dark">
+          </Link>
+          <Link to="#" className="text-base font-medium text-blue-dark">
             New Homes
-          </a>
+          </Link>
           <Link to="/find-agent" className="text-base font-medium text-blue-dark">
             Find Agent
           </Link>

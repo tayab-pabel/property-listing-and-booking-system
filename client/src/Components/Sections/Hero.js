@@ -23,8 +23,8 @@ const Hero = () => {
   return (
     <div className="">
       <div className="relative">
-        <div className="max-w-full mx-auto sm:px-6 lg:px-6">
-          <div className="relative rounded-lg sm:overflow-hidden">
+        <div className="max-w-full">
+          <div className="relative sm:overflow-hidden">
             <div className="absolute inset-0">
               <img
                 className="h-full w-full bg-center object-cover"
