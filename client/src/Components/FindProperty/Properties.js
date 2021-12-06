@@ -155,7 +155,7 @@ const Properties = () => {
             <ImageGallery
               items={property[0].imageGallery} 
               showFullscreenButton={false}
-              showNav={false}
+              
               showThumbnails={false}
               showPlayButton={false}
               useBrowserFullscreen={false}
@@ -182,7 +182,7 @@ const Properties = () => {
               </div>
               <div className='flex flex-wrap content-center ml-3 h-8'>
                 <span>
-                  <svg class="w-5 fill-current text-blue-dark" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23222'><path d='M2 14c0-.5.5-1 1-1h18c.5 0 1 .5 1 1s-.5 1-1 1H3a1 1 0 01-1-1z'/>
+                  <svg className="w-5 fill-current text-blue-dark" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23222'><path d='M2 14c0-.5.5-1 1-1h18c.5 0 1 .5 1 1s-.5 1-1 1H3a1 1 0 01-1-1z'/>
                     <path d='M3 13h18v4.4a1.6 1.6 0 01-1.6 1.6H4.7A1.6 1.6 0 013 17.4V13zm3 6h2v1.4a.6.6 0 01-.5.6h-1a.6.6 0 01-.5-.6zm10 0h2v1.4a.6.6 0 01-.5.6h-1a.6.6 0 01-.5-.6zM5.8 4.7l2.6-1.5a.6.6 0 01.7.2l.7 1.3-3.4 2-.8-1.3a.6.6 0 01.2-.7z'/>
                     <path d='M2.5 13.5V4.8A2.5 2.5 0 014.8 2a2.6 2.6 0 01.4 0c2.9 0 3 1.6 3 1.7a11 11 0 01-.6 1s-.9.5-1 0S6 4 5.4 4s-.9.4-.9 1.2v8.3z'/>
                   </svg>
@@ -191,7 +191,7 @@ const Properties = () => {
               </div>
               <div className='flex flex-wrap content-center ml-3 h-8'>
                 <span className=''>
-                  <svg class="w-5 fill-current text-blue-dark" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23222'><path d='M20.1 3H3.9a.9.9 0 00-.9.9v16.2a.9.9 0 00.9.9h16.2a.9.9 0 00.9-.9V3.9a.9.9 0 00-.9-.9zm-.9 8.1h-6.3V4.8h6.3zm-8.1-6.3v6.3H4.8V4.8zm-6.3 8.1h6.3v6.3H4.8zm8.1 6.3v-6.3h6.3v6.3z'/></svg>
+                  <svg className="w-5 fill-current text-blue-dark" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23222'><path d='M20.1 3H3.9a.9.9 0 00-.9.9v16.2a.9.9 0 00.9.9h16.2a.9.9 0 00.9-.9V3.9a.9.9 0 00-.9-.9zm-.9 8.1h-6.3V4.8h6.3zm-8.1-6.3v6.3H4.8V4.8zm-6.3 8.1h6.3v6.3H4.8zm8.1 6.3v-6.3h6.3v6.3z'/></svg>
                 </span>
                 <p className='text-sm text-blue-dark ml-1 font-medium'>{property[0].size} Sqft</p>
               </div>
