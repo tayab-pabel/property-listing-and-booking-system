@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CallToAction = () => {
     return (
-        <div className="bg-blue-soft mx-0 sm:mx-6 py-16 px-8 sm:py-20 sm:px-6 lg:px-6 sm:rounded-lg">
+        <div className="bg-blue-soft py-16 px-8 sm:py-20 sm:px-6 lg:px-6">
             <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl font-bold text-blue-dark">
                     Property Market for real estate agents and housebuilders.
