@@ -1,4 +1,4 @@
-const property = {
+const property = [{
   id: '001',
   postType: ['Basic', 'Freatured'],
   purpose: ['rent', 'sale'],
@@ -126,4 +126,4 @@ const property = {
       'Amberden Estates are an independent firm of estate agents specialising in the sale and letting of residential properties.',
     logoUrl: 'https://media.rightmove.co.uk/company/clogo_32278_0000.jpeg',
   },
-}
+}]

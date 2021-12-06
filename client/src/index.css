@@ -5,12 +5,12 @@
 
 @layer base {
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
   }
   /* Works on Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #1B0C75 #f3f4f6;
+    scrollbar-color: #1b0c75 #f3f4f6;
   }
 
   /* Works on Chrome, Edge, and Safari */
@@ -23,6 +23,20 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #1B0C75;
+    background-color: #1b0c75;
+  }
+
+  .image-gallery-bullets .image-gallery-bullet.active {
+    transform: scale(1.2);
+  }
+
+  .image-gallery-bullets .image-gallery-bullet {
+    padding: 4px !important;
+  }
+
+  .image-gallery-bullets .image-gallery-bullet:hover,
+  .image-gallery-bullets .image-gallery-bullet.active {
+    background: #0047ff !important;
+    border: 1px solid #ffffff !important;
   }
 }
