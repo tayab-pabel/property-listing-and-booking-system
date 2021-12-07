@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import AgentForgotPassword from './Components/AgentLogin/AgentForgotPassword'
 import AgentLogin from './Components/AgentLogin/AgentLogin'
 import AgentSignup from './Components/AgentLogin/AgentSignup'
+import AgentDetails from './Components/FindAgent/AgentDetails'
 import FindAgent from './Components/FindAgent/FindAgent'
 import FindProperty from './Components/FindProperty/FindProperty'
 import Home from './Components/Home/Home'
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route path='/find-agent'>
           <FindAgent />
+        </Route>
+        <Route path='/agent-details'>
+          <AgentDetails />
         </Route>
       </Switch>
     </Router>
