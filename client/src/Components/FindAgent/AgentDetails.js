@@ -341,7 +341,7 @@ const AgentDetails = () => {
                           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                               <div className="overflow-hidden border border-blue-dark shadow rounded-lg">
-                                <table className="min-w-full divide-y divide-gray-200">
+                                <table className="min-w-full divide-y divide-blue-dark">
                                   <thead className="bg-gray-100">
                                     <tr>
                                       <th
@@ -370,9 +370,9 @@ const AgentDetails = () => {
                                       </th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    {agent.property.map((property, propertyIdx) => (
-                                      <tr key={property.email} className={propertyIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                                  <tbody className="bg-white divide-y divide-blue-dark">
+                                    {agent.property.map((property) => (
+                                      <tr key={property.email}>
                                         <td className="p-3 text-xs font-medium text-blue-dark">{property.title}</td>
                                         <td className="p-3 text-xs font-medium text-center text-blue-dark">{property.totalProperty}</td>
                                         <td className="p-3 text-xs font-medium text-center text-blue-dark">{property.avgAskingPrice}</td>
