@@ -462,7 +462,7 @@ const AgentDetails = () => {
                             Photos
                           </h2>
                           <img 
-                            className="w-full"
+                            className="w-full shadow rounded-lg"
                             src= {agent.about.photos[0]}
                             alt="Agent Logo" 
                           />
