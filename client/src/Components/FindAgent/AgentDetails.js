@@ -4,7 +4,6 @@ import { Tab } from '@headlessui/react'
 import Footer from '../Sections/Footer'
 import Header from '../Sections/Header'
 import AgentContact from '../Sections/AgentContact'
-import { CalendarIcon, UsersIcon } from '@heroicons/react/solid'
 
 const AgentDetails = () => {
 
@@ -205,9 +204,9 @@ const AgentDetails = () => {
           <div className="">
             <div className="mx-auto py-6 px-4 sm:py-10 sm:px-6 lg:max-w-7xl lg:px-8">
              
-              <div className="lg:grid lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-10">
+              <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-10 xl:gap-x-10">
 
-                <div className="lg:col-span-4">
+                <div className="lg:col-span-8">
                   <div className="">
                     <img 
                       className="w-28"
@@ -505,7 +504,7 @@ const AgentDetails = () => {
                 </div>
                 </div>
 
-                <div className="lg:col-span-3 mt-10 lg:mt-0">
+                <div className="lg:col-span-4 mt-10 lg:mt-0">
                   <AgentContact/>
                 </div>
 

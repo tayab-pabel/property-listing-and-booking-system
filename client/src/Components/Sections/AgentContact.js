@@ -5,7 +5,7 @@ const AgentContact = () => {
     <div className="p-5 bg-white border border-blue-dark rounded-lg shadow">
       <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
         <h3 className="text-lg font-bold tracking-tight text-blue-dark">
-          Contact Us for more information
+          Contact Us
         </h3>
                             
         <form action="#" method="POST" className="mt-5 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">

@@ -6,6 +6,7 @@ import AgentSignup from './Components/AgentLogin/AgentSignup'
 import AgentDetails from './Components/FindAgent/AgentDetails'
 import FindAgent from './Components/FindAgent/FindAgent'
 import FindProperty from './Components/FindProperty/FindProperty'
+import PropertyDetails from './Components/FindProperty/PropertyDetails'
 import Home from './Components/Home/Home'
 import ForgotPassword from './Components/Login/ForgotPassword'
 import Login from './Components/Login/Login'
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route path='/search'>
           <FindProperty />
+        </Route>
+        <Route path='/property-details'>
+          <PropertyDetails />
         </Route>
         <Route path='/find-agent'>
           <FindAgent />
