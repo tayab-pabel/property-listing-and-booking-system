@@ -3,6 +3,8 @@ import AgentContact from '../Sections/AgentContact';
 import Footer from '../Sections/Footer';
 import Header from '../Sections/Header';
 import ImageGallery from 'react-image-gallery';
+import { Link } from 'react-router-dom';
+import { PhoneIcon } from '@heroicons/react/outline';
 
 const PropertyDetails = () => {
 
@@ -165,6 +167,32 @@ const PropertyDetails = () => {
                 </div>
               </div>
               <div className="lg:col-span-4">
+                <div className="p-5 mb-5 bg-white border border-blue-dark rounded-lg shadow">
+                  <img
+                    className="w-28"
+                    src= {property[0].agentInfo.logoUrl}
+                    alt="Agent Logo"
+                  />
+                  <div className="mt-2">
+                    <Link to='/agent-details' className="text-xl font-bold text-blue-dark hover:text-blue-light">
+                      {property[0].agentInfo.name}
+                    </Link>
+                  </div>
+                  <div>
+                    <Link to='/' className="text-base font-medium text-blue-light">
+                      See Agent Properties
+                    </Link>
+                  </div>
+                  <div className="mt-1 flex items-center">
+                    <PhoneIcon
+                      className="flex-shrink-0 mr-1.5 h-5 w-5 text-blue-light"
+                      aria-hidden="true"
+                    />
+                    <p className="text-sm text-blue-dark capitalize">
+                      {property[0].agentInfo.phoneNumber}
+                    </p>
+                  </div>
+                </div>
                 <AgentContact/>
               </div>
             </div>
