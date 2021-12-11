@@ -365,7 +365,7 @@ const AgentDetails = () => {
                                         scope="col"
                                         className="p-3 text-left text-xs font-bold text-blue-dark"
                                       >
-                                        Avg. listing age
+                                        Avg. listing time
                                       </th>
                                     </tr>
                                   </thead>

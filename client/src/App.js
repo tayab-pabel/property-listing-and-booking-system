@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AgentDashboard from './Components/AgentDashboard/AgentDashboard'
 import AgentForgotPassword from './Components/AgentLogin/AgentForgotPassword'
 import AgentLogin from './Components/AgentLogin/AgentLogin'
 import AgentSignup from './Components/AgentLogin/AgentSignup'
@@ -11,6 +12,7 @@ import Home from './Components/Home/Home'
 import ForgotPassword from './Components/Login/ForgotPassword'
 import Login from './Components/Login/Login'
 import Signup from './Components/Login/Signup'
+import Test from './Components/Sections/Test'
 import Dashboard from './Components/UserDashboard/Dashboard'
 
 function App() {
@@ -31,6 +33,9 @@ function App() {
         </Route>
         <Route path='/account'>
           <Dashboard />
+        </Route>
+        <Route path='/agent-account'>
+          <AgentDashboard />
         </Route>
         <Route path='/agent-login'>
           <AgentLogin />
