@@ -4,6 +4,7 @@ import AgentSidebar from './AgentSidebar'
 import AgentProfile from './AgentProfile'
 import { useLocation } from 'react-router-dom'
 import AgentOverview from './AgentOverview'
+import AddProperty from './AddProperty'
 
 const AgentDashboard = () => {
   const location = useLocation()
@@ -15,6 +16,8 @@ const AgentDashboard = () => {
         return <AgentOverview />
       case 'profile':
         return <AgentProfile />
+      case 'addProperty':
+        return <AddProperty />
       default:
         return <AgentOverview />
     }

@@ -26,6 +26,11 @@ const AgentSidebar = ({ redirect }) => {
       path: 'profile',
       icon: UserIcon,
     },
+    {
+      name: 'Add Property',
+      path: 'addProperty',
+      icon: HomeIcon,
+    },
   ]
 
   function classNames(...classes) {

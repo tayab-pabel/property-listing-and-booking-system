@@ -3,19 +3,6 @@ import React, { useState, Fragment } from 'react'
 
 const AgentProfile = () => {
 
-  const user = {
-    name: 'Chelsea Hagon',
-    userType: 'I am a first-time buyer',
-    username: 'chelsea.hagon',
-    email: 'chelseahagon@gmail.com',
-    phoneNumber: '0123456789',
-    location: 'Dhanmondi, Dhaka',
-    postalCode: '1215',
-    about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  }
-
   const agent = {
     role: 'Agent',
     agentType: 'Residential and Commercial Agent',
@@ -410,7 +397,7 @@ const AgentProfile = () => {
 
               {!edit.email ? (
               <div className=''>
-                <p className='text-blue-dark'>{user.email}</p>
+                <p className='text-blue-dark'>{agent.email}</p>
               </div>
               ) : (
 
