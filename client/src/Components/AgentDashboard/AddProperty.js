@@ -285,7 +285,7 @@ const AddProperty = () => {
                 />
               </div>
             </div>  
-            <div className='sm:col-span-3'>
+            <div className='sm:col-span-6'>
               <label
                 htmlFor='floor-plan'
                 className='block font-medium text-blue-dark '
@@ -293,7 +293,7 @@ const AddProperty = () => {
                 Floor Plan
               </label>
               <div className="mt-1">
-                <div className="max-w-xs flex justify-center px-6 pt-5 pb-6 border-2 border-blue-dark border-dashed rounded-md">
+                <div className="w-44 flex justify-center px-6 pt-5 pb-6 border border-blue-dark rounded-lg">
                   <div className="space-y-1 text-center">
                     <svg
                       className="mx-auto h-12 w-12 text-blue-dark"
@@ -312,18 +312,18 @@ const AddProperty = () => {
                     <div className="flex text-sm text-blue-dark">
                       <label
                         htmlFor="file-upload"
-                        className="relative cursor-pointer bg-white rounded-md font-medium text-blue-light hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                        className="relative mx-auto cursor-pointer bg-white rounded-md font-medium text-blue-light hover:text-blue-light focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-light"
                       >
-                        <span>Upload a file</span>
+                        <span>Upload floor plan</span>
                         <input id="file-upload" name="file-upload" type="file" multiple className="sr-only" />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
                     </div>
-                    <p className="text-xs text-blue-dark">PNG, JPG up to 10MB</p>
+                    <p className="text-xs text-blue-dark">PNG, JPG up to 5MB</p>
                   </div>
                 </div>
               </div>
-            </div>  
+            </div>
+             
           </div>
           <div className="pt-4 flex justify-end">
             <button
