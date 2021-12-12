@@ -114,6 +114,7 @@ export let propertyPricing = [
       '500,000',
     ],
     maximum: [
+      'Any',
       '10,000',
       '20,000',
       '30,000',
@@ -190,6 +191,7 @@ export let propertyPricing = [
       '20,500,000',
     ],
     maximum: [
+      'Any',
       '500,000',
       '1,000,000',
       '1,500,000',

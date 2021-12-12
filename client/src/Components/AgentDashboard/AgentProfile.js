@@ -1,19 +1,80 @@
 import { Tab } from '@headlessui/react'
 import React, { useState, Fragment } from 'react'
 
-const Profile = () => {
+const AgentProfile = () => {
 
-  const user = {
-    name: 'Chelsea Hagon',
-    userType: 'I am a first-time buyer',
-    username: 'chelsea.hagon',
-    email: 'chelseahagon@gmail.com',
-    phoneNumber: '0123456789',
-    location: 'Dhanmondi, Dhaka',
-    postalCode: '1215',
-    about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  const agent = {
+    role: 'Agent',
+    agentType: 'Residential and Commercial Agent',
+    name: 'Benham and Reeves',
+    branch: 'Hampstead',
+    email: 'info@benhams.com',
+    phoneNumber: '+44 20 3463 7502',
+    logoUrl:
+      'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
+    address: {
+      location: 'Dhanmondi R/A',
+      city: 'Dhaka',
+      postalCode: '1209',
+      map:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14608.614033009866!2d90.37326543776177!3d23.741904695242088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf4d3068e8a1%3A0xcbebaedd39043ca6!2sUniversity%20of%20Development%20Alternative!5e0!3m2!1sen!2sbd!4v1638872109573!5m2!1sen!2sbd'
+    },
+    overview: 'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St John’s Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
+    about: {
+      photos: [
+        'https://st.zoocdn.com/zpg_agent_static_agent_profile_images_(62759558).jpg',
+        'https://st.zoocdn.com/zpg_agent_static_agent_profile_images_(62759558).jpg',
+      ],
+      teamMembers: [
+        {
+          id: '01',
+          name: 'Dele Lawal Marla',
+          phoneNumber: '123456789',
+          email: 'dele@benhams.com',
+          designation: 'Manager',
+          avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          id: '02',
+          name: 'Dele Lawal Marla',
+          phoneNumber: '123456789',
+          email: 'dele@benhams.com',
+          designation: 'Manager',
+          avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          id: '03',
+          name: 'Dele Lawal Marla',
+          phoneNumber: '123456789',
+          email: 'dele@benhams.com',
+          designation: 'Manager',
+          avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          id: '04',
+          name: 'Dele Lawal Marla',
+          phoneNumber: '123456789',
+          email: 'dele@benhams.com',
+          designation: 'Manager',
+          avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        }
+      ]
+    },
+    property: [
+      { 
+        purpose: 'Sale', 
+        title: 'Property For Sale', 
+        totalProperty: '50',
+        avgAskingPrice: '5,00,000',
+        avgListingTime: '20',
+      },
+      { 
+        purpose: 'Rent', 
+        title: 'Property For Rent', 
+        totalProperty: '70',
+        avgAskingPrice: '40,000',
+        avgListingTime: '10',
+      },
+    ]
   }
 
   const [edit, setEdit] = useState({
@@ -50,7 +111,7 @@ const Profile = () => {
                     )
                   }
                 >
-                  Personal Information
+                  Profile Information
                 </Tab>
                 <Tab
                   className={({ selected }) =>
@@ -104,35 +165,35 @@ const Profile = () => {
                     <div className='sm:col-span-3'>
                       <div className='flex items-center'>
                         <img
-                          className='inline-block h-12 w-12 rounded-full'
-                          src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80'
+                          className='inline-block w-32'
+                          src={agent.logoUrl}
                           alt=''
                         />
                       </div>
                     </div>
                     <div className='sm:col-span-3'>
                       <p className='block font-medium text-blue-dark'>Name</p>
-                      <p className='mt-1 text-blue-dark'>{user.name}</p>
+                      <p className='mt-1 text-blue-dark'>{agent.name}</p>
                     </div>
                     <div className='sm:col-span-3'>
-                      <p className='block font-medium text-blue-dark'>User Type</p>
-                      <p className='mt-1 text-blue-dark'>{user.userType}</p>
+                      <p className='block font-medium text-blue-dark'>Agent Type</p>
+                      <p className='mt-1 text-blue-dark'>{agent.agentType}</p>
                     </div>
                     <div className='sm:col-span-3'>
                       <p className='block font-medium text-blue-dark'>Phone Number</p>
-                      <p className='mt-1 text-blue-dark'>{user.phoneNumber}</p>
+                      <p className='mt-1 text-blue-dark'>{agent.phoneNumber}</p>
                     </div>
                     <div className='sm:col-span-3'>
                       <p className='block font-medium text-blue-dark'>Location</p>
-                      <p className='mt-1 text-blue-dark'>{user.location}</p>
+                      <p className='mt-1 text-blue-dark'>{agent.address.location}</p>
                     </div>
                     <div className='sm:col-span-3'>
                       <p className='block font-medium text-blue-dark'>Postal Code</p>
-                      <p className='mt-1 text-blue-dark'>{user.postalCode}</p>
+                      <p className='mt-1 text-blue-dark'>{agent.address.postalCode}</p>
                     </div>
                     <div className='sm:col-span-6'>
-                      <p className='block font-medium text-blue-dark'>About Me</p>
-                      <p className='mt-1 text-blue-dark'>{user.about}</p>
+                      <p className='block font-medium text-blue-dark'>Overview</p>
+                      <p className='mt-1 text-blue-dark'>{agent.overview}</p>
                     </div>
                   </div>
                 </div>
@@ -151,8 +212,8 @@ const Profile = () => {
                       </label>
                       <div className='mt-1 flex items-center'>
                         <img
-                          className='inline-block h-12 w-12 rounded-full'
-                          src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80'
+                          className='inline-block w-32'
+                          src={agent.logoUrl}
                           alt=''
                         />
                         <div className='ml-4 flex'>
@@ -215,41 +276,23 @@ const Profile = () => {
                         htmlFor='user-type'
                         className='block font-medium text-blue-dark'
                       >
-                        User Type
+                        Agent Type
                       </label>
                       <select
                         id='user-type'
                         name='user-type'
-                        autoComplete='user-type'
                         className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark focus:ring-blue-light focus:border-blue-light'
                       >
                         <option />
                         <option value='first_time_buyer'>
-                          I am a first-time buyer
+                          Residential Agent
                         </option>
                         <option value='buyer_not_first_time'>
-                          I am a buyer (not first-time)
+                          Commercial Agent
                         </option>
                         <option value='property_to_sell'>
-                          I have a property to sell
+                          Residential and Commercial Agent
                         </option>
-                        <option value='property_to_let'>
-                          I have a property to let
-                        </option>
-                        <option value='offer_on_own_property'>
-                          I have an offer on my property
-                        </option>
-                        <option value='recently_sold'>I have recently sold</option>
-                        <option value='looking_to_invest'>
-                          I am an investor/I'm hoping to invest
-                        </option>
-                        <option value='looking_to_rent' selected='selected'>
-                          I am looking to rent
-                        </option>
-                        <option value='curious_having_a_look'>
-                          I am interested in property
-                        </option>
-                        <option value='agent'>I am an agent</option>
                       </select>
                     </div>
                     <div className='sm:col-span-3'>
@@ -302,7 +345,7 @@ const Profile = () => {
                         htmlFor='description'
                         className='block font-medium text-blue-dark'
                       >
-                        About Me
+                        Overview
                       </label>
                       <div className='mt-1'>
                         <textarea
@@ -354,7 +397,7 @@ const Profile = () => {
 
               {!edit.email ? (
               <div className=''>
-                <p className='text-blue-dark'>{user.email}</p>
+                <p className='text-blue-dark'>{agent.email}</p>
               </div>
               ) : (
 
@@ -499,4 +542,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default AgentProfile

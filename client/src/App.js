@@ -1,14 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AgentDashboard from './Components/AgentDashboard/AgentDashboard'
 import AgentForgotPassword from './Components/AgentLogin/AgentForgotPassword'
 import AgentLogin from './Components/AgentLogin/AgentLogin'
 import AgentSignup from './Components/AgentLogin/AgentSignup'
+import AgentDetails from './Components/FindAgent/AgentDetails'
 import FindAgent from './Components/FindAgent/FindAgent'
 import FindProperty from './Components/FindProperty/FindProperty'
+import PropertyDetails from './Components/FindProperty/PropertyDetails'
 import Home from './Components/Home/Home'
 import ForgotPassword from './Components/Login/ForgotPassword'
 import Login from './Components/Login/Login'
 import Signup from './Components/Login/Signup'
+import Test from './Components/Sections/Test'
 import Dashboard from './Components/UserDashboard/Dashboard'
 
 function App() {
@@ -30,6 +34,9 @@ function App() {
         <Route path='/account'>
           <Dashboard />
         </Route>
+        <Route path='/agent-account'>
+          <AgentDashboard />
+        </Route>
         <Route path='/agent-login'>
           <AgentLogin />
         </Route>
@@ -42,8 +49,14 @@ function App() {
         <Route path='/search'>
           <FindProperty />
         </Route>
+        <Route path='/property-details'>
+          <PropertyDetails />
+        </Route>
         <Route path='/find-agent'>
           <FindAgent />
+        </Route>
+        <Route path='/agent-details'>
+          <AgentDetails />
         </Route>
       </Switch>
     </Router>

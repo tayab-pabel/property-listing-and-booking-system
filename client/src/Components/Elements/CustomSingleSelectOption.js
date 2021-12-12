@@ -43,7 +43,7 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
                         item === option
                           ? 'bg-blue-light text-white'
                           : active && 'bg-gray-100'
-                      } text-center rounded-lg w-full p-2 text-sm cursor-pointer border`}
+                      } text-center rounded-lg w-full p-2 text-xs font-medium cursor-pointer border`}
                     >
                       {item}
                     </p>

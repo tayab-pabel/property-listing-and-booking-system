@@ -75,12 +75,13 @@ const Hero = () => {
                         placeholder="Location or Postcode"
                       />
                     </div>
-                    <button
+                    <Link
+                      to="/search"
                       type="button"
                       className="space-x-2 whitespace-nowrap inline-flex items-center justify-center p-3 m-1 border border-transparent rounded-lg font-medium text-white bg-blue-light"
                     >
                       <SearchIcon className="h-5 w-5 text-white" aria-hidden="true"></SearchIcon>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
