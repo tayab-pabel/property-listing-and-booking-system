@@ -6,6 +6,7 @@
 /server/node_modules
 /client/build
 /dashboard/build
+/server/mockData/Data.js
 
 node_modules
 
@@ -22,3 +23,5 @@ node_modules
 /server/npm-debug.log*
 /server/yarn-debug.log*
 /server/yarn-error.log*
+
+/asset

@@ -6,10 +6,17 @@ const peopleSchema = mongoose.Schema(
   {
     name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, lowercase: true },
-    mobile: { type: String, trim: true, required: true },
+    phoneNumber: { type: String, trim: true, required: true },
     password: { type: String, required: true },
     avatar: String,
-    role: { type: String, enum: ['user', 'admin'], default: 'user' },
+    role: { type: String, enum: ['user', 'agent', 'admin'], default: 'user' },
+    address: {
+      location: String,
+      city: String,
+      postCode: String,
+      country: String,
+      about: String,
+    },
   },
   { timestamps: true }
 )
