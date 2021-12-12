@@ -2,19 +2,17 @@
 const mongoose = require('mongoose')
 
 // User Schema:
-const peopleSchema = mongoose.Schema(
+const branchSchema = mongoose.Schema(
   {
-    name: { type: String, trim: true, required: true },
-    email: { type: String, trim: true, lowercase: true },
-    phoneNumber: { type: String, trim: true, required: true },
-    password: { type: String, required: true },
-    avatar: String,
-    role: {
-      type: String,
-      enum: ['user', 'marchand', 'admin'],
-      default: 'user',
+    marchand: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Marchand',
     },
-    address: {
+    branchName: { type: String, trim: true, required: true },
+    branchEmail: { type: String, trim: true, lowercase: true },
+    branchPhoneNumber: { type: String, trim: true, required: true },
+    branchAddress: {
       addressLine1: { type: String, trim: true, required: true },
       addressLine2: { type: String, trim: true, required: true },
       city: { type: String, trim: true, required: true },
@@ -25,12 +23,14 @@ const peopleSchema = mongoose.Schema(
         lng: { type: Number, default: 0 },
       },
     },
+    branchDescription: { type: String, trim: true, required: true },
+    branchFeaturedImage: { type: String, trim: true },
   },
   { timestamps: true }
 )
 
 // Make User Model:
-const People = mongoose.model('People', peopleSchema)
+const Branch = mongoose.model('Branch', branchSchema)
 
 // Export Module:
-module.exports = People
+module.exports = Branch
