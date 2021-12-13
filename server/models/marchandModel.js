@@ -32,7 +32,6 @@ const marchandSchema = mongoose.Schema(
     },
     marchandWebsite: String,
     marchandDescription: { type: String, trim: true, required: true },
-    marchandFeaturedImage: { type: String, trim: true },
     marchandPeriod: { type: String, trim: true, required: true },
     marchandPeriodDuration: { type: String, trim: true, required: true },
     marchandPeriodStart: { type: Date, default: Date.now },

@@ -25,6 +25,15 @@ const branchSchema = mongoose.Schema(
     },
     branchDescription: { type: String, trim: true, required: true },
     branchFeaturedImage: { type: String, trim: true },
+    branchTeamMembers: [
+      {
+        name: { type: String, trim: true, required: true },
+        avatar: { type: String, trim: true, required: true },
+        designation: { type: String, trim: true, required: true },
+        email: { type: String, trim: true, lowercase: true },
+        phone: { type: String, trim: true },
+      },
+    ],
   },
   { timestamps: true }
 )
