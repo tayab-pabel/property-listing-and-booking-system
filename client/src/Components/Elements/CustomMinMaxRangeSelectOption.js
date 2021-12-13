@@ -12,11 +12,11 @@ const CustomMinMaxRangeSelectOption = ({
   setMaximumValue,
 }) => {
   return (
-    <Menu as='div' className='relative inline-block text-left w-full'>
+    <Menu as='div' className='relative'>
       {({ open }) => (
         <>
-          <Menu.Button>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-56'>
+          <Menu.Button as='div'>
+            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
               <p className='text-sm text-left font-bold text-blue-dark'>
                 {title}
               </p>

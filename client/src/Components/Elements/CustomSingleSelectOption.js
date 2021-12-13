@@ -2,13 +2,19 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
 import { Fragment } from 'react'
 
-const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
+const CustomSingleSelectOption = ({
+  title,
+  data,
+  option,
+  setOption,
+  optionQuantifier = '',
+}) => {
   return (
-    <Menu as='div' className='relative inline-block text-left'>
+    <Menu as='div' className='relative'>
       {({ open }) => (
         <>
-          <Menu.Button>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-24 '>
+          <Menu.Button as='div'>
+            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
               <p className='text-sm font-bold text-blue-dark text-left'>
                 {title}
               </p>
@@ -37,7 +43,7 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
               {data.map((item, index) => (
                 <Menu.Item key={index}>
                   {({ active }) => (
-                    <p
+                    <div
                       onClick={() => setOption(item)}
                       className={`${
                         item === option
@@ -45,8 +51,15 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
                           : active && 'bg-gray-100'
                       } text-center rounded-lg w-full p-2 text-xs font-medium cursor-pointer border`}
                     >
-                      {item}
-                    </p>
+                      {optionQuantifier ? (
+                        <p className='space-x-2'>
+                          <span>{item}</span>
+                          <span>{optionQuantifier}</span>
+                        </p>
+                      ) : (
+                        item
+                      )}
+                    </div>
                   )}
                 </Menu.Item>
               ))}

@@ -1,6 +1,7 @@
 export const purposes = ['Rent', 'Buy']
 export const beds = [1, 2, 3, 4]
 export const baths = [1, 2, 3, 4]
+export const locationRadious = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 export let propertTypes = [
   {

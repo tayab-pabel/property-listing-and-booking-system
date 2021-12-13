@@ -11,11 +11,11 @@ const PropertyTypeSelectOption = ({
   setSelectedCategory,
 }) => {
   return (
-    <Menu as='div' className='relative inline-block text-left'>
+    <Menu as='div' className='relative text-left'>
       {({ open }) => (
         <>
-          <Menu.Button>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-56'>
+          <Menu.Button as='div'>
+            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-full'>
               <p className='text-sm text-left font-bold text-blue-dark'>
                 Property Type
               </p>
