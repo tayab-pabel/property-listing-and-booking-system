@@ -11,7 +11,7 @@ const PropertyTypeSelectOption = ({
   setSelectedCategory,
 }) => {
   return (
-    <Menu as='div' className='relative text-left'>
+    <Menu as='div' className='relative text-left cursor-pointer'>
       {({ open }) => (
         <>
           <Menu.Button as='div'>
@@ -42,7 +42,7 @@ const PropertyTypeSelectOption = ({
             leaveFrom='transform opacity-100 scale-100'
             leaveTo='transform opacity-0 scale-95'
           >
-            <Menu.Items className='absolute z-10 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 pt-2 pb-4 space-y-1'>
+            <Menu.Items className='absolute z-20 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 pt-2 pb-4 space-y-1'>
               <div className='grid grid-cols-2 gap-1 capitalize text-sm text-center mt-2 mb-2'>
                 {propertyCategories.map((item, index) => (
                   <p

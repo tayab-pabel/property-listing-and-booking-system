@@ -10,7 +10,7 @@ const CustomSingleSelectOption = ({
   optionQuantifier = '',
 }) => {
   return (
-    <Menu as='div' className='relative'>
+    <Menu as='div' className='relative cursor-pointer'>
       {({ open }) => (
         <>
           <Menu.Button as='div'>
@@ -39,7 +39,7 @@ const CustomSingleSelectOption = ({
             leaveFrom='transform opacity-100 scale-100'
             leaveTo='transform opacity-0 scale-95'
           >
-            <Menu.Items className='absolute z-10 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 py-2 space-y-1'>
+            <Menu.Items className='absolute z-20 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 py-2 space-y-1'>
               {data.map((item, index) => (
                 <Menu.Item key={index}>
                   {({ active }) => (

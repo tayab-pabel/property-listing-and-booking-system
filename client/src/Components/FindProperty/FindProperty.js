@@ -1,20 +1,12 @@
 import React from 'react'
-import Footer from '../Sections/Footer'
-import Header from '../Sections/Header'
-import CallToAction from '../Sections/CallToAction'
-import PropertySearchFilter from './PropertySearchFilter';
-import Properties from './Properties';
+import PropertySearchFilter from './PropertySearchFilter'
 
 const FindProperty = () => {
   return (
     <div>
-      <Header/>
-      <PropertySearchFilter/>
-      <Properties/>
-      <CallToAction/>
-      <Footer/>
+      <PropertySearchFilter />
     </div>
-  );
-};
+  )
+}
 
-export default FindProperty;
+export default FindProperty

@@ -5,7 +5,7 @@ import React, { Fragment, useState } from 'react'
 const CustomDoubleSelectOption = ({ title, data, option, setOption }) => {
   const [show, setShow] = useState(false)
   return (
-    <Menu as='div' className='relative inline-block text-left'>
+    <Menu as='div' className='relative inline-block text-left cursor-pointer'>
       <Menu.Button>
         <div
           onClick={() => setShow(!show)}

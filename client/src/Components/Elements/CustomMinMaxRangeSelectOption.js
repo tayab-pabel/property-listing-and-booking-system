@@ -12,7 +12,7 @@ const CustomMinMaxRangeSelectOption = ({
   setMaximumValue,
 }) => {
   return (
-    <Menu as='div' className='relative'>
+    <Menu as='div' className='relative cursor-pointer'>
       {({ open }) => (
         <>
           <Menu.Button as='div'>
