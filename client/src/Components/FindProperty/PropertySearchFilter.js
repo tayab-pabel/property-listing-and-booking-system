@@ -2,7 +2,8 @@ import { useState } from 'react'
 import {
   baths,
   beds,
-  locationRadious,
+  postAddedTime,
+  locationRadius,
   propertTypes,
   propertyArea,
   purposes,
@@ -21,10 +22,13 @@ const PropertySearchFilter = () => {
   const [searchKeyword, setSearchKeyword] = useState('')
 
   // Property Search Radious:
-  const [searchRadious, setSearchRadious] = useState(locationRadious[0])
+  const [searchRadius, setSearchRadius] = useState(locationRadius[0])
 
   // Property Purpose:
   const [selectedPurpose, setSelectedPurpose] = useState(purposes[0])
+
+  // Property Added to site
+  const [selectedPostAddedTime, setSelectedPostAddedTime] = useState(postAddedTime[0])
 
   // Property BEDS:
   const [selectedBed, setSelectedBeds] = useState(beds[0])
@@ -66,8 +70,8 @@ const PropertySearchFilter = () => {
       <div className='bg-gray-100'>
         <div className='max-w-screen-lg mx-auto sm:px-6'>
           <section className='py-6'>
-            <div className='grid grid-cols-10 grid-rows-2 gap-2'>
-              <div className='purpose col-span-1'>
+            <div className='grid grid-cols-12 grid-rows-2 gap-2'>
+              <div className='purpose col-span-2'>
                 <CustomSingleSelectOption
                   title='Purpose'
                   data={purposes}
@@ -75,11 +79,19 @@ const PropertySearchFilter = () => {
                   setOption={setSelectedPurpose}
                 />
               </div>
-              <div className='location col-span-3'>
+              <div className='location col-span-4'>
                 <CustomInput
                   title='Location'
                   data={propertyLocation}
                   setData={setPropertyLocation}
+                />
+              </div>
+              <div className='radius col-span-2'>
+                <CustomSingleSelectOption
+                  title='Search Radius'
+                  data={locationRadius}
+                  option={searchRadius}
+                  setOption={setSearchRadius}
                 />
               </div>
               <div className='PropertyType col-span-3'>
@@ -90,6 +102,22 @@ const PropertySearchFilter = () => {
                   propertyCategories={propertyCategoies}
                   selectedCategory={selectedPropertyCategory}
                   setSelectedCategory={setSelectedPropertyCategory}
+                />
+              </div>
+              <div className='beds col-span-1'>
+                <CustomSingleSelectOption
+                  title='Beds'
+                  data={beds}
+                  option={selectedBed}
+                  setOption={setSelectedBeds}
+                />
+              </div>
+              <div className='baths col-span-1'>
+                <CustomSingleSelectOption
+                  title='Baths'
+                  data={baths}
+                  option={selectedBath}
+                  setOption={setSelectedBaths}
                 />
               </div>
               <div className='Price col-span-3'>
@@ -103,14 +131,6 @@ const PropertySearchFilter = () => {
                   setMaximumValue={setPropertyMaximumPrice}
                 />
               </div>
-              <div className='beds col-span-1'>
-                <CustomSingleSelectOption
-                  title='Beds'
-                  data={beds}
-                  option={selectedBed}
-                  setOption={setSelectedBeds}
-                />
-              </div>
               <div className='area col-span-3'>
                 <CustomMinMaxRangeSelectOption
                   title='Area (Sqft)'
@@ -122,14 +142,6 @@ const PropertySearchFilter = () => {
                   setMaximumValue={setPropertyMaximumArea}
                 />
               </div>
-              <div className='baths col-span-1'>
-                <CustomSingleSelectOption
-                  title='Baths'
-                  data={baths}
-                  option={selectedBath}
-                  setOption={setSelectedBaths}
-                />
-              </div>
               <div className='keyword col-span-3'>
                 <CustomInput
                   title='Keyword'
@@ -137,13 +149,12 @@ const PropertySearchFilter = () => {
                   setData={setSearchKeyword}
                 />
               </div>
-              <div className='radious col-span-2'>
+              <div className='PostAddedTime col-span-2'>
                 <CustomSingleSelectOption
-                  title='Search Radious'
-                  data={locationRadious}
-                  option={searchRadious}
-                  setOption={setSearchRadious}
-                  optionQuantifier='km'
+                  title='Added To Site'
+                  data={postAddedTime}
+                  option={selectedPostAddedTime}
+                  setOption={setSelectedPostAddedTime}
                 />
               </div>
             </div>
