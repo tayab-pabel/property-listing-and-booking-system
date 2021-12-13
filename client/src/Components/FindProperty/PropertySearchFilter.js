@@ -81,7 +81,7 @@ const PropertySearchFilter = () => {
       <div className='bg-gray-100'>
         <div className='max-w-screen-lg mx-auto px-4 md:px-6'>
           {/* Dextop Filter */}
-          <section className='py-6 hidden md:block'>
+          <section className='py-6 hidden lg:block'>
             <div className='grid grid-cols-12 grid-rows-2 gap-2'>
               <div className='purpose col-span-2'>
                 <CustomSingleSelectOption
@@ -172,7 +172,7 @@ const PropertySearchFilter = () => {
             </div>
           </section>
           {/* Mobile Filter */}
-          <section className=' md:hidden py-4'>
+          <section className='lg:hidden py-4'>
             <div>
               <button
                 onClick={toggleDrawer}

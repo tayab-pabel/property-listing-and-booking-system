@@ -14,19 +14,40 @@ const CustomSingleSelectOption = ({
       {({ open }) => (
         <>
           <Menu.Button as='div'>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
-              <p className='text-sm font-bold text-blue-dark text-left'>
+            {/* Large Device */}
+            <div className='hidden lg:block'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+                <p className='text-sm font-bold text-blue-dark text-left'>
+                  {title}
+                </p>
+                <div className='flex justify-between'>
+                  <p className='text-sm font-medium text-blue-dark'>{option}</p>
+                  <p className='text-sm font-medium text-blue-dark'>
+                    {open ? (
+                      <ChevronUpIcon className='w-5 h-5' />
+                    ) : (
+                      <ChevronDownIcon className='w-5 h-5' />
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Small Device */}
+            <div className='lg:hidden'>
+              <p className='text-sm font-bold text-blue-dark text-left mb-1'>
                 {title}
               </p>
-              <div className='flex justify-between'>
-                <p className='text-sm font-medium text-blue-dark'>{option}</p>
-                <p className='text-sm font-medium text-blue-dark'>
-                  {open ? (
-                    <ChevronUpIcon className='w-5 h-5' />
-                  ) : (
-                    <ChevronDownIcon className='w-5 h-5' />
-                  )}
-                </p>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+                <div className='flex justify-between'>
+                  <p className='text-sm font-medium text-blue-dark'>{option}</p>
+                  <p className='text-sm font-medium text-blue-dark'>
+                    {open ? (
+                      <ChevronUpIcon className='w-5 h-5' />
+                    ) : (
+                      <ChevronDownIcon className='w-5 h-5' />
+                    )}
+                  </p>
+                </div>
               </div>
             </div>
           </Menu.Button>

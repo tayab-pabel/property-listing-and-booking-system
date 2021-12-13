@@ -16,28 +16,59 @@ const CustomMinMaxRangeSelectOption = ({
       {({ open }) => (
         <>
           <Menu.Button as='div'>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
-              <p className='text-sm text-left font-bold text-blue-dark'>
+            {/* Large Device */}
+            <div className='hidden lg:block'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+                <p className='text-sm text-left font-bold text-blue-dark'>
+                  {title}
+                </p>
+                <div className='grid grid-cols-2 gap-3'>
+                  <div className='flex justify-between'>
+                    <p className='text-sm font-medium text-blue-dark capitalize'>
+                      {selectedMinimumValue || 0}
+                    </p>
+                    <p className='text-sm font-medium text-blue-dark'>to</p>
+                  </div>
+                  <div className='flex justify-between'>
+                    <p className='text-sm font-medium text-blue-dark capitalize'>
+                      {selectedMaximumValue || 'Any'}
+                    </p>
+                    <p className='text-sm font-medium text-blue-dark'>
+                      {open ? (
+                        <ChevronUpIcon className='w-5 h-5' />
+                      ) : (
+                        <ChevronDownIcon className='w-5 h-5' />
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Small Device */}
+            <div className='lg:hidden'>
+              <p className='text-sm text-left font-bold text-blue-dark mb-1'>
                 {title}
               </p>
-              <div className='grid grid-cols-2 gap-3'>
-                <div className='flex justify-between'>
-                  <p className='text-sm font-medium text-blue-dark capitalize'>
-                    {selectedMinimumValue || 0}
-                  </p>
-                  <p className='text-sm font-medium text-blue-dark'>to</p>
-                </div>
-                <div className='flex justify-between'>
-                  <p className='text-sm font-medium text-blue-dark capitalize'>
-                    {selectedMaximumValue || 'Any'}
-                  </p>
-                  <p className='text-sm font-medium text-blue-dark'>
-                    {open ? (
-                      <ChevronUpIcon className='w-5 h-5' />
-                    ) : (
-                      <ChevronDownIcon className='w-5 h-5' />
-                    )}
-                  </p>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+                <div className='grid grid-cols-2 gap-3'>
+                  <div className='flex justify-between'>
+                    <p className='text-sm font-medium text-blue-dark capitalize'>
+                      {selectedMinimumValue || 0}
+                    </p>
+                    <p className='text-sm font-medium text-blue-dark'>to</p>
+                  </div>
+                  <div className='flex justify-between'>
+                    <p className='text-sm font-medium text-blue-dark capitalize'>
+                      {selectedMaximumValue || 'Any'}
+                    </p>
+                    <p className='text-sm font-medium text-blue-dark'>
+                      {open ? (
+                        <ChevronUpIcon className='w-5 h-5' />
+                      ) : (
+                        <ChevronDownIcon className='w-5 h-5' />
+                      )}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
