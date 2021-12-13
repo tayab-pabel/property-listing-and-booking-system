@@ -27,7 +27,7 @@ const PropertySearchFilter = () => {
   // Property Search Keyword:
   const [searchKeyword, setSearchKeyword] = useState('')
 
-  // Property Search Radious:
+  // Property Search Radius:
   const [searchRadius, setSearchRadius] = useState(locationRadius[0])
 
   // Property Purpose:
@@ -272,9 +272,9 @@ const PropertySearchFilter = () => {
             <div className='radious col-span-2'>
               <CustomSingleSelectOption
                 title='Search Radious'
-                data={locationRadious}
-                option={searchRadious}
-                setOption={setSearchRadious}
+                data={locationRadius}
+                option={searchRadius}
+                setOption={setSearchRadius}
                 optionQuantifier='km'
               />
             </div>
