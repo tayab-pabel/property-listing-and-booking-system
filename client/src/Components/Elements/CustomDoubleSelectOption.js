@@ -1,24 +1,25 @@
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline';
-import React, { Fragment, useState } from 'react';
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
+import React, { Fragment, useState } from 'react'
 
 const CustomDoubleSelectOption = ({ title, data, option, setOption }) => {
   const [show, setShow] = useState(false)
   return (
     <Menu as='div' className='relative inline-block text-left'>
       <Menu.Button>
-        <div 
-          onClick={() => setShow(!show)} 
-          className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-28 min-w-full'>
+        <div
+          onClick={() => setShow(!show)}
+          className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-full'
+        >
           <p className='text-sm font-bold text-blue-dark text-left'>{title}</p>
           <div className='flex justify-between'>
             <p className='text-sm font-medium text-blue-dark'>{option}</p>
             <p className='text-sm font-medium text-blue-dark'>
-                {show ? (
-                  <ChevronUpIcon className='w-5 h-5' />
-                  ) : (
-                  <ChevronDownIcon className='w-5 h-5' />
-                )}
+              {show ? (
+                <ChevronUpIcon className='w-5 h-5' />
+              ) : (
+                <ChevronDownIcon className='w-5 h-5' />
+              )}
             </p>
           </div>
         </div>
@@ -70,7 +71,7 @@ const CustomDoubleSelectOption = ({ title, data, option, setOption }) => {
         </Menu.Items>
       </Transition>
     </Menu>
-  );
-};
+  )
+}
 
-export default CustomDoubleSelectOption;
+export default CustomDoubleSelectOption
