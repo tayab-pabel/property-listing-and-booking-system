@@ -18,7 +18,7 @@ const CustomMinMaxRangeSelectOption = ({
           <Menu.Button as='div'>
             {/* Large Device */}
             <div className='hidden lg:block'>
-              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
                 <p className='text-sm text-left font-bold text-blue-dark'>
                   {title}
                 </p>
@@ -49,7 +49,7 @@ const CustomMinMaxRangeSelectOption = ({
               <p className='text-sm text-left font-bold text-blue-dark mb-1'>
                 {title}
               </p>
-              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
                 <div className='grid grid-cols-2 gap-3'>
                   <div className='flex justify-between'>
                     <p className='text-sm font-medium text-blue-dark capitalize'>
@@ -84,7 +84,7 @@ const CustomMinMaxRangeSelectOption = ({
           >
             <Menu.Items
               as='div'
-              className='absolute z-10 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 py-2 overflow-hidden'
+              className='absolute z-10 w-full mt-1 origin-top-right bg-white rounded-lg shadow-2xl border border-blue-dark px-4 py-2 overflow-hidden'
             >
               <div className='grid grid-cols-2 gap-1 capitalize text-sm text-center mb-2'>
                 <p

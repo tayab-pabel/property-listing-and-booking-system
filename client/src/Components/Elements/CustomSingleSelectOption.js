@@ -10,13 +10,13 @@ const CustomSingleSelectOption = ({
   optionQuantifier = '',
 }) => {
   return (
-    <Menu as='div' className='relative cursor-pointer'>
+    <Menu as='div' className='relative cursor-pointer '>
       {({ open }) => (
         <>
           <Menu.Button as='div'>
             {/* Large Device */}
             <div className='hidden lg:block'>
-              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
                 <p className='text-sm font-bold text-blue-dark text-left'>
                   {title}
                 </p>
@@ -37,7 +37,7 @@ const CustomSingleSelectOption = ({
               <p className='text-sm font-bold text-blue-dark text-left mb-1'>
                 {title}
               </p>
-              <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
                 <div className='flex justify-between'>
                   <p className='text-sm font-medium text-blue-dark'>{option}</p>
                   <p className='text-sm font-medium text-blue-dark'>
@@ -60,7 +60,7 @@ const CustomSingleSelectOption = ({
             leaveFrom='transform opacity-100 scale-100'
             leaveTo='transform opacity-0 scale-95'
           >
-            <Menu.Items className='absolute z-20 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 py-2 space-y-1'>
+            <Menu.Items className='absolute z-20 w-full mt-1 origin-top-right bg-white rounded-lg shadow-2xl border border-blue-dark px-4 py-2 space-y-1'>
               {data.map((item, index) => (
                 <Menu.Item key={index}>
                   {({ active }) => (
@@ -84,13 +84,6 @@ const CustomSingleSelectOption = ({
                   )}
                 </Menu.Item>
               ))}
-              {/* <Menu.Item>
-            <div className='text-center'>
-              <span className='bg-blue-dark text-white text-xs cursor-pointer rounded px-2'>
-                close
-              </span>
-            </div>
-          </Menu.Item> */}
             </Menu.Items>
           </Transition>
         </>

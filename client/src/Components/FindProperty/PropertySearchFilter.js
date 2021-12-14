@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {
   baths,
   beds,
+  sort,
   postAddedTime,
   locationRadius,
   propertTypes,
@@ -13,7 +14,7 @@ import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
 import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
 import { propertyPricing } from './../../Data/Filter'
 import CustomInput from '../Elements/CustomInput'
-import { FilterIcon } from '@heroicons/react/outline'
+import { FilterIcon, SearchCircleIcon, ServerIcon, StarIcon } from '@heroicons/react/outline'
 import Header from './../Sections/Header'
 import Properties from './Properties'
 import CallToAction from './../Sections/CallToAction'
@@ -41,6 +42,9 @@ const PropertySearchFilter = () => {
 
   // Property Baths:
   const [selectedBath, setSelectedBaths] = useState(baths[0])
+
+  // Property Sort:
+  const [selectedSort, setSelectedSort] = useState(sort[0])
 
   //Property Types:
   const propertyCategoies = propertTypes
@@ -91,7 +95,7 @@ const PropertySearchFilter = () => {
                   setOption={setSelectedPurpose}
                 />
               </div>
-              <div className='location col-span-4'>
+              <div className='location col-span-3'>
                 <CustomInput
                   title='Location'
                   data={propertyLocation}
@@ -161,7 +165,7 @@ const PropertySearchFilter = () => {
                   setData={setSearchKeyword}
                 />
               </div>
-              <div className='PostAddedTime col-span-2'>
+              <div className='PostAddedTime col-span-3'>
                 <CustomSingleSelectOption
                   title='Added To Site'
                   data={postAddedTime}
@@ -186,6 +190,27 @@ const PropertySearchFilter = () => {
               </button>
             </div>
           </section>
+        </div>
+      </div>
+      <div className='bg-white max-w-screen-lg mx-auto px-4 pt-2 md:px-6'>
+        <div className='flex justify-between'>
+          <div className='sort'>
+            <CustomSingleSelectOption
+              title='Sort'
+              data={sort}
+              option={selectedSort}
+              setOption={setSelectedSort}
+            />
+          </div>
+          <div>
+            <button
+              type='button'
+              className='flex mt-2 w-full px-4 py-2 border bg-blue-light border-blue-light text-white font-medium rounded-lg text-sm shadow'
+            >
+              <StarIcon className="h-5 w-5 mr-1.5"></StarIcon>
+              <span aria-hidden='true'>Save Search</span>
+            </button>
+          </div>
         </div>
       </div>
       <Properties />
