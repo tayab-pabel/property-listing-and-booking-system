@@ -192,14 +192,38 @@ const PropertySearchFilter = () => {
       <CallToAction />
       <Footer />
       {/* Filter Drawer For mobile Devices */}
-      <section className='md:hidden'>
+      <section className='lg:hidden'>
         <CustomDrawer
           showDrawer={isDrawerOpen}
           drawerHandler={toggleDrawer}
-          title='Filter Property'
+          title='Filter'
         >
-          <div className='grid grid-cols-3 grid-rows-5 gap-2'>
-            <div className='PropertyType col-span-3'>
+          <div className='grid grid-cols-4 grid-rows-5 gap-2'>
+            <div className='purpose col-span-4'>
+              <CustomSingleSelectOption
+                title='Purpose'
+                data={purposes}
+                option={selectedPurpose}
+                setOption={setSelectedPurpose}
+              />
+            </div>
+            <div className='location col-span-4'>
+              <CustomInput
+                title='Location'
+                data={propertyLocation}
+                setData={setPropertyLocation}
+              />
+            </div>
+            <div className='radious col-span-4'>
+              <CustomSingleSelectOption
+                title='Search Radious'
+                data={locationRadius}
+                option={searchRadius}
+                setOption={setSearchRadius}
+                optionQuantifier='km'
+              />
+            </div>
+            <div className='PropertyType col-span-4'>
               <PropertyTypeSelectOption
                 propertyTypes={selectedPropertyTypes}
                 selectedProperty={selectedProperty}
@@ -209,22 +233,23 @@ const PropertySearchFilter = () => {
                 setSelectedCategory={setSelectedPropertyCategory}
               />
             </div>
-            <div className='purpose col-span-1'>
+            <div className='beds col-span-2'>
               <CustomSingleSelectOption
-                title='Purpose'
-                data={purposes}
-                option={selectedPurpose}
-                setOption={setSelectedPurpose}
+                title='Beds'
+                data={beds}
+                option={selectedBed}
+                setOption={setSelectedBeds}
               />
             </div>
-            <div className='location col-span-2'>
-              <CustomInput
-                title='Location'
-                data={propertyLocation}
-                setData={setPropertyLocation}
+            <div className='baths col-span-2'>
+              <CustomSingleSelectOption
+                title='Baths'
+                data={baths}
+                option={selectedBath}
+                setOption={setSelectedBaths}
               />
             </div>
-            <div className='area col-span-3'>
+            <div className='area col-span-4'>
               <CustomMinMaxRangeSelectOption
                 title='Area (Sqft)'
                 mimimumRangeArray={propertyMinimumAreas}
@@ -235,7 +260,7 @@ const PropertySearchFilter = () => {
                 setMaximumValue={setPropertyMaximumArea}
               />
             </div>
-            <div className='Price col-span-3'>
+            <div className='Price col-span-4'>
               <CustomMinMaxRangeSelectOption
                 title='Price (BDT)'
                 mimimumRangeArray={minimumPrices}
@@ -246,36 +271,11 @@ const PropertySearchFilter = () => {
                 setMaximumValue={setPropertyMaximumPrice}
               />
             </div>
-            <div className='beds col-span-1'>
-              <CustomSingleSelectOption
-                title='Beds'
-                data={beds}
-                option={selectedBed}
-                setOption={setSelectedBeds}
-              />
-            </div>
-            <div className='keyword col-span-2'>
+            <div className='keyword col-span-4'>
               <CustomInput
                 title='Keyword'
                 data={searchKeyword}
                 setData={setSearchKeyword}
-              />
-            </div>
-            <div className='baths col-span-1'>
-              <CustomSingleSelectOption
-                title='Baths'
-                data={baths}
-                option={selectedBath}
-                setOption={setSelectedBaths}
-              />
-            </div>
-            <div className='radious col-span-2'>
-              <CustomSingleSelectOption
-                title='Search Radious'
-                data={locationRadius}
-                option={searchRadius}
-                setOption={setSearchRadius}
-                optionQuantifier='km'
               />
             </div>
           </div>
