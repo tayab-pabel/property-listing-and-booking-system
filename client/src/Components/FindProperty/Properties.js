@@ -1,7 +1,6 @@
 import { HeartIcon, MailIcon, PhoneIcon, LocationMarkerIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ImageGallery from 'react-image-gallery';
 
 const Properties = () => {
   
@@ -27,7 +26,7 @@ const Properties = () => {
     floorPlanImage:
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_FLP_00_0000.png',
     featuredImage:
-      'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_19_0000.jpg',
+      'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_01_0000.jpg',
     imageGallery: [
       {
         original: 'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_01_0000.jpg',
@@ -150,19 +149,16 @@ const Properties = () => {
   return (
     <div className="relative bg-white py-10">
       <div className="max-w-screen-lg mx-auto px-4 sm:px-6">
-        <div className="lg:grid lg:grid-cols-2 border border-blue-dark z-10 cursor-pointer">
-          <div className='z-0'>
-            <ImageGallery
-              items={property[0].imageGallery} 
-              showFullscreenButton={false}
-              
-              showThumbnails={false}
-              showPlayButton={false}
-              useBrowserFullscreen={false}
-              showBullets={true}
+      <Link to="property-details">
+        <div className="lg:grid lg:grid-cols-2 rounded-lg shadow border border-blue-dark z-50 cursor-pointer">
+          <div className=''>
+            <img 
+              className="w-full sm:rounded-t-lg lg:rounded-l-lg lg:rounded-none"
+              src= {property[0].featuredImage}
+              alt="" 
             />
           </div>
-          <Link to="property-details" className='p-5'>
+          <div className='p-5'>
             <span className="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs bg-blue-light rounded-full">
               {property[0].propertType}
             </span>
@@ -248,9 +244,11 @@ const Properties = () => {
               <p className='text-xs text-blue-dark'>Posted on {property[0].postedDate}</p>
             </div>
 
-          </Link>
+          </div>
         </div>
+        </Link>
       </div>
+      
     </div>
   );
 };

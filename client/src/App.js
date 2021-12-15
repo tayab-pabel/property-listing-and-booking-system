@@ -12,7 +12,6 @@ import Home from './Components/Home/Home'
 import ForgotPassword from './Components/Login/ForgotPassword'
 import Login from './Components/Login/Login'
 import Signup from './Components/Login/Signup'
-import Test from './Components/Sections/Test'
 import Dashboard from './Components/UserDashboard/Dashboard'
 
 function App() {

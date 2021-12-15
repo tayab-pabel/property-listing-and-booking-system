@@ -5,6 +5,7 @@ import AgentProfile from './AgentProfile'
 import { useLocation } from 'react-router-dom'
 import AgentOverview from './AgentOverview'
 import AddProperty from './AddProperty'
+import AgentPlans from './AgentPlans'
 
 const AgentDashboard = () => {
   const location = useLocation()
@@ -18,6 +19,8 @@ const AgentDashboard = () => {
         return <AgentProfile />
       case 'addProperty':
         return <AddProperty />
+      case 'plans':
+        return <AgentPlans />
       default:
         return <AgentOverview />
     }
