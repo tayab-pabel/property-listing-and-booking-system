@@ -1,7 +1,9 @@
 export const purposes = ['Rent', 'Buy']
-export const beds = [1, 2, 3, 4]
-export const baths = [1, 2, 3, 4]
-
+export const beds = ['Any', '1', '2', '3', '4', '5', '6+']
+export const baths = ['Any', '1', '2', '3', '4', '5', '6+']
+export const locationRadius = ['This area only', '1 KM', '2 KM', '3 KM', '5 KM', '8 KM', '10 KM', '12 KM', '15 KM', '20 KM', '25 KM', '30 KM']
+export const postAddedTime = ['Anytime', 'Last 24 hours', 'Last 3 days', 'Last 7 days', 'Last 14 days', 'Last 30 days',]
+export const sort = ['Most recent', 'Most popular', 'Highest price', 'Lowest price']
 export let propertTypes = [
   {
     id: 1,

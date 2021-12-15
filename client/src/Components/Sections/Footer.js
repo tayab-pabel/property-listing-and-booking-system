@@ -108,7 +108,7 @@ const Footer = () => {
                     <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
                         <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
-                                <h3 className="text-base font-medium text-blue-dark tracking-wider">Search</h3>
+                                <h3 className="text-base font-medium text-blue-dark">Search</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.search.map((item) => (
                                         <li key={item.name}>
@@ -120,7 +120,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div className="mt-12 md:mt-0">
-                                <h3 className="text-base font-medium text-blue-dark tracking-wider">Locations</h3>
+                                <h3 className="text-base font-medium text-blue-dark">Locations</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.locations.map((item) => (
                                         <li key={item.name}>
@@ -134,7 +134,7 @@ const Footer = () => {
                         </div>
                         <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
-                                <h3 className="text-base font-medium text-blue-dark tracking-wider">Quick Links</h3>
+                                <h3 className="text-base font-medium text-blue-dark">Quick Links</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.quickLinks.map((item) => (
                                         <li key={item.name}>
@@ -146,7 +146,7 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div className="mt-12 md:mt-0">
-                                <h3 className="text-base font-medium text-blue-dark tracking-wider">About</h3>
+                                <h3 className="text-base font-medium text-blue-dark">About</h3>
                                 <ul role="list" className="mt-4 space-y-4">
                                     {navigation.about.map((item) => (
                                         <li key={item.name}>

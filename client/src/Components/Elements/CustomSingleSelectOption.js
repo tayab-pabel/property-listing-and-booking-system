@@ -2,25 +2,52 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
 import { Fragment } from 'react'
 
-const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
+const CustomSingleSelectOption = ({
+  title,
+  data,
+  option,
+  setOption,
+  optionQuantifier = '',
+}) => {
   return (
-    <Menu as='div' className='relative inline-block text-left'>
+    <Menu as='div' className='relative cursor-pointer '>
       {({ open }) => (
         <>
-          <Menu.Button>
-            <div className='bg-white px-4 py-2 rounded-lg space-y-2 ring-1 ring-blue-dark ring-opacity-50 w-24 '>
-              <p className='text-sm font-bold text-blue-dark text-left'>
+          <Menu.Button as='div'>
+            {/* Large Device */}
+            <div className='hidden lg:block'>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
+                <p className='text-sm font-bold text-blue-dark text-left'>
+                  {title}
+                </p>
+                <div className='flex justify-between'>
+                  <p className='text-sm font-medium text-blue-dark'>{option}</p>
+                  <p className='text-sm font-medium text-blue-dark'>
+                    {open ? (
+                      <ChevronUpIcon className='w-5 h-5' />
+                    ) : (
+                      <ChevronDownIcon className='w-5 h-5' />
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Small Device */}
+            <div className='lg:hidden'>
+              <p className='text-sm font-bold text-blue-dark text-left mb-1'>
                 {title}
               </p>
-              <div className='flex justify-between'>
-                <p className='text-sm font-medium text-blue-dark'>{option}</p>
-                <p className='text-sm font-medium text-blue-dark'>
-                  {open ? (
-                    <ChevronUpIcon className='w-5 h-5' />
-                  ) : (
-                    <ChevronDownIcon className='w-5 h-5' />
-                  )}
-                </p>
+              <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
+                <div className='flex justify-between'>
+                  <p className='text-sm font-medium text-blue-dark'>{option}</p>
+                  <p className='text-sm font-medium text-blue-dark'>
+                    {open ? (
+                      <ChevronUpIcon className='w-5 h-5' />
+                    ) : (
+                      <ChevronDownIcon className='w-5 h-5' />
+                    )}
+                  </p>
+                </div>
               </div>
             </div>
           </Menu.Button>
@@ -33,11 +60,11 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
             leaveFrom='transform opacity-100 scale-100'
             leaveTo='transform opacity-0 scale-95'
           >
-            <Menu.Items className='absolute z-10 w-full mt-1 origin-top-right bg-white rounded-lg shadow-sm ring-1 ring-blue-dark ring-opacity-50 focus:outline-none px-4 py-2 space-y-1'>
+            <Menu.Items className='absolute z-20 w-full mt-1 origin-top-right bg-white rounded-lg shadow-2xl border border-blue-dark px-4 py-2 space-y-1'>
               {data.map((item, index) => (
                 <Menu.Item key={index}>
                   {({ active }) => (
-                    <p
+                    <div
                       onClick={() => setOption(item)}
                       className={`${
                         item === option
@@ -45,18 +72,18 @@ const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
                           : active && 'bg-gray-100'
                       } text-center rounded-lg w-full p-2 text-xs font-medium cursor-pointer border`}
                     >
-                      {item}
-                    </p>
+                      {optionQuantifier ? (
+                        <p className='space-x-2'>
+                          <span>{item}</span>
+                          <span>{optionQuantifier}</span>
+                        </p>
+                      ) : (
+                        item
+                      )}
+                    </div>
                   )}
                 </Menu.Item>
               ))}
-              {/* <Menu.Item>
-            <div className='text-center'>
-              <span className='bg-blue-dark text-white text-xs cursor-pointer rounded px-2'>
-                close
-              </span>
-            </div>
-          </Menu.Item> */}
             </Menu.Items>
           </Transition>
         </>

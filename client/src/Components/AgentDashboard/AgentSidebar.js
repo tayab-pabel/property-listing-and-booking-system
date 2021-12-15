@@ -1,5 +1,6 @@
 import {
   BellIcon,
+  CurrencyDollarIcon,
   HeartIcon,
   HomeIcon,
   UserIcon,
@@ -30,6 +31,11 @@ const AgentSidebar = ({ redirect }) => {
       name: 'Add Property',
       path: 'addProperty',
       icon: HomeIcon,
+    },
+    {
+      name: 'Plans',
+      path: 'plans',
+      icon: CurrencyDollarIcon,
     },
   ]
 
