@@ -4,6 +4,7 @@ require('dotenv').config()
 
 // Internal Module
 const mongoConnection = require('../config/db')
+const Property = require('../models/PropertyModel')
 const People = require('../models/userModel')
 const { defaultUsers } = require('./mockData')
 
@@ -15,6 +16,7 @@ const importData = async () => {
   try {
     await People.deleteMany()
     const createUser = await People.insertMany(defaultUsers)
+    const createProperty = await Property.insertMany(demoProperties)
     console.log(
       'Default Test User Data Successfully Inserted !'.magenta.inverse
     )
@@ -29,6 +31,7 @@ const importData = async () => {
 const destroyData = async () => {
   try {
     await People.deleteMany()
+    await Property.deleteMany()
     console.log(`Default Test User Data Successfully Destroyed !`.magenta.bold)
     process.exit()
   } catch (error) {
