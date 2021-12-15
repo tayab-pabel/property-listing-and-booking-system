@@ -4,16 +4,16 @@ const mongoose = require('mongoose')
 // User Schema:
 const PropertySchema = mongoose.Schema(
   {
-    branch: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Branch',
-    },
-    marchand: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Marchand',
-    },
+    // branch: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: 'Branch',
+    // },
+    // marchand: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: 'Marchand',
+    // },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
     purpose: { type: String, enum: ['sale', 'rent'], default: 'rent' },
     propertyCategory: {
@@ -42,7 +42,7 @@ const PropertySchema = mongoose.Schema(
     propertyTitle: { type: String, required: true },
     propertyAddress: {
       addressLine1: { type: String, trim: true, required: true },
-      addressLine2: { type: String, trim: true, required: true },
+      addressLine2: { type: String, trim: true },
       city: { type: String, trim: true, required: true },
       country: { type: String, trim: true, required: true },
       postCode: { type: String, trim: true, required: true },
@@ -92,8 +92,9 @@ const PropertySchema = mongoose.Schema(
       staffRoom: { type: Boolean, default: false },
       servantRoom: { type: Boolean, default: false },
     },
-    propertyImages: [{ type: String, trim: true, required: true }],
     propertyFeaturedImage: { type: String, trim: true },
+    propertyFloorPlanImage: { type: String, trim: true },
+    propertyImages: [{ type: String, trim: true, required: true }],
   },
   { timestamps: true }
 )

@@ -14,7 +14,7 @@ const branchSchema = mongoose.Schema(
     branchPhoneNumber: { type: String, trim: true, required: true },
     branchAddress: {
       addressLine1: { type: String, trim: true, required: true },
-      addressLine2: { type: String, trim: true, required: true },
+      addressLine2: { type: String, trim: true },
       city: { type: String, trim: true, required: true },
       postCode: { type: String, trim: true, required: true },
       country: { type: String, trim: true, required: true },

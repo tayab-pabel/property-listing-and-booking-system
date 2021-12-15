@@ -14,17 +14,17 @@ const peopleSchema = mongoose.Schema(
       enum: ['user', 'marchand', 'admin'],
       default: 'user',
     },
-    address: {
-      addressLine1: { type: String, trim: true, required: true },
-      addressLine2: { type: String, trim: true, required: true },
-      city: { type: String, trim: true, required: true },
-      postCode: { type: String, trim: true, required: true },
-      country: { type: String, trim: true, required: true },
-      coordinates: {
-        lat: { type: Number, default: 0 },
-        lng: { type: Number, default: 0 },
-      },
-    },
+    // address: {
+    //   addressLine1: { type: String, trim: true, required: true },
+    //   addressLine2: { type: String, trim: true, required: true },
+    //   city: { type: String, trim: true, required: true },
+    //   postCode: { type: String, trim: true, required: true },
+    //   country: { type: String, trim: true, required: true },
+    //   coordinates: {
+    //     lat: { type: Number, default: 0 },
+    //     lng: { type: Number, default: 0 },
+    //   },
+    // },
   },
   { timestamps: true }
 )
