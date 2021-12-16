@@ -1,25 +1,21 @@
-import { useState } from 'react'
+import { FilterIcon, StarIcon } from '@heroicons/react/outline'
+import React, { useState } from 'react'
 import {
   baths,
-  beds,
-  sort,
-  postAddedTime,
-  locationRadius,
-  propertTypes,
+  beds, locationRadius, postAddedTime, propertTypes,
   propertyArea,
-  purposes,
+  purposes, sort
 } from '../../Data/Filter'
+import CustomDrawer from '../Elements/CustomDrawer'
+import CustomInput from '../Elements/CustomInput'
+import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
 import CustomSingleSelectOption from '../Elements/CustomSingleSelectOption'
 import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
-import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
 import { propertyPricing } from './../../Data/Filter'
-import CustomInput from '../Elements/CustomInput'
-import { FilterIcon, SearchCircleIcon, ServerIcon, StarIcon } from '@heroicons/react/outline'
-import Header from './../Sections/Header'
-import Properties from './Properties'
 import CallToAction from './../Sections/CallToAction'
 import Footer from './../Sections/Footer'
-import CustomDrawer from '../Elements/CustomDrawer'
+import Header from './../Sections/Header'
+import Properties from './Properties'
 
 const PropertySearchFilter = () => {
   // Property Location:

@@ -5,7 +5,7 @@ import {
   OfficeBuildingIcon, UserIcon,
   XIcon
 } from '@heroicons/react/outline'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 

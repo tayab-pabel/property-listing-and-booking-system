@@ -1,5 +1,5 @@
-import { Fragment } from 'react'
-import { CheckIcon, MinusIcon } from '@heroicons/react/solid'
+import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
+import React, { Fragment } from 'react';
 
 const AgentPlans = () => {
 
