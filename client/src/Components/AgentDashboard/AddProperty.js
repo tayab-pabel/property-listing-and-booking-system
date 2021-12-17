@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import BasicInformation from './AddPropertySetps/BasicInformation';
+import Features from './AddPropertySetps/Features';
+import Photos from './AddPropertySetps/Photos';
 
 const AddProperty = () => {
+
+  const [step, setStep] = useState(1)
+
+  function goNextStep() {
+    setStep((step) => step + 1)
+  }
+
   return (
     <div className='px-4 sm:px-6 py-6 xl:py-6 bg-white xl:shadow lg:rounded-lg'>
       <nav aria-label="Progress">
@@ -58,280 +69,29 @@ const AddProperty = () => {
       </nav>
       <div className='mt-10'>
         <form className='space-y-8 divide-y divide-y-blue-gray-200'>
-          <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='post-type'
-                className='block font-medium text-blue-dark'
-              >
-                Post Type
-              </label>
-              <select
-                id='post-type'
-                name='post-type'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark focus:ring-blue-light focus:border-blue-light'
-              >
-                <option selected disabled>Select</option>
-                <option value='Basic'>
-                  Basic
-                </option>
-                <option value='Featured'>
-                  Featured
-                </option>
-              </select>
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='purpose'
-                className='block font-medium text-blue-dark'
-              >
-                Purpose
-              </label>
-              <select
-                id='purpose'
-                name='purpose'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark focus:ring-blue-light focus:border-blue-light'
-              >
-                <option selected disabled>Select</option>
-                <option value='Sale'>
-                  Sale
-                </option>
-                <option value='Rent'>
-                  Rent
-                </option>
-              </select>
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='property-type'
-                className='block font-medium text-blue-dark'
-              >
-                Property Type
-              </label>
-              <select
-                id='property-type'
-                name='property-type'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark focus:ring-blue-light focus:border-blue-light'
-              >
-                
-                <option disabled selected>Select</option>
-                
-                <optgroup label="Residential">
-                  <option value="Apartment">Apartment</option>
-                  <option value="Plaza">Plaza</option>
-                  <option value="Plot">Plot</option>
-                  <option value="Room">Room</option>
-                  <option value="Duplex">Duplex</option>
-                  <option value="Building">Building</option>
-                </optgroup>
-                <optgroup label="Commercial">
-                  <option value="Apartment">Apartment</option>
-                  <option value="Plaza">Plaza</option>
-                  <option value="Plot">Plot</option>
-                  <option value="Room">Room</option>
-                  <option value="Duplex">Duplex</option>
-                  <option value="Building">Building</option>
-                </optgroup>
-              </select>
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='available-date'
-                className='block font-medium text-blue-dark'
-              >
-                Available Date
-              </label>
-              <input
-                type='date'
-                name='available-date'
-                id='available-date'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-6'>
-              <label
-                htmlFor='title'
-                className='block font-medium text-blue-dark'
-              >
-                Title
-              </label>
-              <input
-                type='text'
-                name='title'
-                id='title'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-6'>
-              <label
-                htmlFor='address'
-                className='block font-medium text-blue-dark'
-              >
-                Address
-              </label>
-              <input
-                type='text'
-                name='address'
-                id='address'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='city'
-                className='block font-medium text-blue-dark'
-              >
-                City
-              </label>
-              <input
-                type='text'
-                name='city'
-                id='city'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='postcode'
-                className='block font-medium text-blue-dark'
-              >
-                Postcode
-              </label>
-              <input
-                type='text'
-                name='postcode'
-                id='postcode'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='size'
-                className='block font-medium text-blue-dark'
-              >
-                Size
-              </label>
-              <input
-                type='number'
-                min="1" 
-                max="100000"
-                name='size'
-                id='size'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='price'
-                className='block font-medium text-blue-dark'
-              >
-                Price
-              </label>
-              <input
-                type='number'
-                min="1" 
-                max="100000000"
-                name='price'
-                id='price'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='beds'
-                className='block font-medium text-blue-dark'
-              >
-                Beds
-              </label>
-              <input
-                type='number'
-                min="1" 
-                max="20"
-                name='beds'
-                id='beds'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>
-            <div className='sm:col-span-3'>
-              <label
-                htmlFor='baths'
-                className='block font-medium text-blue-dark'
-              >
-                Baths
-              </label>
-              <input
-                type='number'
-                min="1" 
-                max="20"
-                name='baths'
-                id='baths'
-                className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-              />
-            </div>  
-            <div className='sm:col-span-6'>
-              <label
-                htmlFor='description'
-                className='block font-medium text-blue-dark'
-              >
-                Description
-              </label>
-              <div className='mt-1'>
-                <textarea
-                  id='description'
-                  name='description'
-                  rows={4}
-                  className='block w-full border border-blue-dark rounded-lg sm:text-sm focus:ring-blue-light focus:border-blue-light'
-                  defaultValue={''}
-                />
-              </div>
-            </div>  
-            <div className='sm:col-span-6'>
-              <label
-                htmlFor='floor-plan'
-                className='block font-medium text-blue-dark '
-              >
-                Floor Plan
-              </label>
-              <div className="mt-1">
-                <div className="w-44 flex justify-center px-6 pt-5 pb-6 border border-blue-dark rounded-lg">
-                  <div className="space-y-1 text-center">
-                    <svg
-                      className="mx-auto h-12 w-12 text-blue-dark"
-                      stroke="currentColor"
-                      fill="none"
-                      viewBox="0 0 48 48"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                        strokeWidth={2}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <div className="flex text-sm text-blue-dark">
-                      <label
-                        htmlFor="file-upload"
-                        className="relative mx-auto cursor-pointer bg-white rounded-md font-medium text-blue-light hover:text-blue-light focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-light"
-                      >
-                        <span>Upload floor plan</span>
-                        <input id="file-upload" name="file-upload" type="file" multiple className="sr-only" />
-                      </label>
-                    </div>
-                    <p className="text-xs text-blue-dark">PNG, JPG up to 5MB</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-             
+          <div>
+            {step === 1 && <BasicInformation/>} 
+            {step === 2 && <Photos/>} 
+            {step === 3 && <Features/>} 
           </div>
           <div className="pt-4 flex justify-end">
-            <button
-              type="submit"
-              className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-              >
-              Next
-            </button>
+            {step !== 3 &&
+              <Link
+                onClick={goNextStep}
+                className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+                >
+                Next
+              </Link>
+            }
+            {step === 3 &&
+              <button
+                type="submit"
+                onClick={goNextStep}
+                className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
+                >
+                Submit
+              </button>
+            }
           </div>
         </form>
       </div>

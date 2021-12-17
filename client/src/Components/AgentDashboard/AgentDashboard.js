@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../Sections/Header'
-import AgentSidebar from './AgentSidebar'
-import AgentProfile from './AgentProfile'
 import { useLocation } from 'react-router-dom'
-import AgentOverview from './AgentOverview'
+import Header from '../Sections/Header'
 import AddProperty from './AddProperty'
+import AgentOverview from './AgentOverview'
 import AgentPlans from './AgentPlans'
+import AgentProfile from './AgentProfile'
+import AgentSidebar from './AgentSidebar'
 
 const AgentDashboard = () => {
   const location = useLocation()
