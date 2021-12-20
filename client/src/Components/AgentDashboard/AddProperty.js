@@ -15,53 +15,53 @@ const AddProperty = () => {
   return (
     <div className='px-4 sm:px-6 py-6 xl:py-6 bg-white xl:shadow lg:rounded-lg'>
       <nav aria-label="Progress">
-        <ol role="list" class="border border-blue-dark rounded-md divide-y divide-blue-dark md:flex md:divide-y-0">
-          <li class="relative md:flex-1 md:flex">
+        <ol role="list" className="border border-blue-dark rounded-md divide-y divide-blue-dark md:flex md:divide-y-0">
+          <li className="relative md:flex-1 md:flex">
             
-            <a href="#" class="group flex items-center w-full">
-              <span class="px-6 py-4 flex items-center text-sm font-medium">
-                <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-light rounded-full group-hover:bg-indigo-800">
+            <a href="#" className="group flex items-center w-full">
+              <span className="px-6 py-4 flex items-center text-sm font-medium">
+                <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center bg-blue-light rounded-full group-hover:bg-indigo-800">
                   
-                  <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <svg className="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                   </svg>
                 </span>
-                <span class="ml-4 text-sm font-medium text-gray-900">Basic Information</span>
+                <span className="ml-4 text-sm font-medium text-gray-900">Basic Information</span>
               </span>
             </a>
 
             
-            <div class="hidden md:block absolute top-0 right-0 h-full w-5" aria-hidden="true">
-              <svg class="h-full w-full text-blue-dark" viewBox="0 0 22 80" fill="none" preserveAspectRatio="none">
+            <div className="hidden md:block absolute top-0 right-0 h-full w-5" aria-hidden="true">
+              <svg className="h-full w-full text-blue-dark" viewBox="0 0 22 80" fill="none" preserveAspectRatio="none">
                 <path d="M0 -2L20 40L0 82" vector-effect="non-scaling-stroke" stroke="currentcolor" stroke-linejoin="round" />
               </svg>
             </div>
           </li>
 
-          <li class="relative md:flex-1 md:flex">
+          <li className="relative md:flex-1 md:flex">
             
-            <a href="#" class="px-6 py-4 flex items-center text-sm font-medium" aria-current="step">
-              <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-light rounded-full">
-                <span class="text-blue-light">02</span>
+            <a href="#" className="px-6 py-4 flex items-center text-sm font-medium" aria-current="step">
+              <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-light rounded-full">
+                <span className="text-blue-light">02</span>
               </span>
-              <span class="ml-4 text-sm font-medium text-blue-light">Photo</span>
+              <span className="ml-4 text-sm font-medium text-blue-light">Photo</span>
             </a>
 
             
-            <div class="hidden md:block absolute top-0 right-0 h-full w-5" aria-hidden="true">
-              <svg class="h-full w-full text-blue-dark" viewBox="0 0 22 80" fill="none" preserveAspectRatio="none">
+            <div className="hidden md:block absolute top-0 right-0 h-full w-5" aria-hidden="true">
+              <svg className="h-full w-full text-blue-dark" viewBox="0 0 22 80" fill="none" preserveAspectRatio="none">
                 <path d="M0 -2L20 40L0 82" vector-effect="non-scaling-stroke" stroke="currentcolor" stroke-linejoin="round" />
               </svg>
             </div>
           </li>
 
-          <li class="relative md:flex-1 md:flex">
-            <a href="#" class="group flex items-center">
-              <span class="px-6 py-4 flex items-center text-sm font-medium">
-                <span class="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-dark rounded-full group-hover:border-blue-dark">
-                  <span class="text-gray-500 group-hover:text-gray-900">03</span>
+          <li className="relative md:flex-1 md:flex">
+            <a href="#" className="group flex items-center">
+              <span className="px-6 py-4 flex items-center text-sm font-medium">
+                <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center border-2 border-blue-dark rounded-full group-hover:border-blue-dark">
+                  <span className="text-gray-500 group-hover:text-gray-900">03</span>
                 </span>
-                <span class="ml-4 text-sm font-medium text-gray-500 group-hover:text-gray-900">Features</span>
+                <span className="ml-4 text-sm font-medium text-gray-500 group-hover:text-gray-900">Features</span>
               </span>
             </a>
           </li>

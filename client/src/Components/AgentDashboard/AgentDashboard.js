@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Header from '../Sections/Header'
+import AddProperty from './AddProperty'
 import AgentOverview from './AgentOverview'
 import AgentPlans from './AgentPlans'
 import AgentProfile from './AgentProfile'
@@ -19,6 +20,8 @@ const AgentDashboard = () => {
         return <AgentProfile />
       case 'properties':
         return <AgentProperties />
+      case 'addProperty':
+        return <AddProperty />
       case 'plans':
         return <AgentPlans />
       default:
