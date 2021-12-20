@@ -1,10 +1,10 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Header from '../Sections/Header'
-import AddProperty from './AddProperty'
 import AgentOverview from './AgentOverview'
 import AgentPlans from './AgentPlans'
 import AgentProfile from './AgentProfile'
+import AgentProperties from './AgentProperties'
 import AgentSidebar from './AgentSidebar'
 
 const AgentDashboard = () => {
@@ -17,8 +17,8 @@ const AgentDashboard = () => {
         return <AgentOverview />
       case 'profile':
         return <AgentProfile />
-      case 'addProperty':
-        return <AddProperty />
+      case 'properties':
+        return <AgentProperties />
       case 'plans':
         return <AgentPlans />
       default:

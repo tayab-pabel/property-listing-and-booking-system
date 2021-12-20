@@ -29,7 +29,6 @@ const AgentPlans = () => {
         { name: 'Unlimited photo displayed', tiers: { Silver: true, Gold: true, Platinum: true } },
         { name: 'Check property performance', tiers: { Silver: true, Gold: true, Platinum: true } },
         { name: 'Agent profile page', tiers: { Silver: true, Gold: true, Platinum: true } },
-        { name: 'Branch adding', tiers: { Silver: 'Up to 10 brances', Gold: 'Up to 20 brances', Platinum: 'Up to 30 brances' } },
         { name: 'Basic posting', tiers: { Silver: 'Up to 50 posts', Gold: 'Up to 100 posts', Platinum: 'Up to 150 posts' } },
         { name: 'Featured posting', tiers: { Silver: 'Up to 10 posts', Gold: 'Up to 20 posts', Platinum: 'Up to 30 posts' } },
       ],

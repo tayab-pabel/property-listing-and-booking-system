@@ -1,20 +1,14 @@
 import {
-  BellIcon,
   CurrencyDollarIcon,
-  HeartIcon,
   HomeIcon,
+  OfficeBuildingIcon,
   UserIcon,
-  ViewGridIcon,
+  ViewGridIcon
 } from '@heroicons/react/outline'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 const AgentSidebar = ({ redirect }) => {
-  const user = {
-    name: 'Chelsea Hagon',
-    imageUrl:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  }
 
   const subNavigation = [
     {
@@ -26,6 +20,11 @@ const AgentSidebar = ({ redirect }) => {
       name: 'Profile',
       path: 'profile',
       icon: UserIcon,
+    },
+    {
+      name: 'All Properties',
+      path: 'properties',
+      icon: OfficeBuildingIcon,
     },
     {
       name: 'Add Property',
