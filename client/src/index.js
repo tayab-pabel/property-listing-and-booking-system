@@ -5,14 +5,16 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import 'react-image-gallery/styles/css/image-gallery.css'
-import { Provider } from 'react-redux'
-import store from './redux/store'
+import AuthProvider from './contexts/AuthContext'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )

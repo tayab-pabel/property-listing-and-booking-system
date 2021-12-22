@@ -2,9 +2,13 @@ import { FilterIcon, StarIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
 import {
   baths,
-  beds, locationRadius, postAddedTime, propertTypes,
+  beds,
+  locationRadius,
+  postAddedTime,
+  propertTypes,
   propertyArea,
-  purposes, sort
+  purposes,
+  sort,
 } from '../../Data/Filter'
 import CustomDrawer from '../Elements/CustomDrawer'
 import CustomInput from '../Elements/CustomInput'
@@ -13,8 +17,6 @@ import CustomSingleSelectOption from '../Elements/CustomSingleSelectOption'
 import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
 import { propertyPricing } from './../../Data/Filter'
 import CallToAction from './../Sections/CallToAction'
-import Footer from './../Sections/Footer'
-import Header from './../Sections/Header'
 import Properties from './Properties'
 
 const PropertySearchFilter = () => {
@@ -31,7 +33,9 @@ const PropertySearchFilter = () => {
   const [selectedPurpose, setSelectedPurpose] = useState(purposes[0])
 
   // Property Added to site
-  const [selectedPostAddedTime, setSelectedPostAddedTime] = useState(postAddedTime[0])
+  const [selectedPostAddedTime, setSelectedPostAddedTime] = useState(
+    postAddedTime[0]
+  )
 
   // Property BEDS:
   const [selectedBed, setSelectedBeds] = useState(beds[0])
@@ -77,7 +81,6 @@ const PropertySearchFilter = () => {
 
   return (
     <div className=''>
-      <Header />
       <div className='bg-gray-100'>
         <div className='max-w-screen-lg mx-auto px-4 md:px-6'>
           {/* Dextop Filter */}
@@ -203,7 +206,7 @@ const PropertySearchFilter = () => {
               type='button'
               className='flex mt-2 w-full px-4 py-2 border bg-blue-light border-blue-light text-white font-medium rounded-lg text-sm shadow'
             >
-              <StarIcon className="h-5 w-5 mr-1.5"></StarIcon>
+              <StarIcon className='h-5 w-5 mr-1.5'></StarIcon>
               <span aria-hidden='true'>Save Search</span>
             </button>
           </div>
@@ -211,7 +214,6 @@ const PropertySearchFilter = () => {
       </div>
       <Properties />
       <CallToAction />
-      <Footer />
       {/* Filter Drawer For mobile Devices */}
       <section className='lg:hidden'>
         <CustomDrawer

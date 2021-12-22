@@ -1,6 +1,5 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import Header from '../Sections/Header'
 import AddProperty from './AddProperty'
 import AgentOverview from './AgentOverview'
 import AgentPlans from './AgentPlans'
@@ -31,7 +30,6 @@ const AgentDashboard = () => {
 
   return (
     <div>
-      <Header></Header>
       <div className='h-full'>
         <main className='max-w-full mx-auto'>
           <div className='lg:grid lg:grid-cols-12'>
@@ -40,9 +38,7 @@ const AgentDashboard = () => {
             </div>
 
             <div className='bg-blue-soft lg:col-span-9 lg:py-6 lg:px-6 lg:min-h-screen'>
-              <div className='max-w-full'>
-                {renderSection(redirect)}
-              </div>
+              <div className='max-w-full'>{renderSection(redirect)}</div>
             </div>
           </div>
         </main>

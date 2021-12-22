@@ -1,46 +1,56 @@
 import {
   EyeIcon,
   EyeOffIcon,
-  LocationMarkerIcon,
   LockClosedIcon,
   MailIcon,
   UserIcon,
 } from '@heroicons/react/outline'
 import { useFormik } from 'formik'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo.svg'
+import { useAuth } from '../../contexts/AuthContext'
 import RegistrationSchema from '../Schemas/RegistrationSchema'
 
 const Signup = () => {
   const [show, setShow] = useState(false)
+  const { currentUser, singUp } = useAuth()
+  const history = useHistory()
+  const location = useLocation()
+  const { form } = location.state || { form: { pathname: '/' } }
+  console.log(currentUser)
 
   const formik = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
-      postCode: '',
       email: '',
       password: '',
     },
     validationSchema: RegistrationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      try {
+        await singUp(values.email, values.password)
+        history.replace(form)
+      } catch (error) {
+        alert(error.message)
+      }
     },
   })
 
+  useEffect(() => {
+    if (currentUser && currentUser.email) {
+      history.replace(form)
+    }
+  }, [currentUser])
+
   const { handleChange, handleBlur, handleSubmit, errors, values } = formik
-  console.log(formik)
 
   return (
     <div>
       <div className='min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
         <div className='mt-6 sm:mx-auto sm:w-full sm:max-w-md'>
-          <div className='mb-6'>
-            <Link to='/'>
-              <img className='mx-auto h-12 w-auto' src={logo} alt='' />
-            </Link>
-          </div>
           <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
             <h2 className='mb-6 text-center text-2xl font-black text-blue-dark'>
               Create account
@@ -109,34 +119,6 @@ const Signup = () => {
                 </div>
                 {values.lastName.length !== 0 && errors.lastName && (
                   <p className='mt-1 text-xs text-red-500'>{errors.lastName}</p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor='postCode' className='sr-only'>
-                  Postcode
-                </label>
-                <div className='mt-1 relative rounded-md shadow-sm'>
-                  <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                    <LocationMarkerIcon
-                      className='h-5 w-5 text-blue-dark'
-                      aria-hidden='true'
-                    />
-                  </div>
-                  <input
-                    id='postCode'
-                    name='postCode'
-                    type='text'
-                    placeholder='Postcode'
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.postCode}
-                    className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
-                    required
-                  />
-                </div>
-                {values.postCode.length !== 0 && errors.postCode && (
-                  <p className='mt-1 text-xs text-red-500'>{errors.postCode}</p>
                 )}
               </div>
 

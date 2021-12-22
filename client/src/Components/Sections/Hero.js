@@ -1,19 +1,8 @@
 import { LocationMarkerIcon, SearchIcon } from '@heroicons/react/outline'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { propertyListRequestAction } from './../../redux/actions/propertyActions'
-
 const Hero = () => {
-  const { loading, properties, error } = useSelector(
-    (state) => state.propertyList
-  )
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(propertyListRequestAction())
-  }, [dispatch])
-
   const [redirect, setRedirect] = useState('rent')
 
   const tabs = [
