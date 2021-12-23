@@ -23,7 +23,7 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
   return (
     <Menu as='div' className='ml-4 relative flex-shrink-0'>
       <div>
-        <Menu.Button className='bg-indigo-700 flex text-sm rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white'>
+        <Menu.Button className='bg-blue-light flex text-sm rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-light focus:ring-white'>
           <span className='sr-only'>Open user menu</span>
           {currentUser && currentUser.photoURL ? (
             <img
@@ -32,9 +32,9 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
               alt=''
             />
           ) : (
-            <span className='inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-100'>
+            <span className='inline-block h-10 w-10 rounded-full overflow-hidden bg-blue-soft'>
               <svg
-                className='h-full w-full text-gray-300'
+                className='h-full w-full text-blue-300'
                 fill='currentColor'
                 viewBox='0 0 24 24'
               >
@@ -60,7 +60,7 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
                 to='/account'
                 className={classNames(
                   active ? 'bg-gray-100' : '',
-                  'block px-4 py-2 text-sm text-gray-700'
+                  'block px-4 py-2 text-sm text-blue-dark'
                 )}
               >
                 My Profile
@@ -73,7 +73,7 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
                 onClick={handleLogout}
                 className={classNames(
                   active ? 'bg-gray-100' : '',
-                  'block px-4 py-2 text-sm text-gray-700'
+                  'block px-4 py-2 text-sm text-blue-dark'
                 )}
               >
                 Sign Out

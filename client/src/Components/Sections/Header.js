@@ -1,16 +1,18 @@
 import { Popover, Transition } from '@headlessui/react'
 import {
+  BellIcon,
   HomeIcon,
   KeyIcon,
   MenuAlt1Icon,
   OfficeBuildingIcon,
   UserIcon,
-  XIcon,
+  XIcon
 } from '@heroicons/react/outline'
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import logo from '../../images/logo.svg'
+import MobileNavigation from '../Elements/MobileNavigation'
 import HeaderNavigation from './../Elements/HeaderNavigation'
 
 const Header = () => {
@@ -105,7 +107,7 @@ const Header = () => {
           focus
           className='absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden z-50'
         >
-          <div className='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50'>
+          <div className='rounded-lg shadow-lg ring-1 ring-blue-light ring-opacity-5 bg-white divide-y-2 divide-gray-50'>
             <div className='pt-5 pb-6 px-5'>
               <div className='flex items-center justify-between'>
                 <div>
@@ -124,34 +126,33 @@ const Header = () => {
                     <a
                       key={solution.name}
                       href={solution.href}
-                      className='-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50'
+                      className='-m-3 px-3 py-2 flex items-center rounded-lg text-base font-medium text-blue-dark hover:bg-gray-100'
                     >
-                      <div className='flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-lg bg-blue-light text-white'>
-                        <solution.icon className='h-6 w-6' aria-hidden='true' />
-                      </div>
-                      <div className='ml-4 text-base font-medium text-blue-dark'>
-                        {solution.name}
-                      </div>
+                      {solution.name}
                     </a>
                   ))}
                 </nav>
               </div>
             </div>
-            <div className='py-6 px-5'>
-              <div className='mt-4'>
+            <div className='mx-2'>
+              {currentUser ? (
+              <MobileNavigation logOut={logOut} currentUser={currentUser}/>
+              ) : (
+              <div className='py-5'>
                 <Link
                   to='/signup'
                   className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light'
                 >
                   Sign Up
                 </Link>
-                <p className='mt-6 text-center text-base text-blue-dark'>
+                <p className='mt-5 text-center text-base text-blue-dark'>
                   Already have an account?{' '}
                   <Link to='/login' className='text-blue-light'>
                     Log In
                   </Link>
                 </p>
               </div>
+              )}
             </div>
           </div>
         </Popover.Panel>
