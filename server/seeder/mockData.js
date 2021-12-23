@@ -9,6 +9,14 @@ const defaultUsers = [
     role: 'admin',
   },
   {
+    name: 'Tayab Pabel',
+    email: 'pabel@gmail.com',
+    phoneNumber: '01746243304',
+    password: 'Pabel@01',
+    avatar: 'https://i.ibb.co/phfxcsS/pro-nazmul.webp',
+    role: 'marchand',
+  },
+  {
     name: 'Billal Hossain',
     email: 'billal@gmail.com',
     phoneNumber: '01746243303',
@@ -16,9 +24,10 @@ const defaultUsers = [
   },
 ]
 
+const defaultMarchands = [{}]
+
 const demoProperties = [
   {
-    id: 1,
     postType: 'basic',
     purpose: 'rent',
     propertyCategory: 'residential',
@@ -37,7 +46,7 @@ const demoProperties = [
     },
     propertyAvailability: Date.now(),
     propertyDescription:
-      "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
+      "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode",
     propertyPrice: 25000,
     propertyBedrooms: 2,
     propertyBathrooms: 2,
@@ -45,7 +54,7 @@ const demoProperties = [
     propertySqft: 1000,
     propertyFurnished: true,
     propertyFeatures: {
-      gas: '',
+      gas: 'line',
       reception: false,
       tiledFloor: true,
       terrace: false,
@@ -106,29 +115,8 @@ const demoProperties = [
 
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_15_0000.jpg',
     ],
-    branchInfo: {
-      branchName: 'Benham and Reeves',
-      branchPhoneNumber: '+44 20 3463 7502',
-      branchEmail: 'info@benhams.com',
-      propertyAddress: {
-        addressLine1: 'Agargaon, Radio',
-        addressLine2: '',
-        city: 'Dhaka',
-        country: 'Bangladesh',
-        postCode: '1215',
-        coordinates: {
-          lat: 0,
-          lng: 0,
-        },
-      },
-      branchDescription:
-        'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-      branchFeaturedImage:
-        'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
-    },
   },
   {
-    id: 2,
     postType: 'featured',
     purpose: 'sale',
     propertyCategory: 'commercial',
@@ -208,29 +196,8 @@ const demoProperties = [
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_14_0000.jpg',
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_15_0000.jpg',
     ],
-    branchInfo: {
-      branchName: 'Benham and Reeves',
-      branchPhoneNumber: '+44 20 3463 7502',
-      branchEmail: 'info@benhams.com',
-      propertyAddress: {
-        addressLine1: 'Agargaon, Radio',
-        addressLine2: '',
-        city: 'Dhaka',
-        country: 'Bangladesh',
-        postCode: '1215',
-        coordinates: {
-          lat: 0,
-          lng: 0,
-        },
-      },
-      branchDescription:
-        'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-      branchFeaturedImage:
-        'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
-    },
   },
   {
-    id: 3,
     postType: 'basic',
     purpose: 'rent',
     propertyCategory: 'residential',
@@ -257,7 +224,7 @@ const demoProperties = [
     propertySqft: 1000,
     propertyFurnished: true,
     propertyFeatures: {
-      gas: '',
+      gas: 'line',
       reception: false,
       tiledFloor: true,
       terrace: false,
@@ -321,29 +288,8 @@ const demoProperties = [
 
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_15_0000.jpg',
     ],
-    branchInfo: {
-      branchName: 'Benham and Reeves',
-      branchPhoneNumber: '+44 20 3463 7502',
-      branchEmail: 'info@benhams.com',
-      propertyAddress: {
-        addressLine1: 'Agargaon, Radio',
-        addressLine2: '',
-        city: 'Dhaka',
-        country: 'Bangladesh',
-        postCode: '1215',
-        coordinates: {
-          lat: 0,
-          lng: 0,
-        },
-      },
-      branchDescription:
-        'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-      branchFeaturedImage:
-        'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
-    },
   },
   {
-    id: 4,
     postType: 'featured',
     purpose: 'sale',
     propertyCategory: 'commercial',
@@ -423,27 +369,66 @@ const demoProperties = [
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_14_0000.jpg',
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_15_0000.jpg',
     ],
-    branchInfo: {
-      branchName: 'Benham and Reeves',
-      branchPhoneNumber: '+44 20 3463 7502',
-      branchEmail: 'info@benhams.com',
-      propertyAddress: {
-        addressLine1: 'Agargaon, Radio',
-        addressLine2: '',
-        city: 'Dhaka',
-        country: 'Bangladesh',
-        postCode: '1215',
-        coordinates: {
-          lat: 0,
-          lng: 0,
-        },
+  },
+]
+
+const demoBranch = {
+  branchInfo: {
+    branchName: 'Benham and Reeves',
+    branchPhoneNumber: '+44 20 3463 7502',
+    branchEmail: 'info@benhams.com',
+    propertyAddress: {
+      addressLine1: 'Agargaon, Radio',
+      addressLine2: '',
+      city: 'Dhaka',
+      country: 'Bangladesh',
+      postCode: '1215',
+      coordinates: {
+        lat: 0,
+        lng: 0,
       },
-      branchDescription:
-        'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-      branchFeaturedImage:
-        'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
+    },
+    branchDescription:
+      'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
+    branchFeaturedImage:
+      'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
+  },
+}
+
+const demoPlans = [
+  {
+    name: 'silver',
+    price: 5000,
+    duration: 1,
+    features: {
+      branch: {
+        basic: 50,
+        featured: 10,
+      },
+    },
+  },
+  {
+    name: 'gold',
+    price: 10000,
+    duration: 2,
+    features: {
+      branch: {
+        basic: 100,
+        featured: 20,
+      },
+    },
+  },
+  {
+    name: 'platinum',
+    price: 15000,
+    duration: 5,
+    features: {
+      branch: {
+        basic: 150,
+        featured: 30,
+      },
     },
   },
 ]
 
-module.exports = { defaultUsers, demoProperties }
+module.exports = { defaultUsers, demoProperties, demoBranch }
