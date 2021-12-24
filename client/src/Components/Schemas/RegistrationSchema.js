@@ -16,12 +16,6 @@ const RegistrationSchema = yup.object().shape({
     .max(30, 'Too Long!')
     .required('Required!'),
 
-  postCode: yup
-    .string()
-    .min(4, 'Pastcode should be minimum 4 number (ex-1215).')
-    .max(10, 'Too Long!')
-    .required('Required!'),
-
   email: yup.string().email('Enter a vaid email.').required('Required!'),
 
   password: yup

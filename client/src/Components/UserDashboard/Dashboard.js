@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '../Sections/Header'
 import Sidebar from './Sidebar'
 import Profile from './Profile'
 import SavedProperties from './SavedProperties'
@@ -28,7 +27,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Header></Header>
       <div className='h-full'>
         <main className='max-w-full mx-auto'>
           <div className='lg:grid lg:grid-cols-12'>
@@ -37,9 +35,7 @@ const Dashboard = () => {
             </div>
 
             <div className='bg-blue-gray lg:col-span-9 lg:py-6 lg:px-6 lg:min-h-screen'>
-              <div className='max-w-full'>
-                {renderSection(redirect)}
-              </div>
+              <div className='max-w-full'>{renderSection(redirect)}</div>
             </div>
           </div>
         </main>

@@ -1,6 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
+
 
 const CustomSingleSelectOption = ({
   title,

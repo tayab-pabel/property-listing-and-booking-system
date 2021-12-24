@@ -5,13 +5,19 @@ import {
   MailIcon,
 } from '@heroicons/react/outline'
 import { useFormik } from 'formik'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import logo from '../../images/logo.svg'
+import { useAuth } from '../../contexts/AuthContext'
 import LoginSchema from '../Schemas/LoginSchema'
 
 const Login = () => {
   const [show, setShow] = useState(false)
+  const history = useHistory()
+  const location = useLocation()
+  const { form } = location.state || { form: { pathname: '/' } }
+
+  const { currentUser, signIn, googleLogin } = useAuth()
 
   const formik = useFormik({
     initialValues: {
@@ -19,10 +25,29 @@ const Login = () => {
       password: '',
     },
     validationSchema: LoginSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      try {
+        await signIn(values.email, values.password)
+        history.replace(form)
+      } catch (error) {
+        alert(error.message)
+      }
     },
   })
+
+  async function googleLoginHandler() {
+    try {
+      await googleLogin()
+    } catch (error) {
+      alert(error.message)
+    }
+  }
+
+  useEffect(() => {
+    if (currentUser && currentUser.email) {
+      history.replace(form)
+    }
+  }, [currentUser])
 
   const { handleChange, handleBlur, handleSubmit, errors, values } = formik
 
@@ -30,11 +55,6 @@ const Login = () => {
     <div>
       <div className='min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
         <div className='mt-6 sm:mx-auto sm:w-full sm:max-w-md'>
-          <div className='mb-6'>
-            <Link to='/'>
-              <img className='mx-auto h-12 w-auto' src={logo} alt='' />
-            </Link>
-          </div>
           <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
             <h2 className='mb-6 text-center text-2xl font-black text-blue-dark'>
               Log in to your account
@@ -173,6 +193,7 @@ const Login = () => {
                 <div>
                   <a
                     href='#'
+                    onClick={googleLoginHandler}
                     className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-dark0 hover:bg-gray-50'
                   >
                     <svg

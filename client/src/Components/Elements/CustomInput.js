@@ -1,3 +1,5 @@
+import React from 'react'
+
 const CustomInput = ({ title, data, setData }) => {
   return (
     <div>

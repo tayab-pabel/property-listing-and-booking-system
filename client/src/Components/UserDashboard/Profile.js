@@ -1,19 +1,29 @@
 import { Tab } from '@headlessui/react'
 import React, { useState, Fragment } from 'react'
+import { useAuth } from '../../contexts/AuthContext'
 
 const Profile = () => {
-
+  const { currentUser } = useAuth()
   const user = {
-    name: 'Chelsea Hagon',
+    name:
+      currentUser && currentUser.displayName
+        ? currentUser.displayName
+        : 'Chelsea Hagon',
     userType: 'I am a first-time buyer',
     username: 'chelsea.hagon',
-    email: 'chelseahagon@gmail.com',
+    email:
+      currentUser && currentUser.email
+        ? currentUser.email
+        : 'chelseahagon@gmail.com',
     phoneNumber: '0123456789',
     location: 'Dhanmondi, Dhaka',
     postalCode: '1215',
-    about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo.',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo.',
     imageUrl:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+      currentUser && currentUser.photoURL
+        ? currentUser.photoURL
+        : 'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   }
 
   const [edit, setEdit] = useState({
@@ -36,68 +46,68 @@ const Profile = () => {
 
   return (
     <div className='px-4 sm:px-6 py-6 lg:py-6 bg-white lg:shadow lg:rounded-lg'>
-        <Tab.Group as="div">
-          <div className="">
-            <div className="border-b border-gray-200">
-              <Tab.List className="-mb-px flex space-x-8">
-                <Tab
-                  className={({ selected }) =>
-                    classNames(
-                      selected
-                        ? 'border-blue-light text-blue-light'
-                        : 'border-transparent text-blue-dark hover:border-gray-300',
-                      'whitespace-nowrap py-3 border-b-2 font-medium text-sm'
-                    )
-                  }
-                >
-                  Personal Information
-                </Tab>
-                <Tab
-                  className={({ selected }) =>
-                    classNames(
-                      selected
-                        ? 'border-blue-light text-blue-light'
-                        : 'border-transparent text-blue-dark hover:border-gray-300',
-                      'whitespace-nowrap py-3 border-b-2 font-medium text-sm'
-                    )
-                  }
-                >
-                  Email
-                </Tab>
-                <Tab
-                  className={({ selected }) =>
-                    classNames(
-                      selected
-                        ? 'border-blue-light text-blue-light'
-                        : 'border-transparent text-blue-dark hover:border-gray-300',
-                      'whitespace-nowrap py-3 border-b-2 font-medium text-sm'
-                    )
-                  }
-                >
-                  Password
-                </Tab>
-              </Tab.List>
-            </div>
+      <Tab.Group as='div'>
+        <div className=''>
+          <div className='border-b border-gray-200'>
+            <Tab.List className='-mb-px flex space-x-8'>
+              <Tab
+                className={({ selected }) =>
+                  classNames(
+                    selected
+                      ? 'border-blue-light text-blue-light'
+                      : 'border-transparent text-blue-dark hover:border-gray-300',
+                    'whitespace-nowrap py-3 border-b-2 font-medium text-sm'
+                  )
+                }
+              >
+                Personal Information
+              </Tab>
+              <Tab
+                className={({ selected }) =>
+                  classNames(
+                    selected
+                      ? 'border-blue-light text-blue-light'
+                      : 'border-transparent text-blue-dark hover:border-gray-300',
+                    'whitespace-nowrap py-3 border-b-2 font-medium text-sm'
+                  )
+                }
+              >
+                Email
+              </Tab>
+              <Tab
+                className={({ selected }) =>
+                  classNames(
+                    selected
+                      ? 'border-blue-light text-blue-light'
+                      : 'border-transparent text-blue-dark hover:border-gray-300',
+                    'whitespace-nowrap py-3 border-b-2 font-medium text-sm'
+                  )
+                }
+              >
+                Password
+              </Tab>
+            </Tab.List>
           </div>
+        </div>
 
-          <Tab.Panels as={Fragment}>
-            <Tab.Panel className="mt-5">
-              <div className='w-full flex justify-between'>
-                <h2 className='text-xl font-medium text-blue-dark'>
-                    Personal Information
-                </h2>
-                {!edit.personal && (
-                  <button
-                      onClick={() => editPanelOpener('personal')}
-                      type="button"
-                      className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
-                    Edit
-                  </button>
-                )}
-              </div>
+        <Tab.Panels as={Fragment}>
+          <Tab.Panel className='mt-5'>
+            <div className='w-full flex justify-between'>
+              <h2 className='text-xl font-medium text-blue-dark'>
+                Personal Information
+              </h2>
+              {!edit.personal && (
+                <button
+                  onClick={() => editPanelOpener('personal')}
+                  type='button'
+                  className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                >
+                  Edit
+                </button>
+              )}
+            </div>
 
-              {!edit.personal ? (
+            {!edit.personal ? (
               <div className=''>
                 <div className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
                   <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
@@ -105,7 +115,7 @@ const Profile = () => {
                       <div className='flex items-center'>
                         <img
                           className='inline-block h-12 w-12 rounded-full'
-                          src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80'
+                          src={user.imageUrl}
                           alt=''
                         />
                       </div>
@@ -115,30 +125,39 @@ const Profile = () => {
                       <p className='mt-1 text-blue-dark'>{user.name}</p>
                     </div>
                     <div className='sm:col-span-3'>
-                      <p className='block font-medium text-blue-dark'>User Type</p>
+                      <p className='block font-medium text-blue-dark'>
+                        User Type
+                      </p>
                       <p className='mt-1 text-blue-dark'>{user.userType}</p>
                     </div>
                     <div className='sm:col-span-3'>
-                      <p className='block font-medium text-blue-dark'>Phone Number</p>
+                      <p className='block font-medium text-blue-dark'>
+                        Phone Number
+                      </p>
                       <p className='mt-1 text-blue-dark'>{user.phoneNumber}</p>
                     </div>
                     <div className='sm:col-span-3'>
-                      <p className='block font-medium text-blue-dark'>Location</p>
+                      <p className='block font-medium text-blue-dark'>
+                        Location
+                      </p>
                       <p className='mt-1 text-blue-dark'>{user.location}</p>
                     </div>
                     <div className='sm:col-span-3'>
-                      <p className='block font-medium text-blue-dark'>Postal Code</p>
+                      <p className='block font-medium text-blue-dark'>
+                        Postal Code
+                      </p>
                       <p className='mt-1 text-blue-dark'>{user.postalCode}</p>
                     </div>
                     <div className='sm:col-span-6'>
-                      <p className='block font-medium text-blue-dark'>About Me</p>
+                      <p className='block font-medium text-blue-dark'>
+                        About Me
+                      </p>
                       <p className='mt-1 text-blue-dark'>{user.about}</p>
                     </div>
                   </div>
                 </div>
               </div>
-              ) : (
-
+            ) : (
               <div className='' editPanelCloser={editPanelCloser}>
                 <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
                   <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
@@ -239,7 +258,9 @@ const Profile = () => {
                         <option value='offer_on_own_property'>
                           I have an offer on my property
                         </option>
-                        <option value='recently_sold'>I have recently sold</option>
+                        <option value='recently_sold'>
+                          I have recently sold
+                        </option>
                         <option value='looking_to_invest'>
                           I am an investor/I'm hoping to invest
                         </option>
@@ -314,54 +335,49 @@ const Profile = () => {
                         />
                       </div>
                     </div>
-                    
                   </div>
-                  <div className="pt-4 flex justify-end">
+                  <div className='pt-4 flex justify-end'>
                     <button
                       onClick={() => editPanelCloser('personal')}
-                      type="button"
-                      className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
+                      type='button'
+                      className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                    >
                       Cancel
                     </button>
                     <button
-                      type="submit"
-                      className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
+                      type='submit'
+                      className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                    >
                       Update
                     </button>
                   </div>
                 </form>
               </div>
+            )}
+          </Tab.Panel>
+
+          <Tab.Panel className='mt-5'>
+            <div className='w-full flex justify-between'>
+              <h2 className='text-xl font-medium text-blue-dark'>Email</h2>
+              {!edit.email && (
+                <button
+                  onClick={() => editPanelOpener('email')}
+                  type='button'
+                  className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                >
+                  Edit
+                </button>
               )}
-            </Tab.Panel>
+            </div>
 
-            <Tab.Panel className="mt-5">
-              <div className='w-full flex justify-between'>
-                <h2 className='text-xl font-medium text-blue-dark'>
-                  Email
-                </h2>
-                {!edit.email && (
-                  <button
-                      onClick={() => editPanelOpener('email')}
-                      type="button"
-                      className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
-                    Edit
-                  </button>
-                )}
-              </div>
-
-              {!edit.email ? (
+            {!edit.email ? (
               <div className=''>
                 <p className='text-blue-dark'>{user.email}</p>
               </div>
-              ) : (
-
+            ) : (
               <div className='' editPanelCloser={editPanelCloser}>
                 <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
                   <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
-                    
                     <div className='sm:col-span-6'>
                       <label
                         htmlFor='email'
@@ -377,54 +393,49 @@ const Profile = () => {
                         className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
                       />
                     </div>
-                    
                   </div>
-                  <div className="pt-4 flex justify-end">
+                  <div className='pt-4 flex justify-end'>
                     <button
                       onClick={() => editPanelCloser('email')}
-                      type="button"
-                      className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
+                      type='button'
+                      className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                    >
                       Cancel
                     </button>
                     <button
-                      type="submit"
-                      className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
+                      type='submit'
+                      className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                    >
                       Update
                     </button>
                   </div>
                 </form>
               </div>
+            )}
+          </Tab.Panel>
+
+          <Tab.Panel className='mt-5'>
+            <div className='w-full flex justify-between'>
+              <h2 className='text-xl font-medium text-blue-dark'>Password</h2>
+              {!edit.password && (
+                <button
+                  onClick={() => editPanelOpener('password')}
+                  type='button'
+                  className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                >
+                  Edit
+                </button>
               )}
-            </Tab.Panel>
+            </div>
 
-            <Tab.Panel className="mt-5">
-              <div className='w-full flex justify-between'>
-                <h2 className='text-xl font-medium text-blue-dark'>
-                  Password
-                </h2>
-                {!edit.password && (
-                  <button
-                      onClick={() => editPanelOpener('password')}
-                      type="button"
-                      className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
-                    Edit
-                  </button>
-                )}
-              </div>
-
-              {!edit.password ? (
+            {!edit.password ? (
               <div className=''>
                 <p className='text-blue-dark'>**********</p>
               </div>
-              ) : (
-
+            ) : (
               <div className='' editPanelCloser={editPanelCloser}>
                 <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
                   <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
-                    
                     <div className='sm:col-span-6'>
                       <label
                         htmlFor='current-password'
@@ -472,29 +483,28 @@ const Profile = () => {
                         className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
                       />
                     </div>
-                    
                   </div>
-                  <div className="pt-4 flex justify-end">
+                  <div className='pt-4 flex justify-end'>
                     <button
                       onClick={() => editPanelCloser('password')}
-                      type="button"
-                      className="bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
+                      type='button'
+                      className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                    >
                       Cancel
                     </button>
                     <button
-                      type="submit"
-                      className="ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light"
-                      >
+                      type='submit'
+                      className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                    >
                       Update
                     </button>
                   </div>
                 </form>
               </div>
-              )}
-            </Tab.Panel>
-          </Tab.Panels>
-        </Tab.Group>
+            )}
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </div>
   )
 }
