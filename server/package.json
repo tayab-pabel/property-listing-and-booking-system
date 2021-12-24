@@ -1,5 +1,5 @@
 {
-  "name": "Property_Listing_REST_API",
+  "name": "property-listing-booking-system",
   "version": "1.0.0",
   "description": "Rest Api Service for property listing system application",
   "main": "app.js",

@@ -6,7 +6,7 @@ require('dotenv').config()
 const mongoConnection = require('../config/db')
 const Property = require('../models/PropertyModel')
 const People = require('../models/userModel')
-const { defaultUsers } = require('./mockData')
+const { defaultUsers, demoProperties } = require('./mockData')
 
 // Database connection
 mongoConnection()
@@ -15,8 +15,13 @@ mongoConnection()
 const importData = async () => {
   try {
     await People.deleteMany()
-    const createUser = await People.insertMany(defaultUsers)
-    const createProperty = await Property.insertMany(demoProperties)
+    await Property.deleteMany()
+    const users = await People.insertMany(defaultUsers)
+
+    const prepareProperties = demoProperties.map((properties) => {
+      return { ...properties, user: users[1]._id }
+    })
+    await Property.insertMany(prepareProperties)
     console.log(
       'Default Test User Data Successfully Inserted !'.magenta.inverse
     )
