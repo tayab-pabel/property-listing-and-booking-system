@@ -1,19 +1,20 @@
 // External Module:
 const mongoose = require('mongoose')
 
+// branch: {
+//   type: mongoose.Schema.Types.ObjectId,
+//   required: true,
+//   ref: 'Branch',
+// },
+// marchand: {
+//   type: mongoose.Schema.Types.ObjectId,
+//   required: true,
+//   ref: 'Marchand',
+// },
+
 // User Schema:
 const PropertySchema = mongoose.Schema(
   {
-    // branch: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    //   ref: 'Branch',
-    // },
-    // marchand: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    //   ref: 'Marchand',
-    // },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
     purpose: { type: String, enum: ['sale', 'rent'], default: 'rent' },
     propertyCategory: {
@@ -60,7 +61,7 @@ const PropertySchema = mongoose.Schema(
     propertySqft: { type: Number, required: true },
     propertyFurnished: { type: Boolean, default: false },
     propertyFeatures: {
-      gas: { enum: ['line', 'cylinder'], default: 'line' },
+      gas: { type: String, enum: ['line', 'cylinder'], default: 'line' },
       reception: { type: Boolean, default: false },
       tiledFloor: { type: Boolean, default: false },
       terrace: { type: Boolean, default: false },
