@@ -15,7 +15,7 @@ const peopleSchema = mongoose.Schema(
       default: 'marchand',
     },
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 )
 
 // Make User Model:

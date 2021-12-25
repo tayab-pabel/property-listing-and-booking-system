@@ -24,8 +24,6 @@ const defaultUsers = [
   },
 ]
 
-const defaultMarchands = [{}]
-
 const demoProperties = [
   {
     postType: 'basic',
@@ -372,12 +370,14 @@ const demoProperties = [
   },
 ]
 
-const demoBranch = {
-  branchInfo: {
-    branchName: 'Benham and Reeves',
-    branchPhoneNumber: '+44 20 3463 7502',
-    branchEmail: 'info@benhams.com',
-    propertyAddress: {
+const demoAgent = [
+  {
+    agentName: 'Benham and Reeves',
+    agentEmail: 'info@benhams.com',
+    agentPhoneNumber: '+44 20 3463 7502',
+    agentWebsite: 'https://www.benhams.com/',
+    agentLogo: 'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
+    agentAddress: {
       addressLine1: 'Agargaon, Radio',
       addressLine2: '',
       city: 'Dhaka',
@@ -387,13 +387,20 @@ const demoBranch = {
         lat: 0,
         lng: 0,
       },
+      agentSocialProfile: {
+        facebook: 'https://www.facebook.com/benhams.com',
+        twitter: 'https://twitter.com/benhams',
+        instagram: 'https://www.instagram.com/benhams/',
+        linkedin: 'https://www.linkedin.com/company/benhams/',
+      },
+      agentDescription:
+        'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
+      agentGallery: [
+        'https://st.zoocdn.com/zpg_agent_static_agent_profile_images_(62759558).jpg',
+      ],
     },
-    branchDescription:
-      'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-    branchFeaturedImage:
-      'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
   },
-}
+]
 
 const demoPlans = [
   {
@@ -431,4 +438,4 @@ const demoPlans = [
   },
 ]
 
-module.exports = { defaultUsers, demoProperties, demoBranch }
+module.exports = { defaultUsers, demoProperties, demoAgent }

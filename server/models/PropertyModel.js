@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 // User Schema:
 const PropertySchema = mongoose.Schema(
   {
-    user: {
+    agent: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'People',
+      ref: 'Agent',
     },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
     purpose: { type: String, enum: ['sale', 'rent'], default: 'rent' },
@@ -90,8 +90,10 @@ const PropertySchema = mongoose.Schema(
     propertyFeaturedImage: { type: String, trim: true },
     propertyFloorPlanImage: { type: String, trim: true },
     propertyImages: [{ type: String, trim: true, required: true }],
+    agentName: String,
+    agentLogo: String,
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 )
 
 // Make User Model:
