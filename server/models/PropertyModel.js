@@ -1,20 +1,14 @@
 // External Module:
 const mongoose = require('mongoose')
 
-// branch: {
-//   type: mongoose.Schema.Types.ObjectId,
-//   required: true,
-//   ref: 'Branch',
-// },
-// marchand: {
-//   type: mongoose.Schema.Types.ObjectId,
-//   required: true,
-//   ref: 'Marchand',
-// },
-
 // User Schema:
 const PropertySchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'People',
+    },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
     purpose: { type: String, enum: ['sale', 'rent'], default: 'rent' },
     propertyCategory: {

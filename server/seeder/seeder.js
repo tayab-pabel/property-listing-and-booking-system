@@ -16,8 +16,12 @@ const importData = async () => {
   try {
     await People.deleteMany()
     await Property.deleteMany()
-    await People.insertMany(defaultUsers)
-    await Property.insertMany(demoProperties)
+    const users = await People.insertMany(defaultUsers)
+
+    const prepareProperties = demoProperties.map((properties) => {
+      return { ...properties, user: users[1]._id }
+    })
+    await Property.insertMany(prepareProperties)
     console.log(
       'Default Test User Data Successfully Inserted !'.magenta.inverse
     )
