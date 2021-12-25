@@ -57,13 +57,13 @@ const SavedProperties = () => {
                       {savedProperty.propertType}
                     </span>
                   </div>
-                  <p className='text-sm text-blue-dark'>
+                  <p className='text-xs text-blue-dark mt-1'>
                     {savedProperty.beds} Beds | {savedProperty.beds} Baths | {savedProperty.size} Sqft
                   </p>
                   <p className="text-sm leading-3 font-bold text-blue-dark mt-1">
                     {savedProperty.name}
                   </p>
-                  <p className='text-sm text-blue-dark mt-1'>
+                  <p className='text-xs text-blue-dark mt-1'>
                     {savedProperty.address.location}, {savedProperty.address.city} - {savedProperty.address.postalCode}
                   </p>
               </div>
