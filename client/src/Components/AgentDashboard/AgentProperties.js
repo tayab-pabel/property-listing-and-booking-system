@@ -33,25 +33,25 @@ const AgentProperties = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider"
                     >
                       Title & Address
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider"
                     >
                       Info & Type
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider"
                     >
                       Purpose
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider"
                     >
                       Status
                     </th>
@@ -69,23 +69,23 @@ const AgentProperties = () => {
                             <img className="h-10 w-10 rounded-lg" src={property.featuredImage} alt="" />
                           </div>
                           <div className="ml-4">
-                            <div className="text-sm font-medium text-gray-900">{property.name}</div>
-                            <div className="text-sm text-gray-500">{property.address.location}, {property.address.city} - {property.address.postalCode}</div>
+                            <div className="text-sm font-medium text-blue-dark">{property.name}</div>
+                            <div className="text-sm text-blue-dark">{property.address.location}, {property.address.city} - {property.address.postalCode}</div>
                           </div>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{property.price} BDT</div>
-                        <div className="text-sm text-gray-500">{property.beds} Beds, {property.baths} Baths, {property.size} Sqft</div>
+                        <div className="text-sm font-medium text-blue-dark">{property.price} BDT</div>
+                        <div className="text-sm text-blue-dark">{property.beds} Beds, {property.baths} Baths, {property.size} Sqft</div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.purpose}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-dark">{property.purpose}</td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                           Active
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                        <a href="#" className="text-blue-light hover:text-blue-light">
                           Edit
                         </a>
                       </td>
