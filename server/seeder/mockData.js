@@ -14,13 +14,6 @@ const defaultUsers = [
     phoneNumber: '01746243304',
     password: 'Pabel@01',
     avatar: 'https://i.ibb.co/phfxcsS/pro-nazmul.webp',
-    role: 'marchand',
-  },
-  {
-    name: 'Billal Hossain',
-    email: 'billal@gmail.com',
-    phoneNumber: '01746243303',
-    password: 'Billal@01',
   },
 ]
 
