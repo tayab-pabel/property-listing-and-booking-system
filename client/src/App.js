@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import AdminDashboard from './Components/AdminDasboard/AdminDashboard'
+import AdminLogin from './Components/AdminDasboard/AdminLogin'
 import AgentDashboard from './Components/AgentDashboard/AgentDashboard'
 import AgentForgotPassword from './Components/AgentLogin/AgentForgotPassword'
 import AgentLogin from './Components/AgentLogin/AgentLogin'
@@ -60,6 +62,12 @@ function App() {
         </Route>
         <Route path='/agent-details'>
           <AgentDetails />
+        </Route>
+        <Route path='/admin'>
+          <AdminLogin />
+        </Route>
+        <Route path='/admin-account'>
+          <AdminDashboard />
         </Route>
       </Switch>
       <Footer />
