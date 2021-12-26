@@ -92,6 +92,7 @@ const PropertySchema = mongoose.Schema(
     propertyImages: [{ type: String, trim: true, required: true }],
     agentName: String,
     agentLogo: String,
+    agentPhoneNumber: String,
   },
   { timestamps: true, versionKey: false }
 )

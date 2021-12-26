@@ -3,14 +3,10 @@ const express = require('express')
 const router = express.Router()
 
 // Internal Dependencies:
-const {
-  allProperty,
-  singleProperty,
-} = require('../controllers/propertyController')
+const { agentDetails } = require('../controllers/agentController')
 
 // Routing:
-router.route('/').get(allProperty)
-router.route('/:id').get(singleProperty)
+router.route('/:id').get(agentDetails)
 
 // Module Exports:
 module.exports = router

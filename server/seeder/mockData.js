@@ -401,7 +401,7 @@ const demoPlans = [
     price: 5000,
     duration: 1,
     features: {
-      branch: {
+      property: {
         basic: 50,
         featured: 10,
       },
@@ -412,7 +412,7 @@ const demoPlans = [
     price: 10000,
     duration: 2,
     features: {
-      branch: {
+      property: {
         basic: 100,
         featured: 20,
       },
@@ -423,7 +423,7 @@ const demoPlans = [
     price: 15000,
     duration: 5,
     features: {
-      branch: {
+      property: {
         basic: 150,
         featured: 30,
       },

@@ -28,6 +28,7 @@ const importData = async () => {
         agent: agent[0]._id,
         agentName: agent[0].agentName,
         agentLogo: agent[0].agentLogo,
+        agentPhoneNumber: agent[0].agentPhoneNumber,
       }
     })
     await Property.insertMany(prepareProperties)
