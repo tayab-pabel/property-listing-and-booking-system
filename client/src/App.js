@@ -54,7 +54,7 @@ function App() {
         <Route path='/search'>
           <FindProperty />
         </Route>
-        <Route path='/property-details'>
+        <Route path='/property-details/:id'>
           <PropertyDetails />
         </Route>
         <Route path='/find-agent'>

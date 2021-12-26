@@ -18,8 +18,6 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
     }
   }
 
-  console.log(currentUser)
-
   return (
     <Menu as='div' className='ml-4 relative flex-shrink-0'>
       <div>
