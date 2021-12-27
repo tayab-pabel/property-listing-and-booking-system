@@ -1,6 +1,7 @@
 import { FilterIcon, StarIcon } from '@heroicons/react/outline'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import {
   baths,
   beds,
@@ -15,6 +16,7 @@ import CustomDrawer from '../Elements/CustomDrawer'
 import CustomInput from '../Elements/CustomInput'
 import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
 import CustomSingleSelectOption from '../Elements/CustomSingleSelectOption'
+import ErrorMessage from '../Elements/ErrorMessage'
 import Loader from '../Elements/Loader'
 import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
 import { propertyPricing } from './../../Data/Filter'
@@ -22,10 +24,28 @@ import CallToAction from './../Sections/CallToAction'
 import Properties from './Properties'
 
 const FindProperty = () => {
+  //  const [properties, setProperties] = useState([])
+  const filtered = (bed, bath, properties) => {
+    let filterBed = bed
+      ? properties.filter((i) => i.propertyBedrooms === bed)
+      : properties
+
+    let filterbath = bath
+      ? filterBed.filter((i) => i.propertyBathrooms === bath)
+      : filterBed
+
+    return filterbath
+  }
+
+  // Get Purpose and Location from URL
+  const location = useLocation().search
+  const searchedPurpose = new URLSearchParams(location).get('prupose') || ''
+  const searchedLocation = new URLSearchParams(location).get('location') || ''
+
   const [properties, setProperties] = useState([])
 
   // Property Location:
-  const [propertyLocation, setPropertyLocation] = useState('')
+  const [propertyLocation, setPropertyLocation] = useState(searchedLocation)
 
   // Property Search Keyword:
   const [searchKeyword, setSearchKeyword] = useState('')
@@ -34,7 +54,7 @@ const FindProperty = () => {
   const [searchRadius, setSearchRadius] = useState(locationRadius[0])
 
   // Property Purpose:
-  const [selectedPurpose, setSelectedPurpose] = useState(purposes[0])
+  const [selectedPurpose, setSelectedPurpose] = useState(searchedPurpose)
 
   // Property Added to site
   const [selectedPostAddedTime, setSelectedPostAddedTime] = useState(
@@ -83,6 +103,10 @@ const FindProperty = () => {
   const [propertyMinimumArea, setPropertyMinimumArea] = useState('')
   const [propertyMaximumArea, setPropertyMaximumArea] = useState('')
 
+  // Fildered Properties
+  const filteredProperties = filtered(selectedBed, selectedBath, properties)
+  console.log(filteredProperties)
+
   // Filter Drawer for Mobile Devices:
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const toggleDrawer = () => setIsDrawerOpen(!isDrawerOpen)
@@ -126,6 +150,8 @@ const FindProperty = () => {
                   data={locationRadius}
                   option={searchRadius}
                   setOption={setSearchRadius}
+                  optionQuantifier='KM'
+                  firstDefaultOption='This area only'
                 />
               </div>
               <div className='PropertyType col-span-3'>
@@ -144,6 +170,7 @@ const FindProperty = () => {
                   data={beds}
                   option={selectedBed}
                   setOption={setSelectedBeds}
+                  firstDefaultOption='Any'
                 />
               </div>
               <div className='baths col-span-1'>
@@ -152,6 +179,7 @@ const FindProperty = () => {
                   data={baths}
                   option={selectedBath}
                   setOption={setSelectedBaths}
+                  firstDefaultOption='Any'
                 />
               </div>
               <div className='Price col-span-3'>
@@ -189,6 +217,8 @@ const FindProperty = () => {
                   data={postAddedTime}
                   option={selectedPostAddedTime}
                   setOption={setSelectedPostAddedTime}
+                  optionQuantifier='Days Ago'
+                  firstDefaultOption='Anytime'
                 />
               </div>
             </div>
@@ -232,8 +262,12 @@ const FindProperty = () => {
         </div>
       </div>
       <div className=''>
-        {properties && properties.length > 0 ? (
-          properties.map((property) => <Properties property={property} />)
+        {filteredProperties && filteredProperties.length === 0 ? (
+          <ErrorMessage error='No Property Found' />
+        ) : filteredProperties.length > 0 ? (
+          filteredProperties.map((property) => (
+            <Properties property={property} />
+          ))
         ) : (
           <Loader />
         )}

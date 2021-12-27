@@ -2,13 +2,13 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
 import React, { Fragment } from 'react'
 
-
 const CustomSingleSelectOption = ({
   title,
   data,
   option,
   setOption,
   optionQuantifier = '',
+  firstDefaultOption = '',
 }) => {
   return (
     <Menu as='div' className='relative cursor-pointer '>
@@ -22,7 +22,9 @@ const CustomSingleSelectOption = ({
                   {title}
                 </p>
                 <div className='flex justify-between'>
-                  <p className='text-sm font-medium text-blue-dark'>{option}</p>
+                  <p className='text-sm font-medium text-blue-dark'>
+                    {option || firstDefaultOption}
+                  </p>
                   <p className='text-sm font-medium text-blue-dark'>
                     {open ? (
                       <ChevronUpIcon className='w-5 h-5' />

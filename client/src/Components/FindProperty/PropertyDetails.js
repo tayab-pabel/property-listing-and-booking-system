@@ -102,11 +102,6 @@ const PropertyDetails = () => {
                     <h3 className='text-xl font-bold text-blue-dark'>
                       {property.propertyTitle}
                     </h3>
-                    {/* <p className='text-base text-blue-dark'>
-                      {property.propertyAddress.addressLine1 || ''},{' '}
-                      {property.propertyAddress.city || ''} -{' '}
-                      {property.propertyAddress.postCode || ''}
-                    </p> */}
                     <div className='flex'>
                       <div className='flex flex-wrap content-center h-7'>
                         <span>
