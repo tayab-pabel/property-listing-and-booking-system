@@ -47,7 +47,7 @@ const SavedProperties = () => {
       <div className="max-w-lg mx-auto grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:max-w-none">
           {savedProperties.map((savedProperty) => (
             <div key={savedProperty.id} className="rounded-lg shadow-lg overflow-hidden">
-              <img className="h-48 w-full object-cover" src={savedProperty.featuredImage} alt="" />
+              <img className="h-40 w-full object-cover" src={savedProperty.featuredImage} alt="" />
               <div className="bg-white p-5 justify-between">
                 <div className="flex justify-between items-center">
                     <h2 className="text-lg font-bold text-blue-dark">
