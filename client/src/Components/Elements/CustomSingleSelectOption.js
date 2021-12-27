@@ -2,14 +2,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/outline'
 import React, { Fragment } from 'react'
 
-const CustomSingleSelectOption = ({
-  title,
-  data,
-  option,
-  setOption,
-  optionQuantifier = '',
-  firstDefaultOption = '',
-}) => {
+const CustomSingleSelectOption = ({ title, data, option, setOption }) => {
   return (
     <Menu as='div' className='relative cursor-pointer '>
       {({ open }) => (
@@ -23,7 +16,7 @@ const CustomSingleSelectOption = ({
                 </p>
                 <div className='flex justify-between'>
                   <p className='text-sm font-medium text-blue-dark'>
-                    {option || firstDefaultOption}
+                    {data.filter((x) => x.value === option)[0].title}
                   </p>
                   <p className='text-sm font-medium text-blue-dark'>
                     {open ? (
@@ -42,7 +35,9 @@ const CustomSingleSelectOption = ({
               </p>
               <div className='bg-white px-4 py-2 rounded-lg space-y-2 border border-blue-dark'>
                 <div className='flex justify-between'>
-                  <p className='text-sm font-medium text-blue-dark'>{option}</p>
+                  <p className='text-sm font-medium text-blue-dark'>
+                    {data.filter((x) => x.value === option)[0].title}
+                  </p>
                   <p className='text-sm font-medium text-blue-dark'>
                     {open ? (
                       <ChevronUpIcon className='w-5 h-5' />
@@ -68,21 +63,14 @@ const CustomSingleSelectOption = ({
                 <Menu.Item key={index}>
                   {({ active }) => (
                     <div
-                      onClick={() => setOption(item)}
+                      onClick={() => setOption(item.value)}
                       className={`${
-                        item === option
+                        item.value === option
                           ? 'bg-blue-light text-white'
                           : active && 'bg-gray-100'
                       } text-center rounded-lg w-full p-2 text-xs font-medium cursor-pointer border`}
                     >
-                      {optionQuantifier ? (
-                        <p className='space-x-2'>
-                          <span>{item}</span>
-                          <span>{optionQuantifier}</span>
-                        </p>
-                      ) : (
-                        item
-                      )}
+                      <span>{item.title}</span>
                     </div>
                   )}
                 </Menu.Item>

@@ -51,24 +51,24 @@ const FindProperty = () => {
   const [searchKeyword, setSearchKeyword] = useState('')
 
   // Property Search Radius:
-  const [searchRadius, setSearchRadius] = useState(locationRadius[0])
+  const [searchRadius, setSearchRadius] = useState(locationRadius[0].value)
 
   // Property Purpose:
   const [selectedPurpose, setSelectedPurpose] = useState(searchedPurpose)
 
   // Property Added to site
   const [selectedPostAddedTime, setSelectedPostAddedTime] = useState(
-    postAddedTime[0]
+    postAddedTime[0].value
   )
 
   // Property BEDS:
-  const [selectedBed, setSelectedBeds] = useState(beds[0])
+  const [selectedBed, setSelectedBeds] = useState(beds[0].value)
 
   // Property Baths:
-  const [selectedBath, setSelectedBaths] = useState(baths[0])
+  const [selectedBath, setSelectedBaths] = useState(baths[0].value)
 
   // Property Sort:
-  const [selectedSort, setSelectedSort] = useState(sort[0])
+  const [selectedSort, setSelectedSort] = useState(sort[0].value)
 
   //Property Types:
   const propertyCategoies = propertTypes
@@ -105,7 +105,6 @@ const FindProperty = () => {
 
   // Fildered Properties
   const filteredProperties = filtered(selectedBed, selectedBath, properties)
-  console.log(filteredProperties)
 
   // Filter Drawer for Mobile Devices:
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -121,7 +120,6 @@ const FindProperty = () => {
       alert(error.message)
     }
   }, [])
-
   return (
     <div className=''>
       <div className='bg-gray-100'>
@@ -150,8 +148,6 @@ const FindProperty = () => {
                   data={locationRadius}
                   option={searchRadius}
                   setOption={setSearchRadius}
-                  optionQuantifier='KM'
-                  firstDefaultOption='This area only'
                 />
               </div>
               <div className='PropertyType col-span-3'>
@@ -170,7 +166,6 @@ const FindProperty = () => {
                   data={beds}
                   option={selectedBed}
                   setOption={setSelectedBeds}
-                  firstDefaultOption='Any'
                 />
               </div>
               <div className='baths col-span-1'>
@@ -179,7 +174,6 @@ const FindProperty = () => {
                   data={baths}
                   option={selectedBath}
                   setOption={setSelectedBaths}
-                  firstDefaultOption='Any'
                 />
               </div>
               <div className='Price col-span-3'>
@@ -217,8 +211,6 @@ const FindProperty = () => {
                   data={postAddedTime}
                   option={selectedPostAddedTime}
                   setOption={setSelectedPostAddedTime}
-                  optionQuantifier='Days Ago'
-                  firstDefaultOption='Anytime'
                 />
               </div>
             </div>
@@ -302,7 +294,6 @@ const FindProperty = () => {
                 data={locationRadius}
                 option={searchRadius}
                 setOption={setSearchRadius}
-                optionQuantifier='km'
               />
             </div>
             <div className='PropertyType col-span-4'>

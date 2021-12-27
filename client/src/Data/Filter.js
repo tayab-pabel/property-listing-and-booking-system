@@ -1,14 +1,50 @@
-export const purposes = ['Rent', 'Buy']
-export const beds = [0, 1, 2, 3, 4, 5, 6]
-export const baths = [0, 1, 2, 3, 4, 5, 6]
-export const locationRadius = [0, 1, 2, 3, 5, 8, 10, 12, 15, 20, 25, 30]
-export const postAddedTime = [0, 1, 3, 7, 14, 30]
-export const sort = [
-  'Most recent',
-  'Most popular',
-  'Highest price',
-  'Lowest price',
+export const purposes = [
+  { title: 'Buy', value: 'Buy' },
+  { title: 'Rent', value: 'Rent' },
 ]
+
+export const locationRadius = [
+  { title: 'This Area Only', value: 0 },
+  { title: '1 Kilometer', value: 1 },
+  { title: '2 Kilometers', value: 2 },
+  { title: '5 Kilometers', value: 5 },
+  { title: '10 Kilometers', value: 10 },
+  { title: '15 Kilometers', value: 15 },
+  { title: '20 Kilometers', value: 20 },
+  { title: '30 Kilometers', value: 30 },
+]
+
+export const beds = [
+  { title: 'Any', value: 0 },
+  { title: '1', value: 1 },
+  { title: '2', value: 2 },
+  { title: '3', value: 3 },
+  { title: '4', value: 4 },
+  { title: '5', value: 5 },
+  { title: '6+', value: 6 },
+]
+
+export const baths = [
+  { title: 'Any', value: 0 },
+  { title: '1', value: 1 },
+  { title: '2', value: 2 },
+  { title: '3', value: 3 },
+  { title: '4', value: 4 },
+  { title: '5', value: 5 },
+  { title: '6+', value: 6 },
+]
+
+export const postAddedTime = [
+  { title: 'Anytime', value: 0 },
+  { title: '1 Days Ago', value: 1 },
+  { title: '3 Days Ago', value: 3 },
+  { title: '5 Days Ago', value: 5 },
+  { title: '10 Days Ago', value: 10 },
+  { title: '15 Days Ago', value: 15 },
+  { title: '20 Days Ago', value: 20 },
+  { title: '30 Days Ago', value: 30 },
+]
+
 export let propertTypes = [
   {
     id: 1,
@@ -298,3 +334,9 @@ export const propertyArea = {
     '5,000',
   ],
 }
+
+export const sort = [
+  { title: 'Default', value: 0 },
+  { title: 'Price: Low to High', value: -1 },
+  { title: 'Price: High to Low', value: 1 },
+]
