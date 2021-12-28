@@ -4,7 +4,6 @@ import ImageGallery from 'react-image-gallery'
 import { Link, useParams } from 'react-router-dom'
 import {
   ArrowLeftIcon,
-  CheckCircleIcon,
   HeartIcon,
   PhoneIcon,
   ShareIcon,
