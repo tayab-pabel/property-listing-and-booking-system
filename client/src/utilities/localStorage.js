@@ -20,3 +20,8 @@ export const propertySavetoLocalStorage = (property) => {
     localStorage.setItem('saveProperties', JSON.stringify(savedProperties))
   }
 }
+
+export const getSavedProperties = () => {
+  let savedProperties = JSON.parse(localStorage.getItem('saveProperties')) || []
+  return savedProperties
+}
