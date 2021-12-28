@@ -95,6 +95,7 @@ const FindProperty = () => {
 
   // Fildered Properties
   const filteredProperties = filterProperty(
+    searchKeyword,
     selectedProperty.toLowerCase(),
     selectedBed,
     selectedBath,
@@ -112,14 +113,15 @@ const FindProperty = () => {
 
   useEffect(async () => {
     try {
+      let purpose = selectedPurpose.toLowerCase()
       const result = await axios.get(
-        'https://propertymarketbd.herokuapp.com/api/property'
+        `https://propertymarketbd.herokuapp.com/api/property?purpose=${purpose}`
       )
       setProperties(result.data)
     } catch (error) {
       alert(error.message)
     }
-  }, [])
+  }, [selectedPurpose])
 
   return (
     <div className=''>
@@ -199,9 +201,9 @@ const FindProperty = () => {
                   setMaximumValue={setPropertyMaximumArea}
                 />
               </div>
-              <div className='keyword col-span-3'>
+              <div className='search col-span-3'>
                 <CustomInput
-                  title='Keyword'
+                  title='Search'
                   data={searchKeyword}
                   setData={setSearchKeyword}
                 />

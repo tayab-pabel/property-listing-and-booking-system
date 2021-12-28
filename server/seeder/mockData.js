@@ -109,7 +109,7 @@ const demoProperties = [
   },
   {
     postType: 'featured',
-    purpose: 'sale',
+    purpose: 'buy',
     propertyCategory: 'commercial',
     propertyType: 'office',
     propertyTitle: '1500 sqft office space',
@@ -127,7 +127,7 @@ const demoProperties = [
     propertyAvailability: Date.now(),
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
-    propertyPrice: 55000,
+    propertyPrice: 500000,
     propertyBedrooms: 0,
     propertyBathrooms: 4,
     propertyFloorNumber: 2,
@@ -249,7 +249,7 @@ const demoProperties = [
     },
 
     propertyFeaturedImage:
-      'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_IMG_19_0000.jpg',
+      'https://images.pexels.com/photos/32870/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     propertyFloorPlanImage:
       'https://media.rightmove.co.uk/223k/222812/93269894/222812_Deluxestudiotolet2_FLP_00_0000.png',
     propertyImages: [
@@ -282,7 +282,7 @@ const demoProperties = [
   },
   {
     postType: 'featured',
-    purpose: 'sale',
+    purpose: 'buy',
     propertyCategory: 'commercial',
     propertyType: 'office',
     propertyTitle: '1500 sqft office space',
@@ -300,7 +300,7 @@ const demoProperties = [
     propertyAvailability: Date.now(),
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
-    propertyPrice: 55000,
+    propertyPrice: 750000,
     propertyBedrooms: 0,
     propertyBathrooms: 4,
     propertyFloorNumber: 2,

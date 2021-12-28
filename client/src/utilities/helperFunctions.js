@@ -1,4 +1,5 @@
 export const filterProperty = (
+  search = '',
   type,
   bed,
   bath,
@@ -9,12 +10,18 @@ export const filterProperty = (
   sort,
   properties
 ) => {
+  let searchRegexp = new RegExp(search, 'i')
+
+  let filterBySearch = search
+    ? properties.filter((i) => i.propertyTitle.match(searchRegexp))
+    : properties
+
   let filterPropertyType =
     type && type != 'resindential' && type != 'commercial'
-      ? properties.filter(
+      ? filterBySearch.filter(
           (i) => i.propertyType === type || i.propertyCategory === type
         )
-      : properties
+      : filterBySearch
 
   let filterBed = bed
     ? filterPropertyType.filter((i) => i.propertyBedrooms === bed)
@@ -48,4 +55,13 @@ export const filterProperty = (
       : filterMaxArea
 
   return filterSort
+}
+
+// Used in PropertyDetails Formating Featured Details
+export const trythyValueArrayFromObject = (obj) => {
+  let data = []
+  for (let key in obj) {
+    if (obj[key]) data.push(key)
+  }
+  return data
 }

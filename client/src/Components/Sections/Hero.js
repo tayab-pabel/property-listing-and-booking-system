@@ -3,17 +3,17 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
-  const [redirect, setRedirect] = useState('Buy')
+  const [redirect, setRedirect] = useState('Rent')
   const [location, setLocation] = useState('')
 
   const tabs = [
     {
-      name: 'To Buy',
-      path: 'Buy',
-    },
-    {
       name: 'To Rent',
       path: 'Rent',
+    },
+    {
+      name: 'To Buy',
+      path: 'Buy',
     },
   ]
 
