@@ -10,7 +10,7 @@ const PropertySchema = mongoose.Schema(
       ref: 'Agent',
     },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
-    purpose: { type: String, enum: ['sale', 'rent'], default: 'rent' },
+    purpose: { type: String, enum: ['buy', 'rent'], default: 'rent' },
     propertyCategory: {
       type: String,
       enum: ['residential', 'commercial'],

@@ -13,11 +13,14 @@ import { Dialog, Transition } from '@headlessui/react'
 import axios from 'axios'
 import Loader from './../Elements/Loader'
 import moment from 'moment'
+import { propertySavetoLocalStorage } from './../../utilities/localStorage'
+import { trythyValueArrayFromObject } from '../../utilities/helperFunctions'
 
 const PropertyDetails = () => {
   const { id } = useParams()
   const [property, setProperty] = useState({})
   const [propertyGallery, setPropertyGallery] = useState([])
+  const [features, setFeatures] = useState([])
 
   let [isOpen, setIsOpen] = useState(false)
 
@@ -41,6 +44,7 @@ const PropertyDetails = () => {
           thumbnail: image,
         }))
       )
+      setFeatures(trythyValueArrayFromObject(data.propertyFeatures))
     } catch (error) {
       alert(error.message)
     }
@@ -79,6 +83,7 @@ const PropertyDetails = () => {
                       <button
                         type='button'
                         className='inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-light'
+                        onClick={() => propertySavetoLocalStorage(property)}
                       >
                         <HeartIcon
                           className='-ml-1 mr-2 h-5 w-5'
@@ -322,15 +327,15 @@ const PropertyDetails = () => {
                       Features & Amenities
                     </h3>
                     <div className='grid grid-cols-2 text-base text-blue-dark mt-3'>
-                      {/* {property.featuresAndAmenities.map((feature, index) => (
+                      {features.map((feature, index) => (
                         <div
-                          className='flex text-base items-center'
+                          className='flex text-base items-center capitalize'
                           key={index}
                         >
-                          <CheckCircleIcon className='w-5 h-5 text-blue-light mr-1.5'></CheckCircleIcon>
+                          <CheckCircleIcon className='w-5 h-5 text-blue-light mr-1.5 '></CheckCircleIcon>
                           {feature}
                         </div>
-                      ))} */}
+                      ))}
                     </div>
                   </div>
 

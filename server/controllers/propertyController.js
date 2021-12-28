@@ -12,7 +12,8 @@ const Property = require('../models/propertyModel')
 
 const allProperty = async (req, res, next) => {
   try {
-    const result = await Property.find()
+    let purpose = req.query.purpose || 'rent'
+    const result = await Property.find({ purpose: purpose })
     res.status(200).json(result)
   } catch (error) {
     next(createError(500, 'Data Failed to Fetch'))
