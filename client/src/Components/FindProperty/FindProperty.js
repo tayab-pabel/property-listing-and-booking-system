@@ -12,6 +12,7 @@ import {
   purposes,
   sort,
 } from '../../Data/Filter'
+import { filterProperty } from '../../utilities/helperFunctions'
 import CustomDrawer from '../Elements/CustomDrawer'
 import CustomInput from '../Elements/CustomInput'
 import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
@@ -24,30 +25,12 @@ import CallToAction from './../Sections/CallToAction'
 import Properties from './Properties'
 
 const FindProperty = () => {
-  const filtered = (bed, bath, sort, properties) => {
-    let filterBed = bed
-      ? properties.filter((i) => i.propertyBedrooms === bed)
-      : properties
-
-    let filterbath = bath
-      ? filterBed.filter((i) => i.propertyBathrooms === bath)
-      : filterBed
-
-    let filterSort =
-      sort && sort === 'low-to-heigh'
-        ? filterbath.sort((a, b) => a.propertyPrice - b.propertyPrice)
-        : sort === 'heigh-to-low'
-        ? filterbath.sort((a, b) => b.propertyPrice - a.propertyPrice)
-        : filterbath
-
-    return filterSort
-  }
-
   // Get Purpose and Location from URL
   const location = useLocation().search
   const searchedPurpose = new URLSearchParams(location).get('prupose') || ''
   const searchedLocation = new URLSearchParams(location).get('location') || ''
 
+  // Get Properties from API
   const [properties, setProperties] = useState([])
 
   // Property Location:
@@ -86,6 +69,7 @@ const FindProperty = () => {
   const [selectedProperty, setSelectedProperty] = useState(
     selectedPropertyCategory
   )
+
   const selectedPropertyTypes =
     (selectedPropertyCategory &&
       propertTypes.filter(
@@ -98,21 +82,26 @@ const FindProperty = () => {
     minimum: minimumPrices,
     maximum: maximumPrices,
   } = propertyPricing.find((x) => x.purpose === selectedPurpose)
-  const [propertyMinimumPrice, setPropertyMinimumPrice] = useState('')
-  const [propertyMaximumPrice, setPropertyMaximumPrice] = useState('')
+  const [propertyMinimumPrice, setPropertyMinimumPrice] = useState(0)
+  const [propertyMaximumPrice, setPropertyMaximumPrice] = useState(0)
 
   // Property Area (Sqft):
   const {
     minimum: propertyMinimumAreas,
     maximum: propertyMaximumAreas,
   } = propertyArea
-  const [propertyMinimumArea, setPropertyMinimumArea] = useState('')
-  const [propertyMaximumArea, setPropertyMaximumArea] = useState('')
+  const [propertyMinimumArea, setPropertyMinimumArea] = useState(0)
+  const [propertyMaximumArea, setPropertyMaximumArea] = useState(0)
 
   // Fildered Properties
-  const filteredProperties = filtered(
+  const filteredProperties = filterProperty(
+    selectedProperty.toLowerCase(),
     selectedBed,
     selectedBath,
+    propertyMinimumPrice,
+    propertyMaximumPrice,
+    propertyMinimumArea,
+    propertyMaximumArea,
     selectedSort,
     properties
   )
@@ -131,6 +120,7 @@ const FindProperty = () => {
       alert(error.message)
     }
   }, [])
+
   return (
     <div className=''>
       <div className='bg-gray-100'>

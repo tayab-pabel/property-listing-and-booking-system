@@ -25,13 +25,21 @@ const CustomMinMaxRangeSelectOption = ({
                 <div className='grid grid-cols-2 gap-3'>
                   <div className='flex justify-between'>
                     <p className='text-sm font-medium text-blue-dark capitalize'>
-                      {selectedMinimumValue || 0}
+                      {
+                        mimimumRangeArray.filter(
+                          (x) => x.value === selectedMinimumValue
+                        )[0].title
+                      }
                     </p>
                     <p className='text-sm font-medium text-blue-dark'>to</p>
                   </div>
                   <div className='flex justify-between'>
                     <p className='text-sm font-medium text-blue-dark capitalize'>
-                      {selectedMaximumValue || 'Any'}
+                      {
+                        maximumRangeArray.filter(
+                          (x) => x.value === selectedMaximumValue
+                        )[0].title
+                      }
                     </p>
                     <p className='text-sm font-medium text-blue-dark'>
                       {open ? (
@@ -53,13 +61,21 @@ const CustomMinMaxRangeSelectOption = ({
                 <div className='grid grid-cols-2 gap-3'>
                   <div className='flex justify-between'>
                     <p className='text-sm font-medium text-blue-dark capitalize'>
-                      {selectedMinimumValue || 0}
+                      {
+                        mimimumRangeArray.filter(
+                          (x) => x.value === selectedMinimumValue
+                        )[0].title
+                      }
                     </p>
                     <p className='text-sm font-medium text-blue-dark'>to</p>
                   </div>
                   <div className='flex justify-between'>
                     <p className='text-sm font-medium text-blue-dark capitalize'>
-                      {selectedMaximumValue || 'Any'}
+                      {
+                        maximumRangeArray.filter(
+                          (x) => x.value === selectedMaximumValue
+                        )[0].title
+                      }
                     </p>
                     <p className='text-sm font-medium text-blue-dark'>
                       {open ? (
@@ -104,14 +120,14 @@ const CustomMinMaxRangeSelectOption = ({
                     <Menu.Item key={index} as='div'>
                       {({ active }) => (
                         <div
-                          onClick={() => setMinimumValue(item)}
+                          onClick={() => setMinimumValue(item.value)}
                           className={`${
-                            item === selectedMinimumValue
+                            item.value === selectedMinimumValue
                               ? 'bg-blue-light text-white'
                               : active && 'bg-gray-100 text-blue-dark'
                           } text-center py-2 text-xs font-medium cursor-pointer`}
                         >
-                          {item}
+                          {item.title}
                         </div>
                       )}
                     </Menu.Item>
@@ -122,14 +138,14 @@ const CustomMinMaxRangeSelectOption = ({
                     <Menu.Item key={index} as='div'>
                       {({ active }) => (
                         <div
-                          onClick={() => setMaximumValue(item)}
+                          onClick={() => setMaximumValue(item.value)}
                           className={`${
-                            item === selectedMaximumValue
+                            item.value === selectedMaximumValue
                               ? 'bg-blue-light text-white'
                               : active && 'bg-gray-100 text-blue-dark'
                           } text-center py-2 text-xs font-medium cursor-pointer`}
                         >
-                          {item}
+                          {item.title}
                         </div>
                       )}
                     </Menu.Item>
