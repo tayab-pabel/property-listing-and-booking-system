@@ -337,6 +337,6 @@ export const propertyArea = {
 
 export const sort = [
   { title: 'Default', value: 0 },
-  { title: 'Price: Low to High', value: -1 },
-  { title: 'Price: High to Low', value: 1 },
+  { title: 'Price: Low to High', value: 'low-to-heigh' },
+  { title: 'Price: High to Low', value: 'heigh-to-low' },
 ]

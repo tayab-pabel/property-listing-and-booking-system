@@ -24,8 +24,7 @@ import CallToAction from './../Sections/CallToAction'
 import Properties from './Properties'
 
 const FindProperty = () => {
-  //  const [properties, setProperties] = useState([])
-  const filtered = (bed, bath, properties) => {
+  const filtered = (bed, bath, sort, properties) => {
     let filterBed = bed
       ? properties.filter((i) => i.propertyBedrooms === bed)
       : properties
@@ -34,7 +33,14 @@ const FindProperty = () => {
       ? filterBed.filter((i) => i.propertyBathrooms === bath)
       : filterBed
 
-    return filterbath
+    let filterSort =
+      sort && sort === 'low-to-heigh'
+        ? filterbath.sort((a, b) => a.propertyPrice - b.propertyPrice)
+        : sort === 'heigh-to-low'
+        ? filterbath.sort((a, b) => b.propertyPrice - a.propertyPrice)
+        : filterbath
+
+    return filterSort
   }
 
   // Get Purpose and Location from URL
@@ -104,7 +110,12 @@ const FindProperty = () => {
   const [propertyMaximumArea, setPropertyMaximumArea] = useState('')
 
   // Fildered Properties
-  const filteredProperties = filtered(selectedBed, selectedBath, properties)
+  const filteredProperties = filtered(
+    selectedBed,
+    selectedBath,
+    selectedSort,
+    properties
+  )
 
   // Filter Drawer for Mobile Devices:
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
