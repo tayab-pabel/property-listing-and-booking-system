@@ -9,6 +9,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile,
+  sendPasswordResetEmail,
+  updateEmail,
+  updatePhoneNumber,
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -47,6 +50,19 @@ const AuthProvider = ({ children }) => {
     return updateProfile(user, { displayName: name })
   }
 
+  function resetPassword(email) {
+    return sendPasswordResetEmail(auth, email)
+  }
+
+  function updateCurrentEmail(email) {
+    return updateEmail(currentUser, email)
+  }
+
+  // Currently Not Working
+  function updateCurrentPhoneNumber(user, phoneNumber) {
+    return updateProfile(user, { phoneNumber: phoneNumber })
+  }
+
   function logOut() {
     return signOut(auth)
   }
@@ -63,6 +79,9 @@ const AuthProvider = ({ children }) => {
     logOut,
     googleLogin,
     updateName,
+    resetPassword,
+    updateCurrentEmail,
+    updateCurrentPhoneNumber,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
