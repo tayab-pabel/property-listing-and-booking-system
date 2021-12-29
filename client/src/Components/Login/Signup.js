@@ -15,11 +15,10 @@ import RegistrationSchema from '../Schemas/RegistrationSchema'
 
 const Signup = () => {
   const [show, setShow] = useState(false)
-  const { currentUser, singUp } = useAuth()
+  const { currentUser, createNewUser, updateName, googleLogin } = useAuth()
   const history = useHistory()
   const location = useLocation()
   const { form } = location.state || { form: { pathname: '/' } }
-  console.log(currentUser)
 
   const formik = useFormik({
     initialValues: {
@@ -31,13 +30,23 @@ const Signup = () => {
     validationSchema: RegistrationSchema,
     onSubmit: async (values) => {
       try {
-        await singUp(values.email, values.password)
+        let fullName = `${values.firstName} ${values.lastName}`
+        const { user } = await createNewUser(values.email, values.password)
+        await updateName(user, fullName)
         history.replace(form)
       } catch (error) {
         alert(error.message)
       }
     },
   })
+
+  async function googleLoginHandler() {
+    try {
+      await googleLogin()
+    } catch (error) {
+      alert(error.message)
+    }
+  }
 
   useEffect(() => {
     if (currentUser && currentUser.email) {
@@ -241,6 +250,7 @@ const Signup = () => {
                 <div>
                   <a
                     href='#'
+                    onClick={googleLoginHandler}
                     className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-dark0 hover:bg-gray-50'
                   >
                     <svg

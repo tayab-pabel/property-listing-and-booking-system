@@ -8,6 +8,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -30,7 +31,7 @@ export function useAuth() {
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = React.useState()
 
-  function signUp(email, password) {
+  function createNewUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
@@ -42,6 +43,10 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, new GoogleAuthProvider())
   }
 
+  function updateName(user, name) {
+    return updateProfile(user, { displayName: name })
+  }
+
   function logOut() {
     return signOut(auth)
   }
@@ -51,7 +56,14 @@ const AuthProvider = ({ children }) => {
     return unsubscribe
   }, [])
 
-  const value = { currentUser, signUp, signIn, logOut, googleLogin }
+  const value = {
+    currentUser,
+    createNewUser,
+    signIn,
+    logOut,
+    googleLogin,
+    updateName,
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
