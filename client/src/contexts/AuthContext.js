@@ -72,6 +72,9 @@ const AuthProvider = ({ children }) => {
     return unsubscribe
   }, [])
 
+  // Image Upload on Firesotre:
+  function upload() {}
+
   const value = {
     currentUser,
     createNewUser,

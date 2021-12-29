@@ -5,6 +5,10 @@ import { ProfileUpdateSchema } from '../Schemas/RegistrationSchema'
 
 const UpdateProfile = ({ editPanelCloser }) => {
   const { currentUser, updateName, updateCurrentPhoneNumber } = useAuth()
+  const [profile, setProfile] = React.useState(
+    (currentUser && currentUser.photoURL) ||
+      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+  )
 
   const formik = useFormik({
     initialValues: {
@@ -31,6 +35,11 @@ const UpdateProfile = ({ editPanelCloser }) => {
       }
     },
   })
+
+  const handleImageUpload = () => {
+    alert('uploaded')
+  }
+
   const { handleChange, handleBlur, handleSubmit, errors, values } = formik
   return (
     <div>
@@ -44,32 +53,47 @@ const UpdateProfile = ({ editPanelCloser }) => {
               Photo
             </label>
             <div className='mt-1 flex items-center'>
-              <img
-                className='inline-block h-12 w-12 rounded-full'
-                src='https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80'
-                alt=''
-              />
+              {profile ? (
+                <img
+                  className='inline-block h-12 w-12 rounded-full'
+                  src={profile}
+                  alt='User Profile'
+                />
+              ) : (
+                <span className='inline-block h-10 w-10 rounded-full overflow-hidden bg-blue-soft'>
+                  <svg
+                    className='h-full w-full text-blue-300'
+                    fill='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path d='M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z' />
+                  </svg>
+                </span>
+              )}
               <div className='ml-4 flex'>
                 <div className='relative bg-white py-2 px-3 border border-blue-dark rounded-lg flex items-center cursor-pointer hover:bg-blue-gray-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-blue-gray-50 focus-within:ring-blue-light'>
                   <label
-                    htmlFor='user-photo'
+                    htmlFor='avatar'
                     className='relative font-medium text-blue-dark pointer-events-none'
                   >
                     <span>Change</span>
                     <span className='sr-only'>user photo</span>
                   </label>
                   <input
-                    id='user-photo'
-                    name='user-photo'
+                    id='avatar'
+                    name='avatar'
                     type='file'
+                    onChange={(e) => {
+                      setProfile(URL.createObjectURL(e.target.files[0]))
+                    }}
                     className='absolute inset-0 w-full h-full opacity-0 cursor-pointer border-gray-300 rounded-lg'
                   />
                 </div>
                 <button
-                  type='button'
-                  className='ml-3 bg-transparent py-2 px-3 border border-transparent rounded-lg font-medium text-blue-dark hover:text-blue-gray-700 focus:outline-none focus:border-blue-dark focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-gray-50 focus:ring-blue-light'
+                  onClick={handleImageUpload}
+                  className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
                 >
-                  Remove
+                  Update
                 </button>
               </div>
             </div>

@@ -2,27 +2,17 @@ import { Tab } from '@headlessui/react'
 import React, { useState, Fragment } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import UpdateEmail from './UpdateEmail'
+import UpdatePassword from './UpdatePassword'
 import UpdateProfile from './UpdateProfile'
 
 const Profile = () => {
   const { currentUser } = useAuth()
-  console.log(currentUser)
   const user = {
-    name:
-      currentUser && currentUser.displayName
-        ? currentUser.displayName
-        : 'Chelsea Hagon',
-    userType: 'I am a first-time buyer',
-    username: 'chelsea.hagon',
-    email:
-      currentUser && currentUser.email
-        ? currentUser.email
-        : 'chelseahagon@gmail.com',
-    phoneNumber: '0123456789',
-    location: 'Dhanmondi, Dhaka',
-    postalCode: '1215',
-    about:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada at ultricies tincidunt elit et, enim. Habitant nunc, adipiscing non fermentum, sed est a, aliquet. Lorem in vel libero vel augue aliquet dui commodo.',
+    name: currentUser && currentUser.displayName ? currentUser.displayName : '',
+    email: currentUser && currentUser.email ? currentUser.email : '',
+    phoneNumber:
+      currentUser && currentUser.phoneNumber ? currentUser.phoneNumber : '',
+
     imageUrl:
       currentUser && currentUser.photoURL
         ? currentUser.photoURL
@@ -187,73 +177,8 @@ const Profile = () => {
                 <p className='text-blue-dark'>**********</p>
               </div>
             ) : (
-              <div className='' editPanelCloser={editPanelCloser}>
-                <form className='mt-4 space-y-8 divide-y divide-y-blue-gray-200'>
-                  <div className='grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6'>
-                    <div className='sm:col-span-6'>
-                      <label
-                        htmlFor='current-password'
-                        className='block font-medium text-blue-dark'
-                      >
-                        Current Password
-                      </label>
-                      <input
-                        type='email'
-                        name='current-password'
-                        id='current-password'
-                        autoComplete='current-password'
-                        className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-                      />
-                    </div>
-
-                    <div className='sm:col-span-6'>
-                      <label
-                        htmlFor='new-password'
-                        className='block font-medium text-blue-dark'
-                      >
-                        New Password
-                      </label>
-                      <input
-                        type='email'
-                        name='new-password'
-                        id='new-password'
-                        autoComplete='new-password'
-                        className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-                      />
-                    </div>
-
-                    <div className='sm:col-span-6'>
-                      <label
-                        htmlFor='confirm-new-password'
-                        className='block font-medium text-blue-dark'
-                      >
-                        Confirm New Password
-                      </label>
-                      <input
-                        type='email'
-                        name='confirm-new-password'
-                        id='confirm-new-password'
-                        autoComplete='confirm-new-password'
-                        className='mt-1 block w-full border-blue-dark rounded-lg text-blue-dark sm:text-sm focus:ring-blue-light focus:border-blue-light'
-                      />
-                    </div>
-                  </div>
-                  <div className='pt-4 flex justify-end'>
-                    <button
-                      onClick={() => editPanelCloser('password')}
-                      type='button'
-                      className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type='submit'
-                      className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
-                    >
-                      Update
-                    </button>
-                  </div>
-                </form>
+              <div>
+                <UpdatePassword editPanelCloser={editPanelCloser} />
               </div>
             )}
           </Tab.Panel>
