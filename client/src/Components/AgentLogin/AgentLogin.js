@@ -6,11 +6,17 @@ import {
 } from '@heroicons/react/outline'
 import axios from 'axios'
 import { useFormik } from 'formik'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 
 const AgentLogin = () => {
+  const history = useHistory()
+
+  const user = localStorage.getItem('loggedInUser')
+    ? JSON.parse(localStorage.getItem('loggedInUser'))
+    : {}
+
   const [show, setShow] = useState(false)
   const formik = useFormik({
     initialValues: {
@@ -19,6 +25,7 @@ const AgentLogin = () => {
     },
     onSubmit: async (values) => {
       try {
+        localStorage.removeItem('loggedInUser')
         let url = 'https://propertymarketbd.herokuapp.com/api/user/signin'
         let loginData = JSON.stringify({
           email: values.email,
@@ -31,7 +38,19 @@ const AgentLogin = () => {
           },
         }
         const { data } = await axios.post(url, loginData, configuration)
-        alert(JSON.stringify(data, null, 2))
+
+        if (data) {
+          let loggedInUser = {
+            name: data.name,
+            email: data.email,
+            mobile: data.mobile,
+            avatar: data.avatar,
+            role: 'marchand',
+            token: data.token,
+          }
+          localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))
+        }
+        history.push('/agent-account')
       } catch (error) {
         console.log(error)
       }
@@ -39,6 +58,12 @@ const AgentLogin = () => {
   })
 
   const { handleChange, handleBlur, handleSubmit, errors, values } = formik
+
+  useEffect(() => {
+    if (user && user.email) {
+      history.push('/')
+    }
+  }, [user])
 
   return (
     <div>

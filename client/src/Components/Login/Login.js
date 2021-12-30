@@ -11,12 +11,15 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 
 const Login = () => {
+  const { currentUser, signIn, googleLogin } = useAuth()
   const [show, setShow] = useState(false)
   const history = useHistory()
   const location = useLocation()
   const { form } = location.state || { form: { pathname: '/' } }
 
-  const { currentUser, signIn, googleLogin } = useAuth()
+  const user = localStorage.getItem('loggedInUser')
+    ? JSON.parse(localStorage.getItem('loggedInUser'))
+    : {}
 
   const formik = useFormik({
     initialValues: {
@@ -42,10 +45,10 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if (currentUser && currentUser.email) {
+    if (user && user.email) {
       history.replace(form)
     }
-  }, [currentUser])
+  }, [user])
 
   const { handleChange, handleBlur, handleSubmit, errors, values } = formik
 

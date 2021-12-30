@@ -6,7 +6,7 @@ import {
   MenuAlt1Icon,
   OfficeBuildingIcon,
   UserIcon,
-  XIcon
+  XIcon,
 } from '@heroicons/react/outline'
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
@@ -17,6 +17,10 @@ import HeaderNavigation from './../Elements/HeaderNavigation'
 
 const Header = () => {
   const { currentUser, logOut } = useAuth()
+
+  const user = localStorage.getItem('loggedInUser')
+    ? JSON.parse(localStorage.getItem('loggedInUser'))
+    : {}
 
   const solutions = [
     {
@@ -73,8 +77,8 @@ const Header = () => {
           </Link>
         </Popover.Group>
         <div className='hidden lg:flex items-center justify-end lg:flex-1 lg:w-0'>
-          {currentUser ? (
-            <HeaderNavigation logOut={logOut} currentUser={currentUser} />
+          {user && user.email ? (
+            <HeaderNavigation logOut={logOut} user={user} />
           ) : (
             <>
               <Link
@@ -136,22 +140,22 @@ const Header = () => {
             </div>
             <div className='mx-2'>
               {currentUser ? (
-              <MobileNavigation logOut={logOut} currentUser={currentUser}/>
+                <MobileNavigation logOut={logOut} currentUser={currentUser} />
               ) : (
-              <div className='py-5'>
-                <Link
-                  to='/signup'
-                  className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light'
-                >
-                  Sign Up
-                </Link>
-                <p className='mt-5 text-center text-base text-blue-dark'>
-                  Already have an account?{' '}
-                  <Link to='/login' className='text-blue-light'>
-                    Log In
+                <div className='py-5'>
+                  <Link
+                    to='/signup'
+                    className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-blue-light'
+                  >
+                    Sign Up
                   </Link>
-                </p>
-              </div>
+                  <p className='mt-5 text-center text-base text-blue-dark'>
+                    Already have an account?{' '}
+                    <Link to='/login' className='text-blue-light'>
+                      Log In
+                    </Link>
+                  </p>
+                </div>
               )}
             </div>
           </div>

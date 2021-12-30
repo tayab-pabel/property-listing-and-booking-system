@@ -11,7 +11,6 @@ import {
   updateProfile,
   sendPasswordResetEmail,
   updateEmail,
-  updatePhoneNumber,
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -64,11 +63,25 @@ const AuthProvider = ({ children }) => {
   }
 
   function logOut() {
+    localStorage.removeItem('loggedInUser')
     return signOut(auth)
   }
 
   React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUser(user))
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        let loggedInUser = {
+          name: user.displayName,
+          email: user.email,
+          mobile: user.phoneNumber,
+          avatar: user.photoURL,
+          role: 'user',
+          token: '',
+        }
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))
+      }
+      setCurrentUser(user)
+    })
     return unsubscribe
   }, [])
 
