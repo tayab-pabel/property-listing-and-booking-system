@@ -67,9 +67,9 @@ const userSignup = async (req, res, next) => {
  * @access Public
  */
 const userSignin = async (req, res, next) => {
-  const { mobile, password } = req.body
+  const { email, password } = req.body
   try {
-    const user = await People.findOne({ mobile })
+    const user = await People.findOne({ email })
     const passwordIsMatched = await bcrypt.compare(password, user.password)
     if (user && passwordIsMatched) {
       const userData = {

@@ -40,6 +40,8 @@ const Signup = () => {
     },
   })
 
+  const { handleChange, handleBlur, handleSubmit, errors, values } = formik
+
   async function googleLoginHandler() {
     try {
       await googleLogin()
@@ -53,8 +55,6 @@ const Signup = () => {
       history.replace(form)
     }
   }, [currentUser])
-
-  const { handleChange, handleBlur, handleSubmit, errors, values } = formik
 
   return (
     <div>

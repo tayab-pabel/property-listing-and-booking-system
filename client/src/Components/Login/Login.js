@@ -9,7 +9,6 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
-import LoginSchema from '../Schemas/LoginSchema'
 
 const Login = () => {
   const [show, setShow] = useState(false)
@@ -24,7 +23,6 @@ const Login = () => {
       email: '',
       password: '',
     },
-    validationSchema: LoginSchema,
     onSubmit: async (values) => {
       try {
         await signIn(values.email, values.password)
