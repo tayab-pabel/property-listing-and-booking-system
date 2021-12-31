@@ -17,6 +17,7 @@ const importData = async () => {
   try {
     await People.deleteMany()
     await Property.deleteMany()
+    await Agent.deleteMany()
     const user = await People.insertMany(defaultUsers)
     const perpareAgent = demoAgent.map((agent) => {
       return { ...agent, user: user[0]._id }
@@ -47,6 +48,7 @@ const destroyData = async () => {
   try {
     await People.deleteMany()
     await Property.deleteMany()
+    await Agent.deleteMany()
     console.log(`Default Test User Data Successfully Destroyed !`.magenta.bold)
     process.exit()
   } catch (error) {

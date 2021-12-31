@@ -3,6 +3,26 @@ const createError = require('http-errors')
 
 // Internal Dependencies:
 const Property = require('../models/propertyModel')
+const { defaultProperty } = require('../seeder/mockData')
+
+/**
+ * @desc This route will provide an array of all listed Properties.
+ * @route POST/api/property
+ * @access Private/agent
+ */
+const createProperty = async (req, res, next) => {
+  try {
+    console.log(req.user)
+    const newProperty = new Property({
+      ...defaultProperty,
+      agent: req.user._id,
+    })
+    const result = await newProperty.save()
+    res.status(201).json(result)
+  } catch (error) {
+    next(createError(500, 'Failed to Create Property!'))
+  }
+}
 
 /**
  * @desc This route will provide an array of all listed Properties.
@@ -35,4 +55,4 @@ const singleProperty = async (req, res, next) => {
 }
 
 // Module Exports:
-module.exports = { allProperty, singleProperty }
+module.exports = { allProperty, singleProperty, createProperty }
