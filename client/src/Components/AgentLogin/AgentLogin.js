@@ -4,12 +4,66 @@ import {
   LockClosedIcon,
   MailIcon,
 } from '@heroicons/react/outline'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useFormik } from 'formik'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 
 const AgentLogin = () => {
+  const history = useHistory()
+
+  const user = localStorage.getItem('loggedInUser')
+    ? JSON.parse(localStorage.getItem('loggedInUser'))
+    : {}
+
   const [show, setShow] = useState(false)
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: async (values) => {
+      try {
+        localStorage.removeItem('loggedInUser')
+        let url = 'https://propertymarketbd.herokuapp.com/api/user/signin'
+        let loginData = JSON.stringify({
+          email: values.email,
+          password: values.password,
+        })
+
+        const configuration = {
+          headers: {
+            'content-type': 'application/json',
+          },
+        }
+        const { data } = await axios.post(url, loginData, configuration)
+
+        if (data) {
+          let loggedInUser = {
+            name: data.name,
+            email: data.email,
+            mobile: data.mobile,
+            avatar: data.avatar,
+            role: 'marchand',
+            token: data.token,
+          }
+          localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))
+        }
+        history.push('/agent-account')
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  })
+
+  const { handleChange, handleBlur, handleSubmit, errors, values } = formik
+
+  useEffect(() => {
+    if (user && user.email) {
+      history.push('/')
+    }
+  }, [user])
 
   return (
     <div>
@@ -32,11 +86,8 @@ const AgentLogin = () => {
                 </Link>
               </p>
             </div>
-            <form className='space-y-6' action='#' method='POST'>
+            <form className='space-y-6' onSubmit={handleSubmit}>
               <div>
-                <label htmlFor='email' className='sr-only'>
-                  Email
-                </label>
                 <div className='mt-1 relative rounded-md shadow-sm'>
                   <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
                     <MailIcon
@@ -48,12 +99,17 @@ const AgentLogin = () => {
                     id='email'
                     name='email'
                     type='email'
-                    autoComplete='email'
-                    required
+                    placeholder='Email'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
                     className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
                     placeholder='Email'
                   />
                 </div>
+                {values.email.length !== 0 && errors.email && (
+                  <p className='mt-1 text-xs text-red-500'>{errors.email}</p>
+                )}
               </div>
               <div>
                 <label htmlFor='password' className='sr-only'>
@@ -70,8 +126,10 @@ const AgentLogin = () => {
                     id='password'
                     name='password'
                     type={show ? 'text' : 'password'}
-                    autoComplete='password'
-                    required
+                    placeholder='Password'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
                     className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
                     placeholder='Password'
                   />
@@ -91,9 +149,17 @@ const AgentLogin = () => {
                       />
                     )}
                   </div>
+                  {values.password.length !== 0 && errors.password && (
+                    <p className='mt-1 text-xs text-red-500'>
+                      {errors.password}
+                    </p>
+                  )}
                 </div>
               </div>
-              <button className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'>
+              <button
+                type='submit'
+                className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+              >
                 Log In
               </button>
             </form>

@@ -8,6 +8,9 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
+  sendPasswordResetEmail,
+  updateEmail,
 } from 'firebase/auth'
 
 const firebaseConfig = {
@@ -30,7 +33,7 @@ export function useAuth() {
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = React.useState()
 
-  function signUp(email, password) {
+  function createNewUser(email, password) {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
@@ -42,16 +45,60 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, new GoogleAuthProvider())
   }
 
+  function updateName(user, name) {
+    return updateProfile(user, { displayName: name })
+  }
+
+  function resetPassword(email) {
+    return sendPasswordResetEmail(auth, email)
+  }
+
+  function updateCurrentEmail(email) {
+    return updateEmail(currentUser, email)
+  }
+
+  // Currently Not Working
+  function updateCurrentPhoneNumber(user, phoneNumber) {
+    return updateProfile(user, { phoneNumber: phoneNumber })
+  }
+
   function logOut() {
+    localStorage.removeItem('loggedInUser')
     return signOut(auth)
   }
 
   React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUser(user))
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        let loggedInUser = {
+          name: user.displayName,
+          email: user.email,
+          mobile: user.phoneNumber,
+          avatar: user.photoURL,
+          role: 'user',
+          token: '',
+        }
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))
+      }
+      setCurrentUser(user)
+    })
     return unsubscribe
   }, [])
 
-  const value = { currentUser, signUp, signIn, logOut, googleLogin }
+  // Image Upload on Firesotre:
+  function upload() {}
+
+  const value = {
+    currentUser,
+    createNewUser,
+    signIn,
+    logOut,
+    googleLogin,
+    updateName,
+    resetPassword,
+    updateCurrentEmail,
+    updateCurrentPhoneNumber,
+  }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

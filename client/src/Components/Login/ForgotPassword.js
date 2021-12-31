@@ -2,16 +2,23 @@ import { MailIcon } from '@heroicons/react/outline'
 import { useFormik } from 'formik'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 import ForgotPasswordSchema from '../Schemas/ForgotPasswordSchema'
 
 const ForgotPassword = () => {
+  const { resetPassword } = useAuth()
   const formik = useFormik({
     initialValues: {
       email: '',
     },
     validationSchema: ForgotPasswordSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      try {
+        await resetPassword(values.email)
+        alert('Password reset email sent')
+      } catch (error) {
+        alert(error.message)
+      }
     },
   })
 

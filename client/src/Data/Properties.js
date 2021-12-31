@@ -1,23 +1,4 @@
-// Dummy Users Data:
-const defaultUsers = [
-  {
-    name: 'Nazmul Huda',
-    email: 'nazmul@gmail.com',
-    mobile: '+8801746243302',
-    password: 'Nazmul@01',
-    avatar: 'https://i.ibb.co/phfxcsS/pro-nazmul.webp',
-    role: 'admin',
-  },
-  {
-    name: 'Tayab Pabel',
-    email: 'pabel@gmail.com',
-    mobile: '+8801746243304',
-    password: 'Pabel@01',
-    avatar: 'https://i.ibb.co/phfxcsS/pro-nazmul.webp',
-  },
-]
-
-const demoProperties = [
+;[
   {
     propertyAddress: {
       coordinates: {
@@ -63,10 +44,10 @@ const demoProperties = [
       staffRoom: false,
       servantRoom: false,
     },
-    postType: 'basic',
-    purpose: 'rent',
-    propertyCategory: 'residential',
-    propertyType: 'apartment',
+    postType: 'Basic',
+    purpose: 'Rent',
+    propertyCategory: 'Residential',
+    propertyType: 'Apartment',
     propertyTitle: 'Two bedrooms apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode",
@@ -145,10 +126,10 @@ const demoProperties = [
       staffRoom: false,
       servantRoom: false,
     },
-    postType: 'featured',
-    purpose: 'buy',
-    propertyCategory: 'commercial',
-    propertyType: 'office',
+    postType: 'Featured',
+    purpose: 'Buy',
+    propertyCategory: 'Commercial',
+    propertyType: 'Office',
     propertyTitle: '1500 sqft office space',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -203,7 +184,7 @@ const demoProperties = [
       airConditioning: false,
       swimmingPool: false,
       garden: true,
-      gym: true,
+      gym: ture,
       elevator: false,
       cableTv: true,
       internet: false,
@@ -218,10 +199,10 @@ const demoProperties = [
       staffRoom: false,
       servantRoom: false,
     },
-    postType: 'basic',
-    purpose: 'rent',
-    propertyCategory: 'residential',
-    propertyType: 'plot',
+    postType: 'Basic',
+    purpose: 'Rent',
+    propertyCategory: 'Residential',
+    propertyType: 'Flat',
     propertyTitle: 'Four bedrooms apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -291,10 +272,10 @@ const demoProperties = [
       staffRoom: false,
       servantRoom: true,
     },
-    postType: 'basic',
-    purpose: 'rent',
-    propertyCategory: 'residential',
-    propertyType: 'apartment',
+    postType: 'Basic',
+    purpose: 'Rent',
+    propertyCategory: 'Residential',
+    propertyType: 'Apartment',
     propertyTitle: '1200 sqft apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -364,11 +345,11 @@ const demoProperties = [
       staffRoom: false,
       servantRoom: true,
     },
-    postType: 'basic',
-    purpose: 'buy',
-    propertyCategory: 'residential',
-    propertyType: 'plot',
-    propertyTitle: '1800 sqft plot',
+    postType: 'Basic',
+    purpose: 'Buy',
+    propertyCategory: 'Residential',
+    propertyType: 'Flot',
+    propertyTitle: '1800 sqft flot',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
     propertyPrice: 400000,
@@ -438,10 +419,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'featured',
-    purpose: 'rent',
-    propertyCategory: 'commercial',
-    propertyType: 'floor',
+    postType: 'Featured',
+    purpose: 'Rent',
+    propertyCategory: 'Commercial',
+    propertyType: 'Floor',
     propertyTitle: '5000 sqft floor',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -512,10 +493,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'basic',
-    purpose: 'rent',
-    propertyCategory: 'commercial',
-    propertyType: 'apartment',
+    postType: 'Basic',
+    purpose: 'Rent',
+    propertyCategory: 'Commercial',
+    propertyType: 'Apartment',
     propertyTitle: '3 bedrooms apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -586,10 +567,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'featured',
-    purpose: 'buy',
-    propertyCategory: 'residential',
-    propertyType: 'plot',
+    postType: 'Featured',
+    purpose: 'Buy',
+    propertyCategory: 'Residential',
+    propertyType: 'Flot',
     propertyTitle: '4 bedrooms flot',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -660,10 +641,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'basic',
-    purpose: 'rent',
-    propertyCategory: 'commercial',
-    propertyType: 'office',
+    postType: 'Basic',
+    purpose: 'Rent',
+    propertyCategory: 'Commercial',
+    propertyType: 'Office',
     propertyTitle: '3000 sqft office',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -734,10 +715,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'basic',
-    purpose: 'rent',
-    propertyCategory: 'residential',
-    propertyType: 'apartment',
+    postType: 'Basic',
+    purpose: 'Rent',
+    propertyCategory: 'Residential',
+    propertyType: 'Apartment',
     propertyTitle: 'Three bedrooms apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -808,10 +789,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'featured',
-    purpose: 'buy',
-    propertyCategory: 'residential',
-    propertyType: 'apartment',
+    postType: 'Featured',
+    purpose: 'Buy',
+    propertyCategory: 'Residential',
+    propertyType: 'Apartment',
     propertyTitle: 'Four bedrooms apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -882,10 +863,10 @@ const demoProperties = [
       servantRoom: true,
     },
 
-    postType: 'featured',
-    purpose: 'rent',
-    propertyCategory: 'residential',
-    propertyType: 'apartment',
+    postType: 'Featured',
+    purpose: 'Rent',
+    propertyCategory: 'Residential',
+    propertyType: 'Apartment',
     propertyTitle: '1250 sqft apartment',
     propertyDescription:
       "Recognize the best when youre in Dhanmondi. Filled with restaurants, banks, shopping centers and recreational zones, the area is complete with all the amenities one could ask for. People from various places in the city come to the area on weekends. It makes sense since theres so much to do here. Built in great design with a spectacular outlook, this apartment boasts much more than meets the eye. With creatively structured rooms and intelligent architectural cuts, residents will know what it's like to live in pride. There are three bedrooms here and two of them have washrooms attached. One of them has a balcony attached. You also get separate spaces to be used as the dining and the drawing areas. There is also an attendant's bedroom and bathroom available within the abode. ",
@@ -911,139 +892,3 @@ const demoProperties = [
     agentPhoneNumber: '+88 745 3545 8546',
   },
 ]
-
-const demoAgent = [
-  {
-    agentName: 'Benham and Reeves',
-    agentEmail: 'info@benhams.com',
-    agentPhoneNumber: '+44 20 3463 7502',
-    agentWebsite: 'https://www.benhams.com/',
-    agentLogo: 'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
-    agentAddress: {
-      addressLine1: 'Agargaon, Radio',
-      addressLine2: '',
-      city: 'Dhaka',
-      country: 'Bangladesh',
-      postCode: '1215',
-      coordinates: {
-        lat: 0,
-        lng: 0,
-      },
-      agentSocialProfile: {
-        facebook: 'https://www.facebook.com/benhams.com',
-        twitter: 'https://twitter.com/benhams',
-        instagram: 'https://www.instagram.com/benhams/',
-        linkedin: 'https://www.linkedin.com/company/benhams/',
-      },
-      agentDescription:
-        'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St Johns Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-      agentGallery: [
-        'https://st.zoocdn.com/zpg_agent_static_agent_profile_images_(62759558).jpg',
-      ],
-    },
-  },
-]
-
-const demoPlans = [
-  {
-    name: 'silver',
-    price: 5000,
-    duration: 1,
-    features: {
-      property: {
-        basic: 50,
-        featured: 10,
-      },
-    },
-  },
-  {
-    name: 'gold',
-    price: 10000,
-    duration: 2,
-    features: {
-      property: {
-        basic: 100,
-        featured: 20,
-      },
-    },
-  },
-  {
-    name: 'platinum',
-    price: 15000,
-    duration: 5,
-    features: {
-      property: {
-        basic: 150,
-        featured: 30,
-      },
-    },
-  },
-]
-
-const defaultProperty = {
-  propertyAddress: {
-    coordinates: {
-      lat: 0,
-      lng: 0,
-    },
-    addressLine1: 'Kadamtala',
-    addressLine2: 'Bashabo',
-    city: 'Dhaka',
-    country: 'Bangladesh',
-    postCode: '1201',
-  },
-  propertyFeatures: {
-    gasline: false,
-    reception: false,
-    tiledFloor: false,
-    terrace: false,
-    balcony: false,
-    parking: false,
-    garage: false,
-    fireExit: false,
-    fireProtection: false,
-    water: false,
-    hotWater: false,
-    electricity: false,
-    generator: false,
-    solar: false,
-    airConditioning: false,
-    swimmingPool: false,
-    garden: false,
-    gym: false,
-    elevator: false,
-    cableTv: false,
-    internet: false,
-    laundry: false,
-    cleaningService: false,
-    cafetoria: false,
-    securityStaff: false,
-    officeRoom: false,
-    executiveRoom: false,
-    managerRoom: false,
-    conferenceRoom: false,
-    staffRoom: false,
-    servantRoom: false,
-  },
-  postType: 'basic',
-  purpose: 'rent',
-  propertyStatus: 'inactive',
-  propertyCategory: 'residential',
-  propertyType: 'apartment',
-  propertyTitle: 'Demo Property',
-  propertyDescription: 'Demo Property Description will be go Through Here!',
-  propertyPrice: 0,
-  propertyBedrooms: 0,
-  propertyBathrooms: 0,
-  propertyFloorNumber: 0,
-  propertySqft: 0,
-  propertyFurnished: false,
-  propertyFeaturedImage: '',
-  propertyFloorPlanImage: '',
-  propertyImages: [],
-  agentName: 'Demo Agent Name',
-  agentLogo: '',
-  agentPhoneNumber: '+880 1723 888 888',
-}
-
-module.exports = { defaultUsers, demoProperties, demoAgent, defaultProperty }

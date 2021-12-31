@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-const HeaderNavigation = ({ logOut, currentUser }) => {
+const HeaderNavigation = ({ logOut, user }) => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
@@ -11,24 +11,31 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
   const history = useHistory()
   async function handleLogout() {
     try {
-      await logOut()
-      history.push('/login')
+      localStorage.removeItem('loggedInUser')
+      if (user.role === 'user') {
+        await logOut()
+      } else {
+        localStorage.removeItem('loggedInUser')
+      }
+      history.push('/')
     } catch (error) {
       alert(error.message)
     }
   }
-
-  console.log(currentUser)
 
   return (
     <Menu as='div' className='ml-4 relative flex-shrink-0'>
       <div>
         <Menu.Button className='bg-blue-light flex text-sm rounded-full text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-light focus:ring-white'>
           <span className='sr-only'>Open user menu</span>
-          {currentUser && currentUser.photoURL ? (
+          {user && user.avatar ? (
             <img
               className='h-8 w-8 rounded-full'
-              src={currentUser.photoURL}
+              src={
+                user.role == 'user'
+                  ? user.avatar
+                  : 'https://i.ibb.co/phfxcsS/pro-nazmul.webp'
+              }
               alt=''
             />
           ) : (
@@ -57,7 +64,7 @@ const HeaderNavigation = ({ logOut, currentUser }) => {
           <Menu.Item>
             {({ active }) => (
               <Link
-                to='/account'
+                to={user.role === 'user' ? '/account' : '/agent-account'}
                 className={classNames(
                   active ? 'bg-gray-100' : '',
                   'block px-4 py-2 text-sm text-blue-dark'

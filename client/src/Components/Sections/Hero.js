@@ -3,16 +3,17 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
-  const [redirect, setRedirect] = useState('rent')
+  const [redirect, setRedirect] = useState('Rent')
+  const [location, setLocation] = useState('')
 
   const tabs = [
     {
-      name: 'For Sale',
-      path: 'sale',
+      name: 'To Rent',
+      path: 'Rent',
     },
     {
-      name: 'To Rent',
-      path: 'rent',
+      name: 'To Buy',
+      path: 'Buy',
     },
   ]
 
@@ -55,9 +56,6 @@ const Hero = () => {
                             : 'text-blue-dark ',
                           'group relative min-w-0 flex-1 overflow-hidden p-2 font-medium text-center focus:z-10 rounded-lg'
                         )}
-                        // aria-current={
-                        //   redirect && redirect === tab.path ? 'page' : undefined
-                        // }
                       >
                         <span>{tab.name}</span>
                       </Link>
@@ -74,15 +72,18 @@ const Hero = () => {
                         />
                       </div>
                       <input
-                        type='search'
-                        name='email'
-                        id='email'
+                        type='text'
+                        onChange={(e) => setLocation(e.target.value)}
                         className='placeholder-blue-dark text-blue-dark focus:ring-0 block w-full border-0 rounded-lg pl-10'
                         placeholder='Location or Postcode'
                       />
                     </div>
                     <Link
-                      to='/search'
+                      to={
+                        location
+                          ? `/search?prupose=${redirect}&location=${location}`
+                          : `/search?prupose=${redirect}`
+                      }
                       type='button'
                       className='space-x-2 whitespace-nowrap inline-flex items-center justify-center p-3 m-1 border border-transparent rounded-lg font-medium text-white bg-blue-light'
                     >

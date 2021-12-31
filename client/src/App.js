@@ -13,11 +13,12 @@ import PropertyDetails from './Components/FindProperty/PropertyDetails'
 import Home from './Components/Home/Home'
 import ForgotPassword from './Components/Login/ForgotPassword'
 import Login from './Components/Login/Login'
-import PrivateRoute from './Components/Login/PrivateRoute'
 import Signup from './Components/Login/Signup'
 import Footer from './Components/Sections/Footer'
 import Header from './Components/Sections/Header'
 import Dashboard from './Components/UserDashboard/Dashboard'
+import UserProtector from './Components/ProtectedRouting/UserProtector'
+import AgentProtector from './Components/ProtectedRouting/AgentProtector'
 
 function App() {
   return (
@@ -36,12 +37,12 @@ function App() {
         <Route path='/forgot-password'>
           <ForgotPassword />
         </Route>
-        <PrivateRoute path='/account'>
+        <UserProtector path='/account'>
           <Dashboard />
-        </PrivateRoute>
-        <PrivateRoute path='/agent-account'>
+        </UserProtector>
+        <AgentProtector path='/agent-account'>
           <AgentDashboard />
-        </PrivateRoute>
+        </AgentProtector>
         <Route path='/agent-login'>
           <AgentLogin />
         </Route>
@@ -54,7 +55,7 @@ function App() {
         <Route path='/search'>
           <FindProperty />
         </Route>
-        <Route path='/property-details'>
+        <Route path='/property-details/:id'>
           <PropertyDetails />
         </Route>
         <Route path='/find-agent'>

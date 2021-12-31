@@ -1,15 +1,17 @@
 {
-  "name": "property-listing-booking-system",
+  "name": "property-listing-and-booking-system",
   "version": "1.0.0",
   "description": "Rest Api Service for property listing system application",
   "main": "app.js",
+  "engines": {
+    "node": "16.11.1"
+  },
   "scripts": {
-    "dev": "NODE_ENV=development nodemon app.js",
     "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development nodemon app.js",
     "data:import": "node seeder/seeder",
     "data:destroy": "node seeder/seeder -d"
   },
-  "author": "Nazmul Huda",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

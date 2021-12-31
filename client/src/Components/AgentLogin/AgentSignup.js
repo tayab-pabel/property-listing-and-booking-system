@@ -1,18 +1,55 @@
 import {
+  DeviceMobileIcon,
   EyeIcon,
   EyeOffIcon,
-  LocationMarkerIcon,
   LockClosedIcon,
   MailIcon,
-  UserGroupIcon,
   UserIcon,
 } from '@heroicons/react/outline'
+import axios from 'axios'
+import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
+import { AgentSignupSchema } from '../Schemas/RegistrationSchema'
 
 const AgentSignup = () => {
   const [show, setShow] = useState(false)
+  const formik = useFormik({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      mobile: '',
+      password: '',
+    },
+    validationSchema: AgentSignupSchema,
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        let fullName = `${values.firstName} ${values.lastName}`
+        let mobileNumebr = `+88${values.mobile}`
+        let url = 'https://propertymarketbd.herokuapp.com/api/user/signup'
+        let formData = new FormData()
+        formData.append('name', fullName)
+        formData.append('email', values.email)
+        formData.append('mobile', mobileNumebr)
+        formData.append('password', values.password)
+
+        const configuration = {
+          headers: {
+            'content-type': 'multipart/form-data',
+          },
+        }
+        const { data } = await axios.post(url, formData, configuration)
+        alert(JSON.stringify(data, null, 2))
+        resetForm()
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  })
+
+  const { handleChange, handleBlur, handleSubmit, errors, values } = formik
 
   return (
     <div>
@@ -35,11 +72,8 @@ const AgentSignup = () => {
                 </Link>
               </p>
             </div>
-            <form className='space-y-6' action='#' method='POST'>
+            <form className='space-y-6' onSubmit={handleSubmit}>
               <div>
-                <label htmlFor='firstName' className='sr-only'>
-                  First Name
-                </label>
                 <div className='mt-1 relative rounded-md shadow-sm'>
                   <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
                     <UserIcon
@@ -51,18 +85,22 @@ const AgentSignup = () => {
                     id='firstName'
                     name='firstName'
                     type='text'
-                    autoComplete='firstName '
-                    required
+                    placeholder='First Name'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.firstName}
                     className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
                     placeholder='First Name'
                   />
                 </div>
+                {values.firstName.length !== 0 && errors.firstName && (
+                  <p className='mt-1 text-xs text-red-500'>
+                    {errors.firstName}
+                  </p>
+                )}
               </div>
 
               <div>
-                <label htmlFor='firstName' className='sr-only'>
-                  Last Name
-                </label>
                 <div className='mt-1 relative rounded-md shadow-sm'>
                   <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
                     <UserIcon
@@ -74,63 +112,45 @@ const AgentSignup = () => {
                     id='lastName'
                     name='lastName'
                     type='text'
-                    autoComplete='lastName '
-                    required
+                    placeholder='Last Name'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.lastName}
                     className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
                     placeholder='Last Name'
                   />
                 </div>
+                {values.lastName.length !== 0 && errors.lastName && (
+                  <p className='mt-1 text-xs text-red-500'>{errors.lastName}</p>
+                )}
               </div>
 
               <div>
-                <label htmlFor='companyName' className='sr-only'>
-                  Company Name
-                </label>
                 <div className='mt-1 relative rounded-md shadow-sm'>
                   <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                    <UserGroupIcon
+                    <DeviceMobileIcon
                       className='h-5 w-5 text-blue-dark'
                       aria-hidden='true'
                     />
                   </div>
                   <input
-                    id='companyName'
-                    name='companyName'
+                    name='mobile'
                     type='text'
-                    autoComplete='companyName'
-                    required
+                    placeholder='Mobile Number'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.mobile}
                     className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
-                    placeholder='Company Name'
                   />
                 </div>
-              </div>
-
-              <div>
-                <label htmlFor='postcode' className='sr-only'>
-                  Postcode
-                </label>
-                <div className='mt-1 relative rounded-md shadow-sm'>
-                  <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-                    <LocationMarkerIcon
-                      className='h-5 w-5 text-blue-dark'
-                      aria-hidden='true'
-                    />
-                  </div>
-                  <input
-                    id='postcode'
-                    name='postcode'
-                    type='text'
-                    autoComplete='postcode'
-                    required
-                    className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
-                    placeholder='Postcode'
-                  />
-                </div>
+                {values.mobile.length !== 0 && errors.mobile && (
+                  <p className='mt-1 text-xs text-red-500'>{errors.mobile}</p>
+                )}
               </div>
 
               <div>
                 <label htmlFor='email' className='sr-only'>
-                  Work Email
+                  Email Address
                 </label>
                 <div className='mt-1 relative rounded-md shadow-sm'>
                   <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
@@ -143,12 +163,17 @@ const AgentSignup = () => {
                     id='email'
                     name='email'
                     type='email'
-                    autoComplete='email'
-                    required
+                    placeholder='Email'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
                     className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
-                    placeholder='Work Email'
+                    placeholder='Email Address'
                   />
                 </div>
+                {values.email.length !== 0 && errors.email && (
+                  <p className='mt-1 text-xs text-red-500'>{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -166,10 +191,11 @@ const AgentSignup = () => {
                     id='password'
                     name='password'
                     type={show ? 'text' : 'password'}
-                    autoComplete='password'
-                    required
-                    className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
                     placeholder='Password'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    className='focus:ring-blue-light focus:border-blue-light block w-full pl-10 border-2 border-blue-dark rounded-md text-blue-dark placeholder-blue-dark'
                   />
                   <div
                     onClick={() => setShow(!show)}
@@ -187,10 +213,18 @@ const AgentSignup = () => {
                       />
                     )}
                   </div>
+                  {values.password.length !== 0 && errors.password && (
+                    <p className='mt-1 text-xs text-red-500'>
+                      {errors.password}
+                    </p>
+                  )}
                 </div>
               </div>
 
-              <button className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'>
+              <button
+                type='submit'
+                className='w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm font-medium text-white bg-blue-light hover:bg-blue-light focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+              >
                 Sign Up
               </button>
             </form>

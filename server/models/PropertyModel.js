@@ -4,13 +4,18 @@ const mongoose = require('mongoose')
 // User Schema:
 const PropertySchema = mongoose.Schema(
   {
-    user: {
+    agent: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'People',
+      ref: 'Agent',
     },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
-    purpose: { type: String, enum: ['sale', 'rent'], default: 'rent' },
+    purpose: { type: String, enum: ['buy', 'rent'], default: 'rent' },
+    propertyStatus: {
+      type: String,
+      enum: ['active', 'inactive'],
+      default: 'active',
+    },
     propertyCategory: {
       type: String,
       enum: ['residential', 'commercial'],
@@ -27,10 +32,10 @@ const PropertySchema = mongoose.Schema(
         'building',
         'office',
         'shop',
-        'store',
         'factory',
         'warehouse',
         'garage',
+        'floor',
       ],
       default: 'apartment',
     },
@@ -55,7 +60,7 @@ const PropertySchema = mongoose.Schema(
     propertySqft: { type: Number, required: true },
     propertyFurnished: { type: Boolean, default: false },
     propertyFeatures: {
-      gas: { type: String, enum: ['line', 'cylinder'], default: 'line' },
+      gasline: { type: Boolean, default: false },
       reception: { type: Boolean, default: false },
       tiledFloor: { type: Boolean, default: false },
       terrace: { type: Boolean, default: false },
@@ -87,11 +92,14 @@ const PropertySchema = mongoose.Schema(
       staffRoom: { type: Boolean, default: false },
       servantRoom: { type: Boolean, default: false },
     },
-    propertyFeaturedImage: { type: String, trim: true },
-    propertyFloorPlanImage: { type: String, trim: true },
-    propertyImages: [{ type: String, trim: true, required: true }],
+    propertyFeaturedImage: String,
+    propertyFloorPlanImage: String,
+    propertyImages: [String],
+    agentName: String,
+    agentLogo: String,
+    agentPhoneNumber: String,
   },
-  { timestamps: true }
+  { timestamps: true, versionKey: false }
 )
 
 // Make User Model:

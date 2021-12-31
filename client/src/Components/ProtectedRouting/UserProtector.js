@@ -1,17 +1,16 @@
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
 
-export default function PrivateRoute({ children, ...rest }) {
-  const { currentUser } = useAuth()
-
-  console.log(currentUser)
+export default function UserProtector({ children, ...rest }) {
+  const user = localStorage.getItem('loggedInUser')
+    ? JSON.parse(localStorage.getItem('loggedInUser'))
+    : {}
 
   return (
     <Route
       {...rest}
       render={({ location }) => {
-        return currentUser ? (
+        return user && user.email && user.role == 'user' ? (
           children
         ) : (
           <Redirect to={{ pathname: '/login', state: { form: location } }} />
