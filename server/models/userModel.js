@@ -1,5 +1,6 @@
 // External Module:
 const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
 
 // User Schema:
 const peopleSchema = mongoose.Schema(
@@ -17,6 +18,13 @@ const peopleSchema = mongoose.Schema(
   },
   { timestamps: true, versionKey: false }
 )
+
+peopleSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
+    next()
+  }
+  this.password = await bcrypt.hash(this.password, 10)
+})
 
 // Make User Model:
 const People = mongoose.model('People', peopleSchema)

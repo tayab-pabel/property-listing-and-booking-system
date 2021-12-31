@@ -16,19 +16,16 @@ const jwtTokenGenerator = require('../utilities/jwtTokenGenerator')
 const userSignup = async (req, res, next) => {
   try {
     let newUser
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
     // Make Complete User Object
     if (req.files && req.files.length > 0) {
       newUser = new People({
         ...req.body,
         avatar: req.files[0].filename,
-        password: hashedPassword,
       })
     } else {
       newUser = new People({
         ...req.body,
         avatar: 'demoavatar.png',
-        password: hashedPassword,
       })
     }
     const result = await newUser.save()
