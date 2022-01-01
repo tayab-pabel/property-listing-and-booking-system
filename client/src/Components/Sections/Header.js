@@ -1,6 +1,5 @@
 import { Popover, Transition } from '@headlessui/react'
 import {
-  BellIcon,
   HomeIcon,
   KeyIcon,
   MenuAlt1Icon,
@@ -18,9 +17,7 @@ import HeaderNavigation from './../Elements/HeaderNavigation'
 const Header = () => {
   const { currentUser, logOut } = useAuth()
 
-  const user = localStorage.getItem('loggedInUser')
-    ? JSON.parse(localStorage.getItem('loggedInUser'))
-    : {}
+  const [user, setUser] = React.useState({})
 
   const solutions = [
     {
@@ -44,6 +41,13 @@ const Header = () => {
       icon: UserIcon,
     },
   ]
+
+  React.useEffect(() => {
+    let user = localStorage.getItem('loggedInUser')
+      ? JSON.parse(localStorage.getItem('loggedInUser'))
+      : {}
+    setUser(user)
+  }, [currentUser])
 
   return (
     <Popover className='relative bg-white'>
@@ -78,7 +82,7 @@ const Header = () => {
         </Popover.Group>
         <div className='hidden lg:flex items-center justify-end lg:flex-1 lg:w-0'>
           {user && user.email ? (
-            <HeaderNavigation logOut={logOut} user={user} />
+            <HeaderNavigation logOut={logOut} user={user} setUser={setUser} />
           ) : (
             <>
               <Link

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-const HeaderNavigation = ({ logOut, user }) => {
+const HeaderNavigation = ({ logOut, user, setUser }) => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
@@ -14,8 +14,11 @@ const HeaderNavigation = ({ logOut, user }) => {
       localStorage.removeItem('loggedInUser')
       if (user.role === 'user') {
         await logOut()
+        localStorage.removeItem('loggedInUser')
+        setUser({})
       } else {
         localStorage.removeItem('loggedInUser')
+        setUser({})
       }
       history.push('/')
     } catch (error) {
@@ -31,11 +34,7 @@ const HeaderNavigation = ({ logOut, user }) => {
           {user && user.avatar ? (
             <img
               className='h-8 w-8 rounded-full'
-              src={
-                user.role == 'user'
-                  ? user.avatar
-                  : 'https://i.ibb.co/phfxcsS/pro-nazmul.webp'
-              }
+              src={`https://propertymarketbd.herokuapp.com/uploads/avatars/${user.avatar}`}
               alt=''
             />
           ) : (

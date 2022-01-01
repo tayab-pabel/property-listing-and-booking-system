@@ -220,67 +220,39 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className='mt-6 grid grid-cols-2 gap-3'>
-                <div>
-                  <a
-                    href='#'
-                    className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-light hover:bg-gray-50'
+              <div className='mt-6 grid grid-cols-1 gap-3'>
+                <a
+                  href='#'
+                  onClick={googleLoginHandler}
+                  className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-dark0 hover:bg-gray-50'
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    fill='none'
+                    viewBox='0 0 24 24'
                   >
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='24'
-                      height='24'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                    >
-                      <g clip-path='url(#clip0)'>
-                        <path
-                          fill='#1877F2'
-                          d='M24 12c0-6.628-5.372-12-12-12S0 5.372 0 12c0 5.99 4.388 10.955 10.125 11.855v-8.386H7.078V12h3.047V9.356c0-3.007 1.79-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.926-1.955 1.875V12h3.328l-.532 3.469h-2.796v8.386C19.613 22.955 24 17.99 24 12z'
-                        ></path>
-                        <path
-                          fill='#fff'
-                          d='M16.671 15.469L17.203 12h-3.328V9.75c0-.95.464-1.875 1.955-1.875h1.514V4.922s-1.374-.234-2.686-.234c-2.742 0-4.533 1.661-4.533 4.668V12H7.078v3.469h3.047v8.386a12.071 12.071 0 003.75 0v-8.386h2.796z'
-                        ></path>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-
-                <div>
-                  <a
-                    href='#'
-                    onClick={googleLoginHandler}
-                    className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-dark0 hover:bg-gray-50'
-                  >
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='24'
-                      height='24'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                    >
-                      <g clip-path='url(#clip0)'>
-                        <path
-                          fill='#FBBB00'
-                          d='M5.319 14.504l-.836 3.118-3.053.065A11.947 11.947 0 010 12c0-1.99.484-3.866 1.342-5.519l2.719.499 1.19 2.702A7.133 7.133 0 004.866 12c0 .88.16 1.725.453 2.504z'
-                        ></path>
-                        <path
-                          fill='#518EF8'
-                          d='M23.79 9.758a12.02 12.02 0 01-.053 4.747 11.998 11.998 0 01-4.225 6.853l-3.424-.175-.485-3.025a7.151 7.151 0 003.077-3.652h-6.416V9.758H23.79z'
-                        ></path>
-                        <path
-                          fill='#28B446'
-                          d='M19.512 21.357v.001A11.95 11.95 0 0112 24c-4.57 0-8.543-2.554-10.57-6.313l3.889-3.183a7.135 7.135 0 0010.284 3.654l3.909 3.2z'
-                        ></path>
-                        <path
-                          fill='#F14336'
-                          d='M19.66 2.763l-3.888 3.182a7.137 7.137 0 00-10.52 3.737l-3.91-3.2A11.998 11.998 0 0112 0a11.95 11.95 0 017.66 2.763z'
-                        ></path>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
+                    <g clip-path='url(#clip0)'>
+                      <path
+                        fill='#FBBB00'
+                        d='M5.319 14.504l-.836 3.118-3.053.065A11.947 11.947 0 010 12c0-1.99.484-3.866 1.342-5.519l2.719.499 1.19 2.702A7.133 7.133 0 004.866 12c0 .88.16 1.725.453 2.504z'
+                      ></path>
+                      <path
+                        fill='#518EF8'
+                        d='M23.79 9.758a12.02 12.02 0 01-.053 4.747 11.998 11.998 0 01-4.225 6.853l-3.424-.175-.485-3.025a7.151 7.151 0 003.077-3.652h-6.416V9.758H23.79z'
+                      ></path>
+                      <path
+                        fill='#28B446'
+                        d='M19.512 21.357v.001A11.95 11.95 0 0112 24c-4.57 0-8.543-2.554-10.57-6.313l3.889-3.183a7.135 7.135 0 0010.284 3.654l3.909 3.2z'
+                      ></path>
+                      <path
+                        fill='#F14336'
+                        d='M19.66 2.763l-3.888 3.182a7.137 7.137 0 00-10.52 3.737l-3.91-3.2A11.998 11.998 0 0112 0a11.95 11.95 0 017.66 2.763z'
+                      ></path>
+                    </g>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
