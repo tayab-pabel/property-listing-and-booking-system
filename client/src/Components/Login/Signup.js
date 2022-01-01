@@ -220,39 +220,41 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className='mt-6 grid grid-cols-1 gap-3'>
-                <a
-                  href='#'
-                  onClick={googleLoginHandler}
-                  className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-dark0 hover:bg-gray-50'
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='24'
-                    height='24'
-                    fill='none'
-                    viewBox='0 0 24 24'
+              <div className='mt-6'>
+                <div>
+                  <a
+                    href='#'
+                    onClick={googleLoginHandler}
+                    className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-dark0 hover:bg-gray-50'
                   >
-                    <g clip-path='url(#clip0)'>
-                      <path
-                        fill='#FBBB00'
-                        d='M5.319 14.504l-.836 3.118-3.053.065A11.947 11.947 0 010 12c0-1.99.484-3.866 1.342-5.519l2.719.499 1.19 2.702A7.133 7.133 0 004.866 12c0 .88.16 1.725.453 2.504z'
-                      ></path>
-                      <path
-                        fill='#518EF8'
-                        d='M23.79 9.758a12.02 12.02 0 01-.053 4.747 11.998 11.998 0 01-4.225 6.853l-3.424-.175-.485-3.025a7.151 7.151 0 003.077-3.652h-6.416V9.758H23.79z'
-                      ></path>
-                      <path
-                        fill='#28B446'
-                        d='M19.512 21.357v.001A11.95 11.95 0 0112 24c-4.57 0-8.543-2.554-10.57-6.313l3.889-3.183a7.135 7.135 0 0010.284 3.654l3.909 3.2z'
-                      ></path>
-                      <path
-                        fill='#F14336'
-                        d='M19.66 2.763l-3.888 3.182a7.137 7.137 0 00-10.52 3.737l-3.91-3.2A11.998 11.998 0 0112 0a11.95 11.95 0 017.66 2.763z'
-                      ></path>
-                    </g>
-                  </svg>
-                </a>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='24'
+                      height='24'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                    >
+                      <g clip-path='url(#clip0)'>
+                        <path
+                          fill='#FBBB00'
+                          d='M5.319 14.504l-.836 3.118-3.053.065A11.947 11.947 0 010 12c0-1.99.484-3.866 1.342-5.519l2.719.499 1.19 2.702A7.133 7.133 0 004.866 12c0 .88.16 1.725.453 2.504z'
+                        ></path>
+                        <path
+                          fill='#518EF8'
+                          d='M23.79 9.758a12.02 12.02 0 01-.053 4.747 11.998 11.998 0 01-4.225 6.853l-3.424-.175-.485-3.025a7.151 7.151 0 003.077-3.652h-6.416V9.758H23.79z'
+                        ></path>
+                        <path
+                          fill='#28B446'
+                          d='M19.512 21.357v.001A11.95 11.95 0 0112 24c-4.57 0-8.543-2.554-10.57-6.313l3.889-3.183a7.135 7.135 0 0010.284 3.654l3.909 3.2z'
+                        ></path>
+                        <path
+                          fill='#F14336'
+                          d='M19.66 2.763l-3.888 3.182a7.137 7.137 0 00-10.52 3.737l-3.91-3.2A11.998 11.998 0 0112 0a11.95 11.95 0 017.66 2.763z'
+                        ></path>
+                      </g>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
