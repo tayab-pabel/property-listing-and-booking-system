@@ -1,4 +1,6 @@
-import React from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import React, { Fragment, useState } from 'react'
+import PropertyEdit from './PropertyEdit'
 
 const AgentProperties = () => {
   const properties = [
@@ -22,6 +24,17 @@ const AgentProperties = () => {
       'https://lid.zoocdn.com/u/2400/1800/c447789c6cf4ab231b224a751c3eba3c91b2ba77.jpg:p',
     },
   ]
+
+  let [isOpen, setIsOpen] = useState(true)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
   return (
     <div className=''>
       <div className="flex flex-col">
@@ -85,7 +98,10 @@ const AgentProperties = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a href="#" className="text-blue-light hover:text-blue-light">
+                        <a  
+                        onClick={openModal}
+                        href="#" 
+                        className="text-blue-light hover:text-blue-light">
                           Edit
                         </a>
                       </td>
@@ -93,6 +109,55 @@ const AgentProperties = () => {
                   ))}
                 </tbody>
               </table>
+              <Transition appear show={isOpen} as={Fragment}>
+                <Dialog
+                  as="div" 
+                  className="fixed z-10 inset-0 overflow-y-auto" 
+                  onClose={setIsOpen}
+                >
+                  <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                    </Transition.Child>
+                    <span
+                      className="inline-block h-screen align-middle"
+                      aria-hidden="true"
+                    >
+                      &#8203;
+                    </span>
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0 scale-95"
+                      enterTo="opacity-100 scale-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100 scale-100"
+                      leaveTo="opacity-0 scale-95"
+                    >
+                      <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full sm:p-6">
+                        <PropertyEdit />
+                        <div className="mt-5">
+                          <button
+                            type="button"
+                            className="inline-flex justify-center w-full rounded-lg border border-transparent shadow-sm px-4 py-2 bg-blue-light text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light sm:text-sm"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            Update
+                          </button>
+                        </div>
+                      </div>
+                    </Transition.Child>
+                  </div>
+                </Dialog>
+              </Transition>
             </div>
           </div>
         </div>
