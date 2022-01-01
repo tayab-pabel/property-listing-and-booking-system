@@ -135,8 +135,8 @@ const Properties = ({ property }) => {
                   className='w-24 mt-1'
                   src={
                     property &&
-                    property.user &&
-                    `https://propertymarketbd.herokuapp.com/uploads/avatars/${property.user.avatar}`
+                    property.agent &&
+                    `https://propertymarketbd.herokuapp.com/uploads/avatars/${property.agent.avatar}`
                   }
                   alt='Agent Logo'
                 />

@@ -34,7 +34,11 @@ const HeaderNavigation = ({ logOut, user, setUser }) => {
           {user && user.avatar ? (
             <img
               className='h-8 w-8 rounded-full'
-              src={`https://propertymarketbd.herokuapp.com/uploads/avatars/${user.avatar}`}
+              src={
+                (user.role = 'user'
+                  ? user.avatar
+                  : `https://propertymarketbd.herokuapp.com/uploads/avatars/${user.avatar}`)
+              }
               alt=''
             />
           ) : (

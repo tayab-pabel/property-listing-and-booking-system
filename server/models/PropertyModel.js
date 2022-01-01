@@ -7,11 +7,6 @@ const PropertySchema = mongoose.Schema(
     agent: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'Agent',
-    },
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref: 'People',
     },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },

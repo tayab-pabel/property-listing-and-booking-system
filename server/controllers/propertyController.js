@@ -34,7 +34,7 @@ const allProperty = async (req, res, next) => {
   try {
     let purpose = req.query.purpose || 'rent'
     const result = await Property.find({ purpose: purpose }).populate(
-      'user',
+      'agent',
       'name mobile avatar _id'
     )
     res.status(200).json(result)
@@ -51,7 +51,7 @@ const allProperty = async (req, res, next) => {
 const singleProperty = async (req, res, next) => {
   try {
     const result = await Property.findById(req.params.id).populate(
-      'user',
+      'agent',
       'name avatar mobile email _id'
     )
     res.status(200).json(result)

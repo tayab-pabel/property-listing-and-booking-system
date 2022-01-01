@@ -10,7 +10,7 @@ export default function AgentProtector({ children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) => {
-        return user && user.email && user.role == 'marchand' ? (
+        return user && user.email && user.role == 'agent' ? (
           children
         ) : (
           <Redirect

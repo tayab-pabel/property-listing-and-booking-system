@@ -8,9 +8,11 @@ import axios from 'axios'
 import { useFormik } from 'formik'
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 import logo from '../../images/logo.svg'
 
 const AgentLogin = () => {
+  const { currentUser, logOut } = useAuth()
   const history = useHistory()
 
   const user = localStorage.getItem('loggedInUser')
@@ -25,6 +27,7 @@ const AgentLogin = () => {
     },
     onSubmit: async (values) => {
       try {
+        await logOut()
         localStorage.removeItem('loggedInUser')
         let url = 'https://propertymarketbd.herokuapp.com/api/user/signin'
         let loginData = JSON.stringify({
@@ -45,7 +48,7 @@ const AgentLogin = () => {
             email: data.email,
             mobile: data.mobile,
             avatar: data.avatar,
-            role: 'marchand',
+            role: data.role,
             token: data.token,
           }
           localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))

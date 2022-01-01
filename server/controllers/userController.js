@@ -104,7 +104,8 @@ const userSignin = async (req, res, next) => {
 
 const userProfile = async (req, res, next) => {
   try {
-    res.status(200).json({ ...req.user })
+    const user = await People.findById(req.user._id)
+    res.status(200).json(user)
   } catch (error) {
     next(createError(500, 'Server Error!'))
   }

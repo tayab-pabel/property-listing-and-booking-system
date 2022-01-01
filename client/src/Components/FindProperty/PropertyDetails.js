@@ -356,8 +356,8 @@ const PropertyDetails = () => {
                       className='w-28'
                       src={
                         property &&
-                        property.user &&
-                        `https://propertymarketbd.herokuapp.com/uploads/avatars/${property.user.avatar}`
+                        property.agent &&
+                        `https://propertymarketbd.herokuapp.com/uploads/avatars/${property.agent.avatar}`
                       }
                       alt='Agent Logo'
                     />
@@ -366,7 +366,7 @@ const PropertyDetails = () => {
                         to='/agent-details'
                         className='text-xl font-bold text-blue-dark hover:text-blue-light'
                       >
-                        {property.user && property.user.name}
+                        {property.agent && property.agent.name}
                       </Link>
                     </div>
                     <div>
@@ -383,7 +383,7 @@ const PropertyDetails = () => {
                         aria-hidden='true'
                       />
                       <p className='text-sm text-blue-dark capitalize'>
-                        {property.user && property.user.mobile}
+                        {property.agent && property.agent.mobile}
                       </p>
                     </div>
                   </div>

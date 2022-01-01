@@ -17,17 +17,11 @@ const importData = async () => {
   try {
     // await People.deleteMany()
     await Property.deleteMany()
-    await Agent.deleteMany()
     const user = await People.find()
-    const perpareAgent = demoAgent.map((agent) => {
-      return { ...agent, user: user[0]._id }
-    })
-    const agent = await Agent.insertMany(perpareAgent)
     const prepareProperties = demoProperties.map((properties) => {
       return {
         ...properties,
-        agent: agent[0]._id,
-        user: user[0]._id,
+        agent: user[0]._id,
       }
     })
     await Property.insertMany(prepareProperties)
@@ -46,7 +40,6 @@ const destroyData = async () => {
   try {
     // await People.deleteMany()
     await Property.deleteMany()
-    await Agent.deleteMany()
     console.log(`Default Test User Data Successfully Destroyed !`.magenta.bold)
     process.exit()
   } catch (error) {
