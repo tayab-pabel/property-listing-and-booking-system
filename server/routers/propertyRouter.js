@@ -14,7 +14,7 @@ const roleChecker = require('../middlewares/auth/roleChecker')
 // Routing:
 router.route('/').get(allProperty)
 router.route('/:id').get(singleProperty)
-router.route('/').post(loginChecker, roleChecker('marchand'), createProperty)
+router.route('/').post(loginChecker, roleChecker('agent'), createProperty)
 
 // Module Exports:
 module.exports = router

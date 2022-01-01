@@ -9,6 +9,11 @@ const PropertySchema = mongoose.Schema(
       required: true,
       ref: 'Agent',
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'People',
+    },
     postType: { type: String, enum: ['basic', 'featured'], default: 'basic' },
     purpose: { type: String, enum: ['buy', 'rent'], default: 'rent' },
     propertyStatus: {
@@ -95,9 +100,6 @@ const PropertySchema = mongoose.Schema(
     propertyFeaturedImage: String,
     propertyFloorPlanImage: String,
     propertyImages: [String],
-    agentName: String,
-    agentLogo: String,
-    agentPhoneNumber: String,
   },
   { timestamps: true, versionKey: false }
 )

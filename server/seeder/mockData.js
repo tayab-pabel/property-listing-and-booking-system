@@ -914,9 +914,6 @@ const demoProperties = [
 
 const demoAgent = [
   {
-    agentName: 'Benham and Reeves',
-    agentEmail: 'info@benhams.com',
-    agentPhoneNumber: '+44 20 3463 7502',
     agentWebsite: 'https://www.benhams.com/',
     agentLogo: 'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
     agentAddress: {

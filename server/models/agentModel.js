@@ -9,9 +9,6 @@ const agentSchema = mongoose.Schema(
       required: true,
       ref: 'People',
     },
-    agentName: { type: String, trim: true, required: true },
-    agentEmail: { type: String, trim: true, lowercase: true },
-    agentPhoneNumber: { type: String, trim: true, required: true },
     agentWebsite: String,
     agentAddress: {
       addressLine1: String,
