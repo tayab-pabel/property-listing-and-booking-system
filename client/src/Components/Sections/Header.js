@@ -5,7 +5,7 @@ import {
   MenuAlt1Icon,
   OfficeBuildingIcon,
   UserIcon,
-  XIcon,
+  XIcon
 } from '@heroicons/react/outline'
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
@@ -64,13 +64,13 @@ const Header = () => {
           </Popover.Button>
         </div>
         <Popover.Group as='nav' className='hidden lg:flex space-x-10'>
-          <Link to='/search' className='text-base font-medium text-blue-dark'>
+          <Link to='/' className='text-base font-medium text-blue-dark'>
             For Sale
           </Link>
-          <Link to='/search' className='text-base font-medium text-blue-dark'>
+          <Link to='/' className='text-base font-medium text-blue-dark'>
             To Rent
           </Link>
-          <Link to='/search' className='text-base font-medium text-blue-dark'>
+          <Link to='/' className='text-base font-medium text-blue-dark'>
             New Homes
           </Link>
           <Link

@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import logo from '../../images/logo.svg'
 
 const Login = () => {
   const { currentUser, signIn, googleLogin } = useAuth()
@@ -56,6 +57,11 @@ const Login = () => {
     <div>
       <div className='min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
         <div className='mt-6 sm:mx-auto sm:w-full sm:max-w-md'>
+          <div className='mb-6'>
+            <Link to='/'>
+              <img className='mx-auto h-12 w-auto' src={logo} alt='' />
+            </Link>
+          </div>
           <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
             <h2 className='mb-6 text-center text-2xl font-black text-blue-dark'>
               Log in to your account

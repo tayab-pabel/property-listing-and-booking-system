@@ -142,7 +142,7 @@ const Properties = ({ property }) => {
                 />
               </div>
 
-              <div className='mt-3'>
+              <div className='mt-2'>
                 <p className='text-xs text-blue-dark'>
                   Posted on {moment(property.updatedAt).fromNow()}
                 </p>
