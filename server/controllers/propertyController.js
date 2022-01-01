@@ -33,7 +33,10 @@ const createProperty = async (req, res, next) => {
 const allProperty = async (req, res, next) => {
   try {
     let purpose = req.query.purpose || 'rent'
-    const result = await Property.find({ purpose: purpose })
+    const result = await Property.find({ purpose: purpose }).populate(
+      'user',
+      'name mobile avatar _id'
+    )
     res.status(200).json(result)
   } catch (error) {
     next(createError(500, 'Data Failed to Fetch'))
@@ -47,7 +50,10 @@ const allProperty = async (req, res, next) => {
  */
 const singleProperty = async (req, res, next) => {
   try {
-    const result = await Property.findById(req.params.id)
+    const result = await Property.findById(req.params.id).populate(
+      'user',
+      'name avatar mobile email _id'
+    )
     res.status(200).json(result)
   } catch (error) {
     next(createError(500, 'Data Failed to Fetch'))

@@ -15,10 +15,10 @@ mongoConnection()
 // Data Import Function:
 const importData = async () => {
   try {
-    await People.deleteMany()
+    // await People.deleteMany()
     await Property.deleteMany()
     await Agent.deleteMany()
-    const user = await People.insertMany(defaultUsers)
+    const user = await People.find()
     const perpareAgent = demoAgent.map((agent) => {
       return { ...agent, user: user[0]._id }
     })
@@ -44,7 +44,7 @@ const importData = async () => {
 // Data Destroy Function:
 const destroyData = async () => {
   try {
-    await People.deleteMany()
+    // await People.deleteMany()
     await Property.deleteMany()
     await Agent.deleteMany()
     console.log(`Default Test User Data Successfully Destroyed !`.magenta.bold)

@@ -133,7 +133,11 @@ const Properties = ({ property }) => {
                 <p className='text-sm text-blue-dark font-bold'>Posted By:</p>
                 <img
                   className='w-24 mt-1'
-                  src={property.agentLogo}
+                  src={
+                    property &&
+                    property.user &&
+                    `https://propertymarketbd.herokuapp.com/uploads/avatars/${property.user.avatar}`
+                  }
                   alt='Agent Logo'
                 />
               </div>
