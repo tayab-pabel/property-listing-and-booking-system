@@ -14,8 +14,6 @@ import Home from './Components/Home/Home'
 import ForgotPassword from './Components/Login/ForgotPassword'
 import Login from './Components/Login/Login'
 import Signup from './Components/Login/Signup'
-import Footer from './Components/Sections/Footer'
-import Header from './Components/Sections/Header'
 import Dashboard from './Components/UserDashboard/Dashboard'
 import UserProtector from './Components/ProtectedRouting/UserProtector'
 import AgentProtector from './Components/ProtectedRouting/AgentProtector'
@@ -23,7 +21,6 @@ import AgentProtector from './Components/ProtectedRouting/AgentProtector'
 function App() {
   return (
     <>
-      <Header />
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -71,7 +68,6 @@ function App() {
           <AdminDashboard />
         </Route>
       </Switch>
-      <Footer />
     </>
   )
 }

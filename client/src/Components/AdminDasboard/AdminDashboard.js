@@ -1,5 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import Header from '../Sections/Header'
+import Footer from '../Sections/Footer'
 import AddAdmin from './AddAdmin'
 import AdminOverview from './AdminOverview'
 import AdminProfile from './AdminProfile'
@@ -30,6 +32,7 @@ const AdminDashboard = () => {
 
   return (
     <div>
+      <Header />
       <div className='h-full'>
         <main className='max-w-full mx-auto'>
           <div className='lg:grid lg:grid-cols-12'>
@@ -43,6 +46,7 @@ const AdminDashboard = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   )
 }

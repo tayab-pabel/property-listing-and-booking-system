@@ -1,4 +1,3 @@
-import { LocationMarkerIcon } from '@heroicons/react/outline'
 import React, { useEffect, useState } from 'react'
 import { getSavedProperties } from '../../utilities/localStorage'
 

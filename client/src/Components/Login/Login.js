@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
+import logo from '../../images/logo.svg'
 
 const Login = () => {
   const { currentUser, signIn, googleLogin } = useAuth()
@@ -56,6 +57,11 @@ const Login = () => {
     <div>
       <div className='min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8'>
         <div className='mt-6 sm:mx-auto sm:w-full sm:max-w-md'>
+          <div className='mb-6'>
+            <Link to='/'>
+              <img className='mx-auto h-12 w-auto' src={logo} alt='' />
+            </Link>
+          </div>
           <div className='bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10'>
             <h2 className='mb-6 text-center text-2xl font-black text-blue-dark'>
               Log in to your account
@@ -164,33 +170,7 @@ const Login = () => {
                 </div>
               </div>
 
-              <div className='mt-6 grid grid-cols-2 gap-3'>
-                <div>
-                  <a
-                    href='#'
-                    className='w-full inline-flex justify-center py-2 px-4 border border-blue-dark rounded-md shadow-sm bg-white text-sm font-medium text-blue-light hover:bg-gray-50'
-                  >
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='24'
-                      height='24'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                    >
-                      <g clip-path='url(#clip0)'>
-                        <path
-                          fill='#1877F2'
-                          d='M24 12c0-6.628-5.372-12-12-12S0 5.372 0 12c0 5.99 4.388 10.955 10.125 11.855v-8.386H7.078V12h3.047V9.356c0-3.007 1.79-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.49 0-1.955.926-1.955 1.875V12h3.328l-.532 3.469h-2.796v8.386C19.613 22.955 24 17.99 24 12z'
-                        ></path>
-                        <path
-                          fill='#fff'
-                          d='M16.671 15.469L17.203 12h-3.328V9.75c0-.95.464-1.875 1.955-1.875h1.514V4.922s-1.374-.234-2.686-.234c-2.742 0-4.533 1.661-4.533 4.668V12H7.078v3.469h3.047v8.386a12.071 12.071 0 003.75 0v-8.386h2.796z'
-                        ></path>
-                      </g>
-                    </svg>
-                  </a>
-                </div>
-
+              <div className='mt-6'>
                 <div>
                   <a
                     href='#'

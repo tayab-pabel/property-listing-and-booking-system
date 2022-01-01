@@ -20,6 +20,8 @@ import CustomSingleSelectOption from '../Elements/CustomSingleSelectOption'
 import ErrorMessage from '../Elements/ErrorMessage'
 import Loader from '../Elements/Loader'
 import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
+import Footer from '../Sections/Footer'
+import Header from '../Sections/Header'
 import { propertyPricing } from './../../Data/Filter'
 import CallToAction from './../Sections/CallToAction'
 import Properties from './Properties'
@@ -124,7 +126,8 @@ const FindProperty = () => {
   }, [selectedPurpose])
 
   return (
-    <div className=''>
+    <div>
+      <Header />
       <div className='bg-gray-100'>
         <div className='max-w-screen-lg mx-auto px-4 md:px-6'>
           {/* Dextop Filter */}
@@ -357,6 +360,7 @@ const FindProperty = () => {
           </div>
         </CustomDrawer>
       </section>
+      <Footer />
     </div>
   )
 }

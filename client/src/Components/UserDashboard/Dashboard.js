@@ -5,6 +5,8 @@ import SavedProperties from './SavedProperties'
 import SavedSearches from './SavedSearches'
 import Notification from './Notification'
 import { useLocation } from 'react-router-dom'
+import Header from '../Sections/Header'
+import Footer from '../Sections/Footer'
 
 const Dashboard = () => {
   const location = useLocation()
@@ -27,6 +29,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Header />
       <div className='h-full'>
         <main className='max-w-full mx-auto'>
           <div className='lg:grid lg:grid-cols-12'>
@@ -40,6 +43,7 @@ const Dashboard = () => {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   )
 }
