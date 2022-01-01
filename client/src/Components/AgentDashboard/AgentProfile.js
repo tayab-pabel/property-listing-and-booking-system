@@ -257,6 +257,7 @@ const AgentProfile = () => {
               <AgentDetailsEdit
                 agent={currentAgent}
                 editPanelCloser={editPanelCloser}
+                token={token}
               />
             )}
           </Tab.Panel>
