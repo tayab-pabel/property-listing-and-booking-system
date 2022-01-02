@@ -338,25 +338,3 @@ const AgentDetailsEdit = ({ agent, editPanelCloser, token }) => {
 }
 
 export default AgentDetailsEdit
-
-// const initialFromData = {
-//   name: agent.name || '',
-//   email: agent.email || '',
-//   mobile: agent.mobile || '',
-//   website: agent.website || '',
-//   avatar: '',
-//   social: {
-//     facebook: '',
-//     twitter: '',
-//     instagram: '',
-//     linkedin: '',
-//   },
-//   address: {
-//     addressLine1: agent.address.addressLine1 || '',
-//     addressLine2: agent.address.addressLine2 || '',
-//     city: agent.address.city || '',
-//     postCode: agent.address.postCode || '',
-//   },
-
-//   description: agent.description || '',
-// }
