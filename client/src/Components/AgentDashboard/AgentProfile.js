@@ -122,7 +122,7 @@ const AgentProfile = () => {
     } catch (error) {
       alert(error.message)
     }
-  }, [])
+  }, [edit])
 
   return (
     <div className='px-4 sm:px-6 py-6 lg:py-6 bg-white lg:shadow lg:rounded-lg'>

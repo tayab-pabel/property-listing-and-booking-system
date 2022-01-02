@@ -23,9 +23,7 @@ const {
 const avatarUpload = require('../middlewares/upload/avatarUpload')
 
 // Public Routes
-router
-  .route('/signup')
-  .post(avatarUpload, userSignUpValidator, validationHandler, userSignup)
+router.route('/signup').post(avatarUpload, userSignup)
 
 // Public Routes
 router.route('/signin').post(userSignin)

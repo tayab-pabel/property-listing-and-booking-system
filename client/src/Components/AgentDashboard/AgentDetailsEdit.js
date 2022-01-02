@@ -4,23 +4,22 @@ import React from 'react'
 
 const AgentDetailsEdit = ({ agent, editPanelCloser, token }) => {
   const [proview, setPreview] = React.useState(agent.logoUrl)
-  console.log(agent)
 
   const initialFromData = {
     name: agent.name || '',
     email: agent.email || '',
     mobile: agent.mobile || '',
     website: agent.website || '',
-    avatar: '',
-    facebook: '',
-    twitter: '',
-    instagram: '',
-    linkedin: '',
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    postCode: '',
-    description: '',
+    avatar: agent.avatar || '',
+    facebook: agent.social.facebook || '',
+    twitter: agent.social.twitter || '',
+    instagram: agent.social.instagram || '',
+    linkedin: agent.social.linkedin || '',
+    addressLine1: agent.address.addressLine1 || '',
+    addressLine2: agent.address.addressLine2 || '',
+    city: agent.address.city || '',
+    postCode: agent.address.postCode || '',
+    description: agent.description || '',
   }
 
   return (
@@ -50,12 +49,23 @@ const AgentDetailsEdit = ({ agent, editPanelCloser, token }) => {
               Authorization: `Bearer ${token}`,
             },
           }
-          const res = await axios.put(
-            'https://propertymarketbd.herokuapp.com/uploads/avatars/api/user/profile/update',
+          const { data } = await axios.put(
+            'https://propertymarketbd.herokuapp.com/api/user/profile/update',
             formData,
             config
           )
-          console.log(res.data)
+          if (data) {
+            let loggedInUser = {
+              name: data.name,
+              email: data.email,
+              mobile: data.mobile,
+              avatar: data.avatar,
+              role: data.role,
+              token: data.token,
+            }
+            localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))
+          }
+          editPanelCloser('personal')
         } catch (error) {
           alert('Something went wrong')
         }

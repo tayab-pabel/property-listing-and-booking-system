@@ -21,7 +21,7 @@ const importData = async () => {
     const prepareProperties = demoProperties.map((properties) => {
       return {
         ...properties,
-        agent: user[0]._id,
+        agent: user[1]._id,
       }
     })
     await Property.insertMany(prepareProperties)

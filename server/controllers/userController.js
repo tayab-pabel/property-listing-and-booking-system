@@ -23,10 +23,7 @@ const userSignup = async (req, res, next) => {
         avatar: req.files[0].filename,
       })
     } else {
-      newUser = new People({
-        ...req.body,
-        avatar: 'demoavatar.png',
-      })
+      newUser = new People({ ...req.body })
     }
     const result = await newUser.save()
 
@@ -124,6 +121,18 @@ const updateProfile = async (req, res, next) => {
       user.name = req.body.name || user.name
       user.email = req.body.email || user.email
       user.mobile = req.body.mobile || user.mobile
+      user.website = req.body.website || user.website
+      user.description = req.body.description || user.description
+      user.social.facebook = req.body.facebook || user.social.facebook
+      user.social.twitter = req.body.twitter || user.social.twitter
+      user.social.instagram = req.body.instagram || user.social.instagram
+      user.social.linkedin = req.body.linkedin || user.social.linkedin
+      user.address.addressLine1 =
+        req.body.addressLine1 || user.address.addressLine1
+      user.address.addressLine2 =
+        req.body.addressLine2 || user.address.addressLine2
+      user.address.city = req.body.city || user.address.city
+      user.address.postCode = req.body.postCode || user.address.postCode
 
       // Manage Avatar
       if (req.files && req.files.length > 0) {
@@ -143,10 +152,6 @@ const updateProfile = async (req, res, next) => {
         } else {
           user.avatar = req.files[0].filename
         }
-      }
-
-      if (req.body.password) {
-        user.password = await bcrypt.hash(req.body.password, 10)
       }
 
       const result = await user.save()
