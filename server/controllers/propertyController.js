@@ -42,6 +42,20 @@ const allProperty = async (req, res, next) => {
     next(createError(500, 'Data Failed to Fetch'))
   }
 }
+/**
+ * @desc This route will provide an array of all listed Properties.
+ * @route GET/api/property/currentagent
+ * @access Public
+ */
+
+const currentAgentProperties = async (req, res, next) => {
+  try {
+    // const result = await Property.find({ agent: req.user._id })
+    res.status(200).json({ Name: 'Nazmul' })
+  } catch (error) {
+    next(createError(500, 'Data Failed to Fetch'))
+  }
+}
 
 /**
  * @desc This route will provide an array of all listed Properties.
@@ -61,4 +75,9 @@ const singleProperty = async (req, res, next) => {
 }
 
 // Module Exports:
-module.exports = { allProperty, singleProperty, createProperty }
+module.exports = {
+  allProperty,
+  singleProperty,
+  createProperty,
+  currentAgentProperties,
+}
