@@ -12,83 +12,6 @@ import { agentProertiesOverview } from '../../utilities/helperFunctions'
 import moment from 'moment'
 
 const AgentOverview = () => {
-  const agent = {
-    role: 'Agent',
-    name: 'Benham and Reeves',
-    branch: 'Hampstead',
-    email: 'info@benhams.com',
-    phoneNumber: '+44 20 3463 7502',
-    logoUrl: 'https://st.zoocdn.com/zoopla_static_agent_logo_(634289).png',
-    address: {
-      location: 'Dhanmondi R/A',
-      city: 'Dhaka',
-      postalCode: '1209',
-      map:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14608.614033009866!2d90.37326543776177!3d23.741904695242088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755bf4d3068e8a1%3A0xcbebaedd39043ca6!2sUniversity%20of%20Development%20Alternative!5e0!3m2!1sen!2sbd!4v1638872109573!5m2!1sen!2sbd',
-    },
-    overview:
-      'Established in 1958, Benham and Reeves are one of the oldest independent agents in Hampstead. With coverage across Hampstead, West Hampstead, St John’s Wood and Belsize Park, tenants and landlords can be assured that they will find here an experienced lettings, sales and property management service. With our flagship office in Heath Street, we know that executives from FTSE and Fortune 500 companies like to live in the very best period conversions, apartments and family houses. Making up over two thirds of our tenants, they benefit from our extensive knowledge of the NW3, NW6 and NW8 postcodes. Many local landlords have been our clients for 20+ years.',
-    about: {
-      photos: [
-        'https://st.zoocdn.com/zpg_agent_static_agent_profile_images_(62759558).jpg',
-        'https://st.zoocdn.com/zpg_agent_static_agent_profile_images_(62759558).jpg',
-      ],
-      teamMembers: [
-        {
-          id: '01',
-          name: 'Dele Lawal Marla',
-          phoneNumber: '123456789',
-          email: 'dele@benhams.com',
-          designation: 'Manager',
-          avatar:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
-        {
-          id: '02',
-          name: 'Dele Lawal Marla',
-          phoneNumber: '123456789',
-          email: 'dele@benhams.com',
-          designation: 'Manager',
-          avatar:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
-        {
-          id: '03',
-          name: 'Dele Lawal Marla',
-          phoneNumber: '123456789',
-          email: 'dele@benhams.com',
-          designation: 'Manager',
-          avatar:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
-        {
-          id: '04',
-          name: 'Dele Lawal Marla',
-          phoneNumber: '123456789',
-          email: 'dele@benhams.com',
-          designation: 'Manager',
-          avatar:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        },
-      ],
-    },
-    property: [
-      {
-        purpose: 'Sale',
-        title: 'Property For Sale',
-        totalProperty: '50',
-        avgAskingPrice: '5,00,000',
-        avgListingTime: '20',
-      },
-      {
-        purpose: 'Rent',
-        title: 'Property For Rent',
-        totalProperty: '70',
-        avgAskingPrice: '40,000',
-        avgListingTime: '10',
-      },
-    ],
-  }
   const { token, _id } = JSON.parse(localStorage.getItem('loggedInUser'))
   const [currentAgent, setCurrentAgent] = React.useState({})
   const [currentAgentProperties, setCurrentAgentProperties] = React.useState([])
@@ -123,8 +46,6 @@ const AgentOverview = () => {
     avgAskingPriceRent,
     lastUploadedRent,
   } = agentProertiesOverview(currentAgentProperties)
-
-  console.log(forSale, avgAskingPriceSale, forRent, avgAskingPriceRent)
 
   return (
     <div>
@@ -329,7 +250,7 @@ const AgentOverview = () => {
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {moment(lastUploadedSale).fromNow()}
+                            {moment(lastUploadedRent).fromNow()}
                           </div>
                         </dd>
                       </dl>
