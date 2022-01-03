@@ -13,7 +13,7 @@ const {
 } = require('./middlewares/common/errorHandler')
 const userRouter = require('./routers/userRouter')
 const propertyRouter = require('./routers/propertyRouter')
-const agentRouter = require('./routers/agentRouter')
+const uploadRouter = require('./routers/uploadRouter')
 const mongoConnection = require('./config/db')
 
 // Configuraton
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Routes
 app.use('/api/user', userRouter)
 app.use('/api/property', propertyRouter)
-app.use('/api/agent', agentRouter)
+app.use('/api/upload', uploadRouter)
 
 // Not Found Handler
 app.use(notFoundHandler)
