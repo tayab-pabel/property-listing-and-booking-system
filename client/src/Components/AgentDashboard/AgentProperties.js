@@ -5,28 +5,6 @@ import Loader from './../Elements/Loader'
 import axios from 'axios'
 
 const AgentProperties = () => {
-  const properties = [
-    {
-      id: '001',
-      postType: 'Basic',
-      purpose: 'Rent',
-      name: 'Two bedrooms appertment',
-      propertType: 'Apartment',
-      address: {
-        location: 'Dhanmondi',
-        city: 'Dhaka',
-        postalCode: '1215',
-      },
-      size: '1200',
-      price: '25,000',
-      beds: '3',
-      baths: '3',
-      floor: '4',
-      featuredImage:
-        'https://lid.zoocdn.com/u/2400/1800/c447789c6cf4ab231b224a751c3eba3c91b2ba77.jpg:p',
-    },
-  ]
-
   // Modal Functionalities
   let [isOpen, setIsOpen] = useState(false)
   function closeModal() {
