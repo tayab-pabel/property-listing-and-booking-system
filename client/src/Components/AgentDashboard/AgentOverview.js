@@ -2,15 +2,14 @@ import {
   CheckCircleIcon,
   ClockIcon,
   CurrencyBangladeshiIcon,
-  FireIcon,
   HomeIcon,
   LocationMarkerIcon,
-  OfficeBuildingIcon,
-  ScaleIcon,
 } from '@heroicons/react/outline'
 import React from 'react'
 import axios from 'axios'
 import Loader from './../Elements/Loader'
+import { agentProertiesOverview } from '../../utilities/helperFunctions'
+import moment from 'moment'
 
 const AgentOverview = () => {
   const agent = {
@@ -90,8 +89,9 @@ const AgentOverview = () => {
       },
     ],
   }
-  const { token } = JSON.parse(localStorage.getItem('loggedInUser'))
+  const { token, _id } = JSON.parse(localStorage.getItem('loggedInUser'))
   const [currentAgent, setCurrentAgent] = React.useState({})
+  const [currentAgentProperties, setCurrentAgentProperties] = React.useState([])
 
   React.useEffect(async () => {
     try {
@@ -105,12 +105,27 @@ const AgentOverview = () => {
         'https://propertymarketbd.herokuapp.com/api/user/profile',
         config
       )
+      const { data: property } = await axios.get(
+        `https://propertymarketbd.herokuapp.com/api/property?agentId=${_id}`
+      )
       setCurrentAgent(data)
+      setCurrentAgentProperties(property)
     } catch (error) {
       alert(error.message)
     }
   }, [])
-  console.log(currentAgent)
+
+  const {
+    forSale,
+    avgAskingPriceSale,
+    lastUploadedSale,
+    forRent,
+    avgAskingPriceRent,
+    lastUploadedRent,
+  } = agentProertiesOverview(currentAgentProperties)
+
+  console.log(forSale, avgAskingPriceSale, forRent, avgAskingPriceRent)
+
   return (
     <div>
       {currentAgent ? (
@@ -187,7 +202,7 @@ const AgentOverview = () => {
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {agent.property[0].totalProperty}
+                            {forSale}
                           </div>
                         </dd>
                       </dl>
@@ -211,7 +226,7 @@ const AgentOverview = () => {
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {agent.property[0].avgAskingPrice}
+                            {avgAskingPriceSale}
                           </div>
                         </dd>
                       </dl>
@@ -231,11 +246,11 @@ const AgentOverview = () => {
                     <div className='ml-5 w-0 flex-1'>
                       <dl>
                         <dt className='text-sm font-medium text-blue-dark truncate'>
-                          Avg. listing time
+                          Last listing time
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {agent.property[0].avgListingTime} weeks
+                            {moment(lastUploadedSale).fromNow()}
                           </div>
                         </dd>
                       </dl>
@@ -266,7 +281,7 @@ const AgentOverview = () => {
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {agent.property[1].totalProperty}
+                            {forRent}
                           </div>
                         </dd>
                       </dl>
@@ -290,7 +305,7 @@ const AgentOverview = () => {
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {agent.property[1].avgAskingPrice}
+                            {avgAskingPriceRent}
                           </div>
                         </dd>
                       </dl>
@@ -310,11 +325,11 @@ const AgentOverview = () => {
                     <div className='ml-5 w-0 flex-1'>
                       <dl>
                         <dt className='text-sm font-medium text-blue-dark truncate'>
-                          Avg. listing time
+                          Last listing time
                         </dt>
                         <dd>
                           <div className='text-lg font-medium text-blue-light'>
-                            {agent.property[1].avgListingTime} weeks
+                            {moment(lastUploadedSale).fromNow()}
                           </div>
                         </dd>
                       </dl>

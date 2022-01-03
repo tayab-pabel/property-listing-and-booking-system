@@ -44,6 +44,7 @@ const AgentLogin = () => {
 
         if (data) {
           let loggedInUser = {
+            _id: data._id,
             name: data.name,
             email: data.email,
             mobile: data.mobile,
