@@ -10,9 +10,9 @@ const Photos = () => {
         >
           Floor Plan
         </label>
-        <div className="mt-1">
+        <div className="mt-1 flex items-center">
           <div className="w-44 flex justify-center px-6 pt-5 pb-6 border border-blue-dark rounded-lg">
-            <div className="space-y-1 text-center">
+          <div className="space-y-1 text-center">
               <svg
                 className="mx-auto h-12 w-12 text-blue-dark"
                 stroke="currentColor"
@@ -37,7 +37,21 @@ const Photos = () => {
                 </label>
               </div>
               <p className="text-xs text-blue-dark">PNG, JPG up to 5MB</p>
-            </div>
+          </div>
+          </div>
+          <div className="ml-5">
+            <button
+              type='button'
+              className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+            >
+              Change
+            </button>
+            <button
+              type='button'
+              className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+            >
+              Remove
+            </button>
           </div>
         </div>
       </div>
@@ -48,7 +62,7 @@ const Photos = () => {
         >
           Featured Photo
         </label>
-        <div className="mt-1">
+        <div className="mt-1 flex items-center">
           <div className="w-44 flex justify-center px-6 pt-5 pb-6 border border-blue-dark rounded-lg">
             <div className="space-y-1 text-center">
               <svg
@@ -77,6 +91,20 @@ const Photos = () => {
               <p className="text-xs text-blue-dark">PNG, JPG up to 5MB</p>
             </div>
           </div>
+          <div className="ml-5">
+            <button
+              type='button'
+              className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+            >
+              Change
+            </button>
+            <button
+              type='button'
+              className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
       <div className='sm:col-span-6'>
@@ -86,7 +114,7 @@ const Photos = () => {
         >
           Upload Image Gallery
         </label>
-        <div className="mt-1">
+        <div className="mt-1 flex items-center">
           <div className="w-44 flex justify-center px-6 pt-5 pb-6 border border-blue-dark rounded-lg">
             <div className="space-y-1 text-center">
               <svg
@@ -114,6 +142,20 @@ const Photos = () => {
               </div>
               <p className="text-xs text-blue-dark">PNG, JPG up to 5MB</p>
             </div>
+          </div>
+          <div className="ml-5">
+            <button
+              type='button'
+              className='bg-white border border-blue-dark rounded-lg py-2 px-4 inline-flex justify-center font-medium text-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+            >
+              Change
+            </button>
+            <button
+              type='button'
+              className='ml-5 bg-blue-light rounded-lg py-2 px-4 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+            >
+              Remove
+            </button>
           </div>
         </div>
       </div>
