@@ -17,7 +17,6 @@ import CustomDrawer from '../Elements/CustomDrawer'
 import CustomInput from '../Elements/CustomInput'
 import CustomMinMaxRangeSelectOption from '../Elements/CustomMinMaxRangeSelectOption'
 import CustomSingleSelectOption from '../Elements/CustomSingleSelectOption'
-import ErrorMessage from '../Elements/ErrorMessage'
 import Loader from '../Elements/Loader'
 import PropertyTypeSelectOption from '../Elements/PropertyTypeSelectOption'
 import Footer from '../Sections/Footer'
@@ -261,7 +260,7 @@ const FindProperty = () => {
       </div>
       <div className=''>
         {filteredProperties && filteredProperties.length === 0 ? (
-          <ErrorMessage error='No Property Found' />
+          <Loader />
         ) : filteredProperties.length > 0 ? (
           filteredProperties.map((property) => (
             <Properties property={property} />
