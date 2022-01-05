@@ -11,12 +11,11 @@ const {
 const loginChecker = require('../middlewares/auth/loginChecker')
 const roleChecker = require('../middlewares/auth/roleChecker')
 
-// Public Routings:
-router.route('/').get(allProperty)
+router
+  .route('/')
+  .get(allProperty)
+  .post(loginChecker, roleChecker('agent'), createProperty)
 router.route('/:id').get(singleProperty)
-
-// Private Routing
-router.route('/').post(loginChecker, roleChecker('agent'), createProperty)
 
 // Module Exports:
 module.exports = router

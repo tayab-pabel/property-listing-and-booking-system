@@ -274,32 +274,26 @@ const UpdatePropertyDetails = () => {
         </div>
       </div>
       <div className='col-span-6'>
-        <label
-          htmlFor='floor-plan'
-          className='block font-medium text-blue-dark '
-        >
+        <label className='block font-medium text-blue-dark '>
           Check Features
         </label>
         <div className='grid grid-cols-2'>
           {propertyFeatures.map((feature, featureIdx) => (
-            <div key={featureIdx} className='relative flex py-1'>
-              <div className='mr-3 flex items-center h-5'>
-                <input
-                  id={`feature-${feature.id}`}
-                  name={`feature-${feature.id}`}
-                  type='checkbox'
-                  className='focus:ring-blue-light h-4 w-4 text-blue-light border-gray-300 rounded'
-                />
-              </div>
-              <div className='text-sm'>
-                <label
-                  htmlFor={`feature-${feature.id}`}
-                  className='font-medium text-blue-dark select-none'
-                >
-                  {feature.name}
-                </label>
-              </div>
-            </div>
+            <label
+              htmlFor={`feature-${feature.id}`}
+              key={featureIdx}
+              className='py-1 text-blue-dark cursor-pointer'
+            >
+              <input
+                id={`feature-${feature.id}`}
+                name='propertyFeatures'
+                onChange={handleChange}
+                value={feature.value}
+                type='checkbox'
+                className='focus:ring-blue-light h-4 w-4 border-gray-300 rounded cursor-pointer mr-2'
+              />
+              {feature.name}
+            </label>
           ))}
         </div>
       </div>

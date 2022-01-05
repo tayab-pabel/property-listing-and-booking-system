@@ -12,7 +12,6 @@ const { defaultProperty } = require('../seeder/mockData')
  */
 const createProperty = async (req, res, next) => {
   try {
-    console.log(req.user)
     const newProperty = new Property({
       ...defaultProperty,
       agent: req.user._id,
