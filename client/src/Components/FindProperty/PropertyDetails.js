@@ -13,6 +13,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import axios from 'axios'
 import Loader from './../Elements/Loader'
 import moment from 'moment'
+import Header from '../Sections/Header'
+import Footer from '../Sections/Footer'
 import { propertySavetoLocalStorage } from './../../utilities/localStorage'
 import { trythyValueArrayFromObject } from '../../utilities/helperFunctions'
 
@@ -54,6 +56,7 @@ const PropertyDetails = () => {
 
   return (
     <div>
+      <Header />
       <div className='relative bg-gray-100 pb-10'>
         <div className='max-w-screen-lg mx-auto'>
           <div className='py-4'>
@@ -396,6 +399,7 @@ const PropertyDetails = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

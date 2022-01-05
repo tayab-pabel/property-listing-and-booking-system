@@ -34,12 +34,12 @@ function App() {
         <Route path='/forgot-password'>
           <ForgotPassword />
         </Route>
-        <UserProtector path='/account'>
+        <oute path='/account'>
           <Dashboard />
-        </UserProtector>
-        <AgentProtector path='/agent-account'>
+        </oute>
+        <Route path='/agent-account'>
           <AgentDashboard />
-        </AgentProtector>
+        </Route>
         <Route path='/agent-login'>
           <AgentLogin />
         </Route>

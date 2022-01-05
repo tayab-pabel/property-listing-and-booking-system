@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import { LocationMarkerIcon, PhoneIcon } from '@heroicons/react/outline'
 import { Tab } from '@headlessui/react'
 import AgentContact from '../Sections/AgentContact'
+import Header from '../Sections/Header'
+import Footer from '../Sections/Footer'
 
 const AgentDetails = () => {
   const agent = {
@@ -194,6 +196,7 @@ const AgentDetails = () => {
 
   return (
     <div>
+      <Header/>
       <div className='relative bg-gray-100 py-10'>
         <div className='max-w-screen-lg mx-auto'>
           <div className='bg-white rounded-lg shadow'>
@@ -617,6 +620,7 @@ const AgentDetails = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

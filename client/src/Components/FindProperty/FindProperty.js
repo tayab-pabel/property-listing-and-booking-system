@@ -147,14 +147,14 @@ const FindProperty = () => {
                   setData={setPropertyLocation}
                 />
               </div>
-              <div className='radius col-span-2'>
+              {/* <div className='radius col-span-2'>
                 <CustomSingleSelectOption
                   title='Search Radius'
                   data={locationRadius}
                   option={searchRadius}
                   setOption={setSearchRadius}
                 />
-              </div>
+              </div> */}
               <div className='PropertyType col-span-3'>
                 <PropertyTypeSelectOption
                   propertyTypes={selectedPropertyTypes}
@@ -165,7 +165,7 @@ const FindProperty = () => {
                   setSelectedCategory={setSelectedPropertyCategory}
                 />
               </div>
-              <div className='beds col-span-1'>
+              <div className='beds col-span-2'>
                 <CustomSingleSelectOption
                   title='Beds'
                   data={beds}
@@ -173,7 +173,7 @@ const FindProperty = () => {
                   setOption={setSelectedBeds}
                 />
               </div>
-              <div className='baths col-span-1'>
+              <div className='baths col-span-2'>
                 <CustomSingleSelectOption
                   title='Baths'
                   data={baths}
@@ -205,7 +205,7 @@ const FindProperty = () => {
               </div>
               <div className='search col-span-3'>
                 <CustomInput
-                  title='Search'
+                  title='Keyword'
                   data={searchKeyword}
                   setData={setSearchKeyword}
                 />
@@ -237,7 +237,7 @@ const FindProperty = () => {
           </section>
         </div>
       </div>
-      <div className='bg-white max-w-screen-lg mx-auto px-4 pt-2 md:px-6'>
+      {/* <div className='bg-white max-w-screen-lg mx-auto px-4 pt-2 md:px-6'>
         <div className='flex justify-between'>
           <div className='sort'>
             <CustomSingleSelectOption
@@ -257,7 +257,7 @@ const FindProperty = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className=''>
         {filteredProperties && filteredProperties.length === 0 ? (
           <Loader />
