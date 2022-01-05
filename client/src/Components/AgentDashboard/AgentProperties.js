@@ -1,11 +1,10 @@
 import { Dialog, Transition } from '@headlessui/react'
 import React, { Fragment, useState } from 'react'
-import PropertyEdit from './PropertyEdit'
 import Loader from './../Elements/Loader'
 import axios from 'axios'
+import UpdateProperty from './UpdateProperty'
 
 const AgentProperties = () => {
-  // Modal Functionalities
   let [isOpen, setIsOpen] = useState(false)
   function closeModal() {
     setIsOpen(false)
@@ -13,10 +12,11 @@ const AgentProperties = () => {
   function openModal() {
     setIsOpen(true)
   }
+  let [property, setProperty] = useState({})
 
   // Properties Fucntionalities
   const [currentAgentProperties, setCurrentAgentProperties] = React.useState([])
-  const { _id } = JSON.parse(localStorage.getItem('loggedInUser'))
+  const { _id, token } = JSON.parse(localStorage.getItem('loggedInUser'))
   React.useEffect(async () => {
     try {
       const { data: property } = await axios.get(
@@ -27,6 +27,35 @@ const AgentProperties = () => {
       alert(error.message)
     }
   }, [])
+
+  const addNewProperty = async () => {
+    try {
+      var config = {
+        method: 'post',
+        url: 'https://propertymarketbd.herokuapp.com/api/property',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+      const { data } = await axios(config)
+      setProperty(data)
+      setIsOpen(true)
+    } catch (error) {
+      alert(error)
+    }
+  }
+
+  const editPropertyHandler = async (id) => {
+    try {
+      const { data } = await axios.get(
+        'https://propertymarketbd.herokuapp.com/api/property/' + id
+      )
+      setProperty(data)
+      setIsOpen(true)
+    } catch (error) {
+      alert('Error Occured')
+    }
+  }
 
   return (
     <div className=''>
@@ -40,30 +69,35 @@ const AgentProperties = () => {
                   <tr>
                     <th
                       scope='col'
-                      className='px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
+                      className='px-6 py-6 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
                     >
                       Title & Address
                     </th>
                     <th
                       scope='col'
-                      className='px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
+                      className='px-6 py-6 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
                     >
                       Info & Type
                     </th>
                     <th
                       scope='col'
-                      className='px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
+                      className='px-6 py-6 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
                     >
                       Purpose
                     </th>
                     <th
                       scope='col'
-                      className='px-6 py-3 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
+                      className='px-6 py-6 text-left text-xs font-medium text-blue-dark uppercase tracking-wider'
                     >
                       Status
                     </th>
-                    <th scope='col' className='relative px-6 py-3'>
-                      <span className='sr-only'>Edit</span>
+                    <th scope='col' className='relative px-6 py-6'>
+                      <button
+                        onClick={addNewProperty}
+                        className='ml-5 bg-blue-light rounded-lg py-2 px-5 inline-flex justify-center font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light'
+                      >
+                        Add Property
+                      </button>
                     </th>
                   </tr>
                 </thead>
@@ -111,13 +145,12 @@ const AgentProperties = () => {
                           </span>
                         </td>
                         <td className='px-6 py-4 whitespace-nowrap text-right text-sm font-medium'>
-                          <a
-                            onClick={openModal}
-                            href='#'
+                          <button
+                            onClick={() => editPropertyHandler(property._id)}
                             className='text-blue-light hover:text-blue-light'
                           >
                             Edit
-                          </a>
+                          </button>
                         </td>
                       </tr>
                     ))
@@ -128,6 +161,7 @@ const AgentProperties = () => {
                   )}
                 </tbody>
               </table>
+
               {/* Edit Property Modal */}
               <Transition appear show={isOpen} as={Fragment}>
                 <Dialog
@@ -135,7 +169,7 @@ const AgentProperties = () => {
                   className='fixed z-10 inset-0 overflow-y-auto'
                   onClose={setIsOpen}
                 >
-                  <div className='flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0'>
+                  <div className='flex items-end justify-center min-h-screen pt-4 px-4 '>
                     <Transition.Child
                       as={Fragment}
                       enter='ease-out duration-300'
@@ -162,15 +196,20 @@ const AgentProperties = () => {
                       leaveFrom='opacity-100 scale-100'
                       leaveTo='opacity-0 scale-95'
                     >
-                      <div className='inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-xl sm:w-full sm:p-6'>
-                        <PropertyEdit />
+                      <div className='inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:align-middle w-3/4 '>
+                        {property && (
+                          <UpdateProperty
+                            property={property}
+                            closeModal={closeModal}
+                          />
+                        )}
                         <div className='mt-5'>
                           <button
                             type='button'
-                            className='inline-flex justify-center w-full rounded-lg border border-transparent shadow-sm px-4 py-2 bg-blue-light text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light sm:text-sm'
+                            className='inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-blue-dark text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-light sm:text-sm'
                             onClick={() => setIsOpen(false)}
                           >
-                            Update
+                            Close
                           </button>
                         </div>
                       </div>

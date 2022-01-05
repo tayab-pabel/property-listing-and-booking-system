@@ -1,15 +1,13 @@
 import {
   CurrencyDollarIcon,
-  HomeIcon,
   OfficeBuildingIcon,
   UserIcon,
-  ViewGridIcon
+  ViewGridIcon,
 } from '@heroicons/react/outline'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
 const AgentSidebar = ({ redirect }) => {
-
   const subNavigation = [
     {
       name: 'Overview',
@@ -25,11 +23,6 @@ const AgentSidebar = ({ redirect }) => {
       name: 'All Properties',
       path: 'properties',
       icon: OfficeBuildingIcon,
-    },
-    {
-      name: 'Add Property',
-      path: 'addProperty',
-      icon: HomeIcon,
     },
     {
       name: 'Plans',
@@ -51,8 +44,8 @@ const AgentSidebar = ({ redirect }) => {
             to={`?tab=${item.path}`}
             className={classNames(
               redirect && redirect === item.path
-              ? 'bg-white text-blue-dark'
-              : 'text-white hover:text-blue-dark hover:bg-white',
+                ? 'bg-white text-blue-dark'
+                : 'text-white hover:text-blue-dark hover:bg-white',
               'group rounded-lg px-3 py-2 flex items-center font-medium'
             )}
             aria-current={

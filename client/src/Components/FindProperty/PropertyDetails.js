@@ -21,6 +21,7 @@ const PropertyDetails = () => {
   const [property, setProperty] = useState({})
   const [propertyGallery, setPropertyGallery] = useState([])
   const [features, setFeatures] = useState([])
+  console.log(features)
 
   let [isOpen, setIsOpen] = useState(false)
 

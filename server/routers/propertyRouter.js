@@ -7,6 +7,7 @@ const {
   allProperty,
   singleProperty,
   createProperty,
+  updateProperty,
 } = require('../controllers/propertyController')
 const loginChecker = require('../middlewares/auth/loginChecker')
 const roleChecker = require('../middlewares/auth/roleChecker')
@@ -15,7 +16,11 @@ router
   .route('/')
   .get(allProperty)
   .post(loginChecker, roleChecker('agent'), createProperty)
-router.route('/:id').get(singleProperty)
+
+router
+  .route('/:id')
+  .get(singleProperty)
+  .put(loginChecker, roleChecker('agent'), updateProperty)
 
 // Module Exports:
 module.exports = router

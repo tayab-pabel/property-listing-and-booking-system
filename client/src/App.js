@@ -17,6 +17,7 @@ import Signup from './Components/Login/Signup'
 import Dashboard from './Components/UserDashboard/Dashboard'
 import UserProtector from './Components/ProtectedRouting/UserProtector'
 import AgentProtector from './Components/ProtectedRouting/AgentProtector'
+import UpdateProperty from './Components/AgentDashboard/UpdateProperty'
 
 function App() {
   return (

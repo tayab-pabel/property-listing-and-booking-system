@@ -31,16 +31,16 @@ const createProperty = async (req, res, next) => {
 
 const allProperty = async (req, res, next) => {
   try {
-    let purpose = req.query.purpose || 'rent'
+    let purpose = req.query.purpose || false
     let agentId = req.query.agentId || false
 
     if (agentId) {
       const result = await Property.find({ agent: agentId })
       res.status(200).json(result)
     } else {
-      const result = await Property.find({ purpose: purpose }).populate(
+      const result = await Property.find(purpose || {}).populate(
         'agent',
-        'name mobile avatar _id'
+        'name mobile avatar _id description'
       )
       res.status(200).json(result)
     }
@@ -66,9 +66,58 @@ const singleProperty = async (req, res, next) => {
   }
 }
 
+/**
+ * @desc This route will provide an array of all listed Properties.
+ * @route PUT/api/property/:id
+ * @access Private Agent Only
+ */
+const updateProperty = async (req, res, next) => {
+  try {
+    const property = await Property.findById(req.params.id)
+    if (property) {
+      property.postType = req.body.postType || property.postType
+      property.purpose = req.body.purpose || property.purpose
+      property.propertyStatus =
+        req.body.propertyStatus || property.propertyStatus
+      property.propertyCategory =
+        req.body.propertyCategory || property.propertyCategory
+      property.propertyType = req.body.propertyType || property.propertyType
+      property.propertyTitle = req.body.propertyTitle || property.propertyTitle
+      property.propertyDescription =
+        req.body.propertyDescription || property.propertyDescription
+      property.propertyPrice = req.body.propertyPrice || property.propertyPrice
+      property.propertyBedrooms =
+        req.body.propertyBedrooms || property.propertyBedrooms
+      property.propertyBathrooms =
+        req.body.propertyBathrooms || property.propertyBathrooms
+      property.propertyFloorNumber =
+        req.body.propertyFloorNumber || property.propertyFloorNumber
+      property.propertySqft = req.body.propertySqft || property.propertySqft
+      property.propertyFurnished =
+        req.body.propertyFurnished || property.propertyFurnished
+      property.propertyFurnished =
+        req.body.propertyFurnished || property.propertyFurnished
+
+      if (req.body.propertyFeatures) {
+        req.body.propertyFeatures.forEach(
+          (feature) => (property.propertyFeatures[feature] = true)
+        )
+      }
+      const result = await property.save()
+      res.status(200).json(result)
+    } else {
+      res.status(400).send('No Property Found')
+    }
+    res.status(200).json(property)
+  } catch (error) {
+    next(createError(500, 'Server Side Error'))
+  }
+}
+
 // Module Exports:
 module.exports = {
   allProperty,
   singleProperty,
   createProperty,
+  updateProperty,
 }

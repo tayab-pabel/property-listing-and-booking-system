@@ -1,36 +1,55 @@
+import axios from 'axios'
 import { useFormik } from 'formik'
 import React from 'react'
 import { propertyFeatures } from '../../../Data/Property'
+import { trythyValueArrayFromObject } from '../../../utilities/helperFunctions'
 
-const UpdatePropertyDetails = () => {
+const UpdatePropertyDetails = ({ property, closeModal }) => {
+  const { _id, token } = JSON.parse(localStorage.getItem('loggedInUser'))
   const formik = useFormik({
     initialValues: {
-      postType: 'basic',
-      purpose: 'rent',
-      propertyStatus: 'active',
-      propertyCategory: 'residential',
-      propertyType: 'apartment',
-      propertyTitle: 'Two bedrooms apartment',
-      propertyAvailability: Date.now(),
-      propertyDescription: 'Recognize the best when youre in Dhanmondi',
-      propertyPrice: 25000,
-      propertyBedrooms: 2,
-      propertyBathrooms: 2,
-      propertyFloorNumber: 1,
-      propertySqft: 1000,
-      propertyFurnished: true,
-      addressLine1: 'Kadamtala',
-      city: 'Dhaka',
-      country: 'Bangladesh',
-      postCode: '1201',
-      propertyFeatures: [],
+      postType: property.postType || 'basic',
+      purpose: property.purpose || 'rent',
+      propertyStatus: property.propertyStatus || 'active',
+      propertyCategory: property.propertyCategory || 'residential',
+      propertyType: property.propertyType || 'apartment',
+      propertyTitle: property.propertyTitle || 'Two bedrooms apartment',
+      propertyAvailability: property.propertyAvailability || Date.now(),
+      propertyDescription:
+        property.propertyDescription ||
+        'Recognize the best when youre in Dhanmondi',
+      propertyPrice: property.propertyPrice || 25000,
+      propertyBedrooms: property.propertyBedrooms || 2,
+      propertyBathrooms: property.propertyBathrooms || 2,
+      propertyFloorNumber: property.propertyFloorNumber || 1,
+      propertySqft: property.propertySqft || 1000,
+      propertyFurnished: property.propertyFurnished || true,
+      addressLine1: property.addressLine1 || 'Kadamtala',
+      city: property.city || 'Dhaka',
+      country: property.country || 'Bangladesh',
+      postCode: property.postCode || '1201',
+      propertyFeatures: [
+        ...trythyValueArrayFromObject(property.propertyFeatures),
+      ],
     },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+    onSubmit: async (values) => {
+      try {
+        var config = {
+          method: 'put',
+          url: `http://localhost:5000/api/property/${property._id}`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          data: values,
+        }
+        await axios(config)
+        closeModal()
+      } catch (error) {
+        alert(error)
+      }
     },
   })
   const { values, handleChange, handleSubmit } = formik
-  console.log(values)
   return (
     <form onSubmit={handleSubmit} className='grid grid-cols-6 gap-6'>
       <div className='col-span-3'>
@@ -289,6 +308,7 @@ const UpdatePropertyDetails = () => {
                 name='propertyFeatures'
                 onChange={handleChange}
                 value={feature.value}
+                checked={values.propertyFeatures.includes(feature.value)}
                 type='checkbox'
                 className='focus:ring-blue-light h-4 w-4 border-gray-300 rounded cursor-pointer mr-2'
               />

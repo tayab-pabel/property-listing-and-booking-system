@@ -10,8 +10,10 @@ import axios from 'axios'
 import Loader from './../Elements/Loader'
 import { agentProertiesOverview } from '../../utilities/helperFunctions'
 import moment from 'moment'
+import { useHistory } from 'react-router-dom'
 
 const AgentOverview = () => {
+  const history = useHistory()
   const { token, _id } = JSON.parse(localStorage.getItem('loggedInUser'))
   const [currentAgent, setCurrentAgent] = React.useState({})
   const [currentAgentProperties, setCurrentAgentProperties] = React.useState([])
@@ -91,14 +93,6 @@ const AgentOverview = () => {
                     </dl>
                   </div>
                 </div>
-              </div>
-              <div className='mt-4 flex space-x-3 xl:mt-0 xl:ml-4'>
-                <button
-                  type='button'
-                  className='inline-flex items-center px-4 py-2 border border-blue-dark text-sm font-medium rounded-lg text-blue-dark bg-white'
-                >
-                  Add Property
-                </button>
               </div>
             </div>
           </div>
