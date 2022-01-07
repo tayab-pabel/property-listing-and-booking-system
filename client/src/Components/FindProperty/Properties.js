@@ -22,7 +22,7 @@ const Properties = ({ property }) => {
               />
             </div>
             <div className='p-5'>
-              <span className='flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs bg-blue-light rounded-full'>
+              <span className='flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs bg-blue-light rounded-full capitalize'>
                 {property.propertyType}
               </span>
 

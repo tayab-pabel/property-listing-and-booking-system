@@ -6,6 +6,7 @@ import {
   ArrowLeftIcon,
   CheckCircleIcon,
   HeartIcon,
+  LocationMarkerIcon,
   PhoneIcon,
   ShareIcon,
 } from '@heroicons/react/outline'
@@ -97,7 +98,7 @@ const PropertyDetails = () => {
                         />
                         Save
                       </button>
-                      <button
+                      {/* <button
                         type='button'
                         className='ml-2 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-light'
                       >
@@ -106,7 +107,7 @@ const PropertyDetails = () => {
                           aria-hidden='true'
                         />
                         Share
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                   <div>
@@ -164,6 +165,18 @@ const PropertyDetails = () => {
                     </div>
                   </div>
 
+                  {/* <div className='flex flex-wrap content-center text-sm text-blue-dark capitalize'>
+                    <LocationMarkerIcon
+                      className='w-5 h-5 text-blue-dark'
+                      aria-hidden='true'
+                    />
+                    <p className='text-sm text-blue-dark ml-1'>
+                      {property.propertyAddress.addressLine1},{' '}
+                      {property.propertyAddress.city} -{' '}
+                      {property.propertyAddress.postCode}
+                    </p>
+                  </div> */}
+
                   <div className='mt-10'>
                     <h3 className='text-lg text-blue-dark font-bold'>
                       Property Informations
@@ -174,7 +187,7 @@ const PropertyDetails = () => {
                           <h4 className='text-base text-blue-dark font-bold'>
                             Purpose
                           </h4>
-                          <p className='text-sm text-blue-dark'>
+                          <p className='text-sm text-blue-dark capitalize'>
                             {property.purpose}
                           </p>
                         </div>
@@ -182,7 +195,7 @@ const PropertyDetails = () => {
                           <h4 className='text-base text-blue-dark font-bold'>
                             Post Date
                           </h4>
-                          <p className='text-sm text-blue-dark'>
+                          <p className='text-sm text-blue-dark capitalize'>
                             {moment(property.postedDate).fromNow()}
                           </p>
                         </div>
@@ -193,7 +206,7 @@ const PropertyDetails = () => {
                           <h4 className='text-base text-blue-dark font-bold'>
                             Property Type
                           </h4>
-                          <p className='text-sm text-blue-dark'>
+                          <p className='text-sm text-blue-dark capitalize'>
                             {property.propertyType}
                           </p>
                         </div>
