@@ -1,6 +1,6 @@
 {
-  "name": "Property Market",
-  "short_name": "Property Market",
+  "name": "Property_Market",
+  "short_name": "Property_Market",
   "description": "Property Market is a property listing and booking system",
   "lang": "en-US",
   "start_url": "/",
