@@ -202,6 +202,21 @@ const allUser = async (req, res, next) => {
 }
 
 /**
+ * @description Return All Agents
+ * @route GET /api/agents
+ * @access Public
+ */
+
+const allAgents = async (req, res, next) => {
+  try {
+    const agents = await People.find({ role: 'agent' })
+    res.status(200).json(agents)
+  } catch (error) {
+    next(createError(500, 'Server Error!'))
+  }
+}
+
+/**
  * @description Delete a user.
  * @route DELETE /api/user
  * @access Protected (Admin Only)
@@ -241,4 +256,5 @@ module.exports = {
   userProfile,
   updateProfile,
   deleteUser,
+  allAgents,
 }

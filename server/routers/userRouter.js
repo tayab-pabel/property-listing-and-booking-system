@@ -1,5 +1,6 @@
 // External Dependencies
 const express = require('express')
+const res = require('express/lib/response')
 const router = express.Router()
 
 // Internal Dependencies
@@ -10,11 +11,11 @@ const {
   userSignup,
   updateProfile,
   deleteUser,
+  allAgents,
 } = require('../controllers/userController')
 const loginChecker = require('../middlewares/auth/loginChecker')
 const roleChecker = require('../middlewares/auth/roleChecker')
 const {
-  userSignUpValidator,
   userProfileUpdateValidator,
 } = require('../middlewares/dataValidation/userValidator')
 const {
@@ -22,16 +23,10 @@ const {
 } = require('../middlewares/dataValidation/validationHandler')
 const avatarUpload = require('../middlewares/upload/avatarUpload')
 
-// Public Routes
 router.route('/signup').post(avatarUpload, userSignup)
-
-// Public Routes
 router.route('/signin').post(userSignin)
-
-// Protected Route (Logged in user)
 router.route('/profile').get(loginChecker, userProfile)
-
-// Protected Route (Logged in user)
+router.route('/agents').get(allAgents)
 router
   .route('/profile/update')
   .put(
@@ -41,11 +36,7 @@ router
     validationHandler,
     updateProfile
   )
-
-//  Protected Route (Admin Only)
 router.route('/').get(loginChecker, roleChecker('admin'), allUser)
-
-//  Protected Route (Admin Only)
 router
   .route('/delete/:id')
   .delete(loginChecker, roleChecker('admin'), deleteUser)

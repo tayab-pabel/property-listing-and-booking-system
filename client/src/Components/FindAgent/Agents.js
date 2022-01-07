@@ -35,7 +35,7 @@ const Agents = () => {
   React.useEffect(async () => {
     try {
       const result = await axios.get(
-        `https://propertymarketbd.herokuapp.com/api/property`
+        `https://propertymarketbd.herokuapp.com/api/user/agents`
       )
       setProperties(result.data)
     } catch (error) {

@@ -1,11 +1,13 @@
 // External Dependencies:
 const createError = require('http-errors')
-const multerObjectMaker = require('../utilities/multerObjectMaker')
+const multerObjectMaker = require('../../utilities/multerObjectMaker')
 
 /**
- * @desc This API End Poient Will Upload Single Image Using Multer.
- * @route POST/api/upload/single
- * @access Protected
+ * @desc Single Image Upload Middleware
+ * @MaxFileSize 1000000kb
+ * @MaxFileLimit 1
+ * @Supprted ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']/**
+ * @RequiredQueryParams  ['avatar', 'property', 'floorPlan']
  */
 
 const singleUploader = async (req, res, next) => {
@@ -39,23 +41,38 @@ const singleUploader = async (req, res, next) => {
 }
 
 /**
- * @desc This API End Poient Will Upload Multiple Image Using Multer.
- * @route POST/api/upload/multiple
- * @access Protected
+ * @desc Multiple Image Upload Middleware
+ * @MaxFileSize 1000000kb
+ * @MaxFileLimit 5
+ * @Supprted ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
+ * @RequiredQueryParams  ['avatar', 'property', 'floorPlan']
  */
+
 const multipleUploader = async (req, res, next) => {
   try {
+    let name = req.query.name
     const uploadObject = multerObjectMaker(
-      'multiple',
+      `${name}s`,
       ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
       1000000,
       'Unsupported Image format !'
     )
-    uploadObject.array('avatars', 5)(req, res, (error) => {
+    uploadObject.array(name, 5)(req, res, (error) => {
       if (error) {
         next(createError(500, error.message))
       } else {
-        res.json(req.files)
+        const data = req.files.map((file) => {
+          return {
+            ...file,
+            link:
+              process.env.LIVE_API_URL +
+              '/uploads/' +
+              name +
+              's/' +
+              file.filename,
+          }
+        })
+        res.json(data)
       }
     })
   } catch (error) {
