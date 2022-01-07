@@ -32,7 +32,8 @@ const singleUploader = async (req, res, next) => {
             's/' +
             req.file.filename,
         }
-        res.json(data)
+        req.file = data
+        next()
       }
     })
   } catch (error) {

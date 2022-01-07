@@ -8,6 +8,7 @@ const {
   singleProperty,
   createProperty,
   updateProperty,
+  updateFeaturedImage,
 } = require('../controllers/propertyController')
 const loginChecker = require('../middlewares/auth/loginChecker')
 const roleChecker = require('../middlewares/auth/roleChecker')
@@ -26,14 +27,16 @@ router
   .get(singleProperty)
   .put(loginChecker, roleChecker('agent'), updateProperty)
 
-router
-  .route('/upload/single')
-  .post(loginChecker, (req, res) => res.send('Single Property Upload'))
-router
-  .route('/upload/multiple')
-  .post(loginChecker, (req, res) => res.send('Multiple Property Upload'))
+// router
+//   .route('/upload/single')
+//   .post(loginChecker, (req, res) => res.send('Single Property Upload'))
+// router
+//   .route('/upload/multiple')
+//   .post(loginChecker, (req, res) => res.send('Multiple Property Upload'))
 
-// router.route('/upload/single').post(loginChecker, singleUploader)
+router
+  .route('/upload/single/:id')
+  .post(loginChecker, singleUploader, updateFeaturedImage)
 // router.route('/upload/multiple').post(loginChecker, multipleUploader)
 
 // Module Exports:

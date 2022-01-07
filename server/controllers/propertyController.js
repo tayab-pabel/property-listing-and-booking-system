@@ -4,6 +4,7 @@ const createError = require('http-errors')
 // Internal Dependencies:
 const Property = require('../models/propertyModel')
 const { defaultProperty } = require('../seeder/mockData')
+const { unlinkSingleImage } = require('../utilities/singleImageRemover')
 
 /**
  * @desc This route will provide an array of all listed Properties.
@@ -113,10 +114,32 @@ const updateProperty = async (req, res, next) => {
   }
 }
 
+/**
+ * @desc This route will provide an array of all listed Properties.
+ * @route POST/api/property/upload/single
+ * @access Private Agent Only
+ */
+const updateFeaturedImage = async (req, res, next) => {
+  try {
+    let name = req.query.name
+    const property = await Property.findById(req.params.id)
+    if (name === 'floorPlan') {
+      property.propertyFloorPlanImage = req.file.link
+    } else {
+      property.propertyFeaturedImage = req.file.link
+    }
+    const result = await property.save()
+    res.status(200).json(result)
+  } catch (error) {
+    res.send('File Failed to Delete')
+  }
+}
+
 // Module Exports:
 module.exports = {
   allProperty,
   singleProperty,
   createProperty,
   updateProperty,
+  updateFeaturedImage,
 }

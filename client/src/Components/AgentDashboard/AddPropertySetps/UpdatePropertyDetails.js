@@ -36,7 +36,7 @@ const UpdatePropertyDetails = ({ property, closeModal }) => {
       try {
         var config = {
           method: 'put',
-          url: `http://localhost:5000/api/property/${property._id}`,
+          url: `https://propertymarketbd.herokuapp.com/api/property/${property._id}`,
           headers: {
             Authorization: `Bearer ${token}`,
           },
