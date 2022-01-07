@@ -2,12 +2,11 @@ import {
   EyeIcon,
   EyeOffIcon,
   LockClosedIcon,
-  MailIcon,
+  MailIcon
 } from '@heroicons/react/outline'
 import { useFormik } from 'formik'
-import React, { useState, useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import logo from '../../images/logo.svg'
 

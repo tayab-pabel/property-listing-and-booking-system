@@ -18,10 +18,10 @@ const Dashboard = () => {
         return <Profile />
       case 'savedProperties':
         return <SavedProperties />
-      case 'savedSearches':
-        return <SavedSearches />
-      case 'notification':
-        return <Notification />
+      // case 'savedSearches':
+      //   return <SavedSearches />
+      // case 'notification':
+      //   return <Notification />
       default:
         return <Profile />
     }

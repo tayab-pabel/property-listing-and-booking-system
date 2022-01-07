@@ -20,16 +20,16 @@ const Sidebar = ({ redirect }) => {
       path: 'savedProperties',
       icon: HeartIcon,
     },
-    {
-      name: 'Saved Searches',
-      path: 'savedSearches',
-      icon: HomeIcon,
-    },
-    {
-      name: 'Notifications',
-      path: 'notification',
-      icon: BellIcon,
-    },
+    // {
+    //   name: 'Saved Searches',
+    //   path: 'savedSearches',
+    //   icon: HomeIcon,
+    // },
+    // {
+    //   name: 'Notifications',
+    //   path: 'notification',
+    //   icon: BellIcon,
+    // },
   ]
 
   function classNames(...classes) {

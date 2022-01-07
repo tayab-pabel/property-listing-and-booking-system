@@ -38,7 +38,7 @@ const FindAgentSearchFilter = () => {
             />
           </div>
 
-          <div className='w-full mt-5 sm:mt-0 sm:ml-3'>
+          {/* <div className='w-full mt-5 sm:mt-0 sm:ml-3'>
             <label
               htmlFor='radius'
               className='block text-left text-sm font-medium text-blue-dark'
@@ -63,7 +63,7 @@ const FindAgentSearchFilter = () => {
               <option value='30'>+ 30 miles</option>
               <option value='40'>+ 40 miles</option>
             </select>
-          </div>                  
+          </div>                   */}
 
           <button
             type="submit"

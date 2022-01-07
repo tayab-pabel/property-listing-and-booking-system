@@ -141,7 +141,7 @@ const UpdateProfile = ({ editPanelCloser }) => {
             )}
           </div>
 
-          <div className='sm:col-span-6'>
+          {/* <div className='sm:col-span-6'>
             <label
               htmlFor='phone-number'
               className='block font-medium text-blue-dark'
@@ -161,7 +161,7 @@ const UpdateProfile = ({ editPanelCloser }) => {
             {values.phoneNumber.length !== 0 && errors.phoneNumber && (
               <p className='mt-1 text-xs text-red-500'>{errors.phoneNumber}</p>
             )}
-          </div>
+          </div> */}
         </div>
         <div className='pt-4 flex justify-end'>
           <button

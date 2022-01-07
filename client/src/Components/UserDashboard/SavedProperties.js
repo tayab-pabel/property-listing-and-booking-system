@@ -1,3 +1,4 @@
+import { ArrowLeftIcon, ArrowRightIcon, TrashIcon } from '@heroicons/react/outline'
 import React, { useEffect, useState } from 'react'
 import { getSavedProperties } from '../../utilities/localStorage'
 
@@ -12,7 +13,7 @@ const SavedProperties = () => {
   }, [])
   return (
     <div className=''>
-      <div className='max-w-lg mx-auto grid gap-5 xl:grid-cols-4 lg:max-w-none'>
+      <div className='max-w-lg mx-auto grid gap-5 lg:grid-cols-2 xl:grid-cols-4 lg:max-w-none'>
         {properties.map((property) => (
           <div
             key={property._id}
@@ -39,6 +40,21 @@ const SavedProperties = () => {
               <p className='text-xs text-blue-dark'>
                 {property.propertyAddress.addressLine1}, {property.propertyAddress.city} - {property.propertyAddress.postCode}
               </p>
+              <div className='flex justify-between mt-3'>
+                <button
+                  type="button"
+                  className="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-lg text-white bg-blue-light"
+                >
+                  See Details
+                  <ArrowRightIcon className="ml-2 -mr-0.5 h-4 w-4" aria-hidden="true" />
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-lg text-white bg-blue-light"
+                >
+                  <TrashIcon className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </div>
             </div>
           </div>
         ))}
