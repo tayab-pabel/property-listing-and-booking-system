@@ -1,5 +1,6 @@
 {
-  "name": "front-end",
+  "name": "Property Market",
+  "homepage": "https://projects.pronazmul.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
