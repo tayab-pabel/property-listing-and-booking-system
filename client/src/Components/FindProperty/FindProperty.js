@@ -28,7 +28,7 @@ import Properties from './Properties'
 const FindProperty = () => {
   // Get Purpose and Location from URL
   const location = useLocation().search
-  const searchedPurpose = new URLSearchParams(location).get('prupose') || ''
+  const searchedPurpose = new URLSearchParams(location).get('prupose') || 'rent'
   const searchedLocation = new URLSearchParams(location).get('location') || ''
 
   // Get Properties from API

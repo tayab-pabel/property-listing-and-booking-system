@@ -38,10 +38,9 @@ const allProperty = async (req, res, next) => {
       const result = await Property.find({ agent: agentId })
       res.status(200).json(result)
     } else {
-      const result = await Property.find(purpose || {}).populate(
-        'agent',
-        'name mobile avatar _id description'
-      )
+      const result = await Property.find(
+        purpose ? { purpose: purpose } : {}
+      ).populate('agent', 'name mobile avatar _id description')
       res.status(200).json(result)
     }
   } catch (error) {
