@@ -5,22 +5,32 @@ const multerObjectMaker = require('../utilities/multerObjectMaker')
 /**
  * @desc This API End Poient Will Upload Single Image Using Multer.
  * @route POST/api/upload/single
- * @access Public
+ * @access Protected
  */
 
 const singleUploader = async (req, res, next) => {
   try {
+    let name = req.query.name
     const uploadObject = multerObjectMaker(
-      'single',
+      `${name}s`,
       ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
       1000000,
       'Unsupported Image format !'
     )
-    uploadObject.single('avatar')(req, res, (error) => {
+    uploadObject.single(name)(req, res, (error) => {
       if (error) {
         next(createError(500, error.message))
       } else {
-        res.json(req.file)
+        const data = {
+          ...req.file,
+          link:
+            process.env.LIVE_API_URL +
+            '/uploads/' +
+            name +
+            's/' +
+            req.file.filename,
+        }
+        res.json(data)
       }
     })
   } catch (error) {
@@ -31,17 +41,18 @@ const singleUploader = async (req, res, next) => {
 /**
  * @desc This API End Poient Will Upload Multiple Image Using Multer.
  * @route POST/api/upload/multiple
- * @access Public
+ * @access Protected
  */
 const multipleUploader = async (req, res, next) => {
   try {
+    let name = req.query.name
     const uploadObject = multerObjectMaker(
-      'multiple',
+      `${name}s`,
       ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'],
       1000000,
       'Unsupported Image format !'
     )
-    uploadObject.array('avatars', 5)(req, res, (error) => {
+    uploadObject.array(name, 5)(req, res, (error) => {
       if (error) {
         next(createError(500, error.message))
       } else {

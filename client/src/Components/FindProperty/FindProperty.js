@@ -1,4 +1,4 @@
-import { FilterIcon, StarIcon } from '@heroicons/react/outline'
+import { FilterIcon } from '@heroicons/react/outline'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -147,14 +147,6 @@ const FindProperty = () => {
                   setData={setPropertyLocation}
                 />
               </div>
-              {/* <div className='radius col-span-2'>
-                <CustomSingleSelectOption
-                  title='Search Radius'
-                  data={locationRadius}
-                  option={searchRadius}
-                  setOption={setSearchRadius}
-                />
-              </div> */}
               <div className='PropertyType col-span-3'>
                 <PropertyTypeSelectOption
                   propertyTypes={selectedPropertyTypes}
@@ -237,27 +229,7 @@ const FindProperty = () => {
           </section>
         </div>
       </div>
-      {/* <div className='bg-white max-w-screen-lg mx-auto px-4 pt-2 md:px-6'>
-        <div className='flex justify-between'>
-          <div className='sort'>
-            <CustomSingleSelectOption
-              title='Sort'
-              data={sort}
-              option={selectedSort}
-              setOption={setSelectedSort}
-            />
-          </div>
-          <div>
-            <button
-              type='button'
-              className='flex mt-2 w-full px-4 py-2 border bg-blue-light border-blue-light text-white font-medium rounded-lg text-sm shadow'
-            >
-              <StarIcon className='h-5 w-5 mr-1.5'></StarIcon>
-              <span aria-hidden='true'>Save Search</span>
-            </button>
-          </div>
-        </div>
-      </div> */}
+
       <div className=''>
         {filteredProperties && filteredProperties.length === 0 ? (
           <Loader />
