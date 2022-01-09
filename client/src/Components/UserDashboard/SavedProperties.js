@@ -37,9 +37,9 @@ const SavedProperties = () => {
               <h3 className='text-sm font-bold text-blue-dark'>
                 {property.propertyTitle}
               </h3>
-              <p className='text-xs text-blue-dark'>
+              {/* <p className='text-xs text-blue-dark'>
                 {property.propertyAddress.addressLine1}, {property.propertyAddress.city} - {property.propertyAddress.postCode}
-              </p>
+              </p> */}
               <div className='flex justify-between mt-3'>
                 <button
                   type="button"

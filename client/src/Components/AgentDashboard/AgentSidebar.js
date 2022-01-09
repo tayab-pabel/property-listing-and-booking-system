@@ -2,6 +2,7 @@ import {
   CurrencyDollarIcon,
   OfficeBuildingIcon,
   UserIcon,
+  ViewBoardsIcon,
   ViewGridIcon,
 } from '@heroicons/react/outline'
 import React from 'react'
@@ -23,6 +24,11 @@ const AgentSidebar = ({ redirect }) => {
       name: 'All Properties',
       path: 'properties',
       icon: OfficeBuildingIcon,
+    },
+    {
+      name: 'Viewing Requests',
+      path: 'viewingRequests',
+      icon: ViewBoardsIcon,
     },
     {
       name: 'Plans',

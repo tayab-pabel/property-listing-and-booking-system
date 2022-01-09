@@ -7,6 +7,7 @@ import AgentPlans from './AgentPlans'
 import AgentProfile from './AgentProfile'
 import AgentProperties from './AgentProperties'
 import AgentSidebar from './AgentSidebar'
+import ViewingRequests from './ViewingRequests'
 
 const AgentDashboard = () => {
   const location = useLocation()
@@ -20,6 +21,8 @@ const AgentDashboard = () => {
         return <AgentProfile />
       case 'properties':
         return <AgentProperties />
+      case 'viewingRequests':
+        return <ViewingRequests />
       case 'plans':
         return <AgentPlans />
       default:
